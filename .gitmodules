@@ -1,3 +1,6 @@
 [submodule "template/reveal.js"]
 	path = template/reveal.js
 	url = https://github.com/EiffL/reveal.js.git
+[submodule "template3/reveal.js"]
+	path = template3/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
