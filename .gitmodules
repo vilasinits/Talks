@@ -7,3 +7,9 @@
 [submodule "ActionDarkEnergy23-Annecy/reveal.js"]
 	path = ActionDarkEnergy23-Annecy/reveal.js
 	url = https://github.com/EiffL/reveal.js.git
+[submodule "TOSCA Nov2023/reveal.js"]
+	path = TOSCA Nov2023/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
+[submodule "TOSCA-Nov2023/reveal.js"]
+	path = TOSCA-Nov2023/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
