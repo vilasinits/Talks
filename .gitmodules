@@ -19,3 +19,9 @@
 [submodule "test/reveal.js"]
 	path = test/reveal.js
 	url = https://github.com/EiffL/reveal.js.git
+[submodule "Cosmology-and-Statistics-Day-CosmoStat/reveal.js"]
+	path = Cosmology-and-Statistics-Day-CosmoStat/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
+[submodule "Introduction-to-Cosmology/reveal.js"]
+	path = Introduction-to-Cosmology/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
