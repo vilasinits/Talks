@@ -1,14 +1,8 @@
-[submodule "template/reveal.js"]
-	path = template/reveal.js
-	url = https://github.com/EiffL/reveal.js.git
 [submodule "template3/reveal.js"]
 	path = template3/reveal.js
 	url = https://github.com/EiffL/reveal.js.git
 [submodule "TOSCA Nov2023/reveal.js"]
 	path = TOSCA Nov2023/reveal.js
-	url = https://github.com/EiffL/reveal.js.git
-[submodule "Euclid-France-2024/reveal.js"]
-	path = Euclid-France-2024/reveal.js
 	url = https://github.com/EiffL/reveal.js.git
 [submodule "test/reveal.js"]
 	path = test/reveal.js
