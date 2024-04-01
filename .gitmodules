@@ -25,3 +25,6 @@
 [submodule "Introduction-to-Cosmology/reveal.js"]
 	path = Introduction-to-Cosmology/reveal.js
 	url = https://github.com/EiffL/reveal.js.git
+[submodule "z2C-Introduction-to-Cosmology/reveal.js"]
+	path = z2C-Introduction-to-Cosmology/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
