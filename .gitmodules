@@ -10,3 +10,6 @@
 [submodule "z2C-Introduction-to-Cosmology/reveal.js"]
 	path = z2C-Introduction-to-Cosmology/reveal.js
 	url = https://github.com/EiffL/reveal.js.git
+[submodule "z2C-Summary-Statistics/reveal.js"]
+	path = z2C-Summary-Statistics/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
