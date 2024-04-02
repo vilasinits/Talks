@@ -1,0 +1,311 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>z2C: Summary Statistics</title>
+		<meta name="description" content="z2C: Summary Statistics">
+		<meta name="author" content="Vilasini">
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/darkenergy.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- Title Slide -->
+				<section>
+					<div class="title" style=" position: relative; border-radius: 10px; background-color:rgba(0, 0, 0, 0.2); color:#fff;">
+						<h2 style="color: #fff; font-size:72px;"> From telescope to science</h2>
+					</div>
+				</section>
+
+				<!-- Big Questions -->
+				<section>
+					<div class="slide" style="position: relative; color:#fff;">
+						<h2 class="slide-title">What do we want to know?</h2>
+						<ul>
+							<li> How did the universe began?</li>
+							<li> How did the structures appear?</li>
+							<li> What is driving the evolution?</li>
+							<li> What is our universe made of?</li>
+							<li> What is the non visible part of the universe made of?</li>
+							<li> Is our universe flat?</li>
+							<li> Is the universe infinite? </li>
+							<li> How did our universe began and how will it end?</li>
+						</ul>
+					</div>
+				</section>
+
+				<!--Cosmologist pov -->
+				<section>
+					<img src="assets/cosmologist_questions.001.jpeg"></img>
+				</section>
+
+				<section>
+					<h2>What's the game?</h2>
+					<br>
+					<div class="r-hstack">
+						<div class="r-vstack">
+							<div class="container">
+							<div class="box">Initial conditions</div>
+							<div class="arrow">
+								<svg width="80" height="80" viewBox="0 0 50 20" xmlns="http://www.w3.org/2000/svg">
+								<path d="M 0,10 L 50,10 M 40,0 L 50,10 L 40,20" stroke="#FF5733" stroke-width="2"/>
+								</svg>
+							</div>
+							<div class="box">Simulations</div>
+							</div>
+							<div class="vertical-arrow" style="position: relative; top: 30px; left:190px;">
+							<span class="arrow-text" style="position: relative; top: 23px; left:60px;">Inference</span>
+							<svg width="50" height="90" viewBox="0 0 20 60" xmlns="http://www.w3.org/2000/svg">
+								<path d="M 10,0 L 10,60 M 0,10 L 10,0 L 20,10 M 0,50 L 10,60 L 20,50" stroke="#FF5733" stroke-width="2"/>
+							</svg>
+							<div class="box">Observations</div>
+							</div>
+						</div>
+						<div class="horizontal-container" style="position: relative; top: 30px; left:150px; height:120px;">
+							<div style="height:120px;font-size:40px;color:red;">What do we use?</div>
+						</div>
+					</div>
+				  </section>
+
+				<section>
+					<h2 class="slide-title">Summary Statistics</h2>
+					<br>
+					<p> What is summary statistics?</p>
+				</section>
+
+				<section>
+					<div class="r-hstack">
+						<img src="assets/summary_stat_balls_ex1.jpeg"></img>
+						<div class-'r-vstack'>
+							<p style="position:relative; right:-20px;height:120px;font-size:40px;">
+								How would you describe it?
+							</p>
+							<ul>
+								<li> Colours?</li>
+								<li> # of balls per colour?</li>
+								<li> Size?</li>
+								<li> Material?</li>
+							</ul>
+						</div>
+					</div>	
+				</section>
+
+				<section>
+					<div class="r-hstack">
+						<img src="assets/summary_stat_map_ex2.jpeg" style="height:420px;width:820px;"></img>
+						<div class-'r-vstack'>
+							<p style="position:relative; right:-20px;height:120px;font-size:38px;">
+								How would you describe it?
+							</p>
+							<ul>
+								<li> # of houses?</li>
+								<li> How far apart they are?</li>
+								<li> Size?</li>
+								<li> State of the field?</li>
+							</ul>
+						</div>
+					</div>	
+				</section>
+
+				<section>
+					<div class="r-hstack">
+						<img src="assets/lss.png" style="height:420px;width:920px;"></img>
+						<div class-'r-vstack'>
+							<p style="position:relative; right:-20px;height:120px;font-size:38px;">
+								How would you describe it?
+							</p>
+						</div>
+					</div>	
+				</section>
+
+				<section>
+					<h2>What do we use?</h2>
+					<ul>
+						<li> Power Spectrum</li>
+						<li> Correlation functions</li>
+						<li> Cross-Correlation functions</li>
+						<li> Bispectrum</li>
+						<li> Probabilitydistribution functions</li>
+						<li> Peak and void statistics</li>
+						<li> $\ell_1$-norm</li>
+						<li> Many more...</li>
+					</ul>
+				</section>
+
+			</div>
+		</div>
+
+		<style>
+			  
+			  .cosmos-info {
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+			  }
+			  
+			  .cosmic-components, .cosmic-elements {
+				display: flex;
+				flex-direction: column;
+			  }
+			  
+			  .dark-energy, .total-matter, .dark-matter, .regular-matter, .stars, .galaxies, .dust-gas {
+				border: 1px solid #ccc; /* Example styling, replace with actual styles needed */
+				margin: 10px;
+				padding: 10px;
+				text-align: center;
+				background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+				color: white; /* White text color */
+			  }
+			  
+			  /* You would add your background images and more specific styling here */
+			  .box {
+				border: 2px solid #4CAF50; /* Green border */
+				background-color: #e7f4e4; /* Light green background */
+				color: black; /* Text color */
+				padding: 20px;
+				margin: 10px;
+			  }
+			  .arrow {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			  }
+			  .arrow svg {
+				fill: none;
+				stroke: #FF5733; /* Arrow color */
+				margin: 0 20px;
+			  }
+			  .arrow-text {
+				position: absolute;
+				font-size: 0.8em;
+				margin-top: -30px; /* Adjust based on visual preference */
+			  }
+			  .vertical-arrow {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			  }
+
+			  .horizontal-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			  }
+			  .vertical-container {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			  }
+			  .box {
+				border: 2px solid #4CAF50; /* Green border */
+				background-color: #e7f4e4; /* Light green background */
+				color: black; /* Text color */
+				padding: 20px;
+				margin: 10px;
+			  }
+			  .arrow-horizontal svg, .arrow-vertical svg {
+				fill: none;
+				stroke: #FF5733; /* Arrow color */
+			  }
+			  .arrow-text {
+				position: relative;
+				font-size: 0.8em;
+				margin-bottom: -20px; /* Adjust based on visual preference */
+			  }
+			  .arrow-vertical {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 20px 0;
+			  }
+			  
+		</style>
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="reveal.js/plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				controls: true,
+	
+				//center: false,
+				hash: true,
+	
+				// Visibility rule for backwards navigation arrows; "faded", "hidden"
+				// or "visible"
+				controlsBackArrows: 'visible',
+	
+				// Display a presentation progress bar
+				progress: true,
+	
+				// Display the page number of the current slide
+				slideNumber: true,
+	
+				transition: 'none', // none/fade/slide/convex/concave/zoom/slide
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 1280,
+				height: 1020, //720,
+	
+				// Factor of the display size that should remain empty around the content
+				margin: 0.01,
+	
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.5,
+	
+				autoPlayMedia: true,
+	
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath],
+
+				dependencies: [{
+					src: 'reveal.js/plugin/markdown/marked.js'
+				},
+				{
+					src: 'reveal.js/plugin/markdown/markdown.js'
+				},
+				{
+					src: 'reveal.js/plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'reveal.js/plugin/math/math.js',
+					async: true
+				},
+				{
+					src: 'reveal.js/plugin/reveal.js-d3/reveald3.js'
+				},
+				{
+					src: 'reveal.js/plugin/reveal.js-plugins/chart/Chart.min.js'
+				},
+				{
+					src: 'reveal.js/plugin/reveal.js-plugins/chart/csv2chart.js'
+				},
+				{
+					src: 'reveal.js/plugin/highlight/highlight.js',
+					async: true
+				},
+			]
+
+			});
+		</script>
+	</body>
+
+</html>
