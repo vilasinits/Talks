@@ -16,9 +16,6 @@
 [submodule "Euclid-France-2024/reveal.js"]
 	path = Euclid-France-2024/reveal.js
 	url = https://github.com/EiffL/reveal.js.git
-[submodule "test/reveal.js"]
-	path = test/reveal.js
-	url = https://github.com/EiffL/reveal.js.git
 [submodule "Cosmology-and-Statistics-Day-CosmoStat/reveal.js"]
 	path = Cosmology-and-Statistics-Day-CosmoStat/reveal.js
 	url = https://github.com/EiffL/reveal.js.git
