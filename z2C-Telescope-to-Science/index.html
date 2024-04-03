@@ -178,20 +178,10 @@
 <!-- ################################################################################################################################################### -->
 				<section>
 					<div class="left-content">
-						<h2  class='slide-title' style="position:absolute;top:0;">Power Spectrum and 2PCF</h2>
-						<div class="container">
-							<div class="col">
-							<div class="block fragment"  data-fragment-index="0" >
-									<div class="block-title">	
-									</div>
-									<div class="block-content">
-										<section data-background-video="assets/2pcf.webm" data-background-size= "6px"  data-background-video-muted>
-											</section>
-									</div>
-								</div>
-							</div>
-						</div>
-						</div>
+						<h2  class='slide-title' style="position:absolute;top:0;">Power Spectrum and 2PCF</h2>	
+					</div>
+				</section>
+				<section data-background-video="assets/2pcf.webm" data-background-size= "100px"  data-background-video-muted>
 				</section>
 <!-- ################################################################################################################################################### -->
 				<section>
@@ -207,8 +197,8 @@
 										<!-- </div> -->
 										<div class="block-content">
 											<div class="r-vstack">
-												<img src="assets/dog.png"></img>
-												<img src="assets/FT_demo1_crop.png"></img>
+												<img src="assets/dog.png" style="width:1020px; height:250px"></img>
+												<img src="assets/FT_demo1_crop.png" style="width:1020px; height:250px"></img>
 											</div>
 											
 										</div>
@@ -224,8 +214,8 @@
 						<br>
 						<div class="block-content">
 							<div class="r-vstack">
-								<img src="assets/lss.png"></img>
-								<img src="assets/FT_demo2_crop.png"></img>
+								<img src="assets/lss.png" style="width:1020px; height:250px"></img>
+								<img src="assets/FT_demo2_crop.png" style="width:1020px; height:250px"></img>
 							</div>
 							
 						</div>
@@ -235,8 +225,8 @@
 					<p  class='slide-title' style="position:absolute;top:0;">Complexity increases as the scale decreases!</p>
 						<br>
 					<div class="r-vstack">
-						<img src="assets/dark_structures_small_scales1.jpeg" style="width:920px; height:320px"></img>
-						<img src="assets/dark_structures_small_scales2.jpeg" style="width:1020px; height:460px"></img>
+						<img src="assets/dark_structures_small_scales1.jpeg" style="width:800px; height:280px"></img>
+						<img src="assets/dark_structures_small_scales2.jpeg" style="width:1020px; height:380px"></img>
 					</div>
 				</section>
 <!-- ################################################################################################################################################### -->
@@ -279,7 +269,7 @@
 <!-- ################################################################################################################################################### -->
 			<section>
 				<div class="left-content">
-					<h2  class='slide-title' style="position:absolute;top:0;">Bispectrum</h2>
+					<h2  class='slide-title' style="position:absolute;top:0;">Bispectrum & 3PCF</h2>
 					<br>
 					<br>
 					<br>
@@ -302,12 +292,123 @@
 			<section>
 				<div class="r-vstack">
 					<a href="https://arxiv.org/pdf/astro-ph/0412626.pdf">Source: Sefusatti & Scoccimarro 2005 </a>
-					<img src="assets/bispectrum-ex1.png" style="width:1020px; height:330px"></img>
-					<img src="assets/bispectrum-ex2.png" style="width:1020px; height:330px"></img>
+					<p> 2 distributions that look different has same 2 point statistics, but different 3 point statistics!</p>
+					<img src="assets/bispectrum-ex1.png" style="width:920px; height:280px"></img>
+					<img src="assets/bispectrum-ex2.png" style="width:920px; height:280px"></img>
 				</div>
 			</section>
 <!-- ################################################################################################################################################### -->
-
+			<section>
+				<div class="left-content">
+					<h2  class='slide-title' style="position:absolute;top:0;">Higher order than Bispectrum: 3x2 point and trispectrum</h2>
+					<div class="r-vstack">
+					
+					</div>
+				</div>
+			</section>
+<!-- ################################################################################################################################################### -->
+			<section>
+				<div class="left-content">
+					<h2  class='slide-title' style="position:absolute;top:0;">PDF</h2>
+					<br>
+					<br>
+					<div class="r-vstack">
+						<ul>
+							<p> While the $\mathrm{n}$-point correlation function describe the relationship between n-points within the dataset, the PDF gives the probability of finding a value within a specific range.</p>
+							<p>PDf is obtained using histogram.</p>
+							<p> $PDF(x_i) = \frac{n_i}{N \Delta x_i}$</p>
+							<p style="color:red;"> Use different smoothing scales to extract more information!</p>
+						</ul>
+					</div>
+				</div>
+			</section>
+<!-- ################################################################################################################################################### -->
+			<section>
+				<div class="left-content">
+					<h2  class='slide-title' style="position:absolute;top:0;">$\ell_1$-norm</h2>
+					<br>
+					<br>
+					<div class="r-vstack">
+						<ul style="position:absolute; top:80px; left:-10px;">
+							<p> Gives the sum of the absolute values of the pixels in each bin.</p>
+							<p>$L_1^{(bin)} = \sum_{i=1}^{N_{bin}}|x_i|$</p>
+							<p style="color:red;"> Use different smoothing scales to extract more information!</p>
+						</ul>
+					</div>
+				</div>
+			</section>
+<!-- ################################################################################################################################################### -->
+			<section>
+				<div class="left-content">
+					<h2  class='slide-title' style="position:absolute;top:0;">Peak and Void statistics</h2>
+					<br>
+					<br>
+					<div class="r-hstack">
+						<img src="assets/peak_and_voids.001.jpeg" style="width:520px; height:520px"></img>
+						<div class="r-vstack">
+							<ul>
+								<p> Identify the regions where we have high density and low density</p>
+								<p> Peak statistics: Peak count, Peak Height Distribution, Peak clustering, Peak Background</p>
+								<p> Void Statistics: Void size distribution, Void abundance, Void clustering, Void profiles etc..</p>
+								<p style="color:red;"> Use different smoothing scales to extract more information!</p>
+							</ul>
+							
+						</div>
+						
+					</div>
+				</div>
+			</section>
+<!-- ################################################################################################################################################### -->
+			<section>
+				<div class="left-content">
+					<h2  class='slide-title' style="position:absolute;top:0;">Is that it?</h2>
+					<br>
+					<br>
+					<div class="r-vstack">
+						<ul>
+							<p style="color:red; font-size:40px;"> No! We are biased.</p>
+							<p> Galaxy bias: The difference in spatial distribution between visible galaxies and the underlying dark matter due to the complex processes governing galaxy formation.</p>
+							<p> Redshift space distortions: Apparent anisotropies in the spatial distribution of galaxies caused by their peculiar velocities along the line of sight, affecting redshift measurements.</p>
+							<p> Noise: Random fluctuations in observational data that can obscure or mimic true cosmological signals.</p>
+							<p> Systematics: Non-random errors introduced by observational instruments, data processing, or analysis techniques that can systematically skew results.</p>
+							<p> Modeling bias: Discrepancies between theoretical models and the actual Universe that arise from oversimplified assumptions or incomplete physics.</p>
+							<p> Baryonic effects: Influences on the cosmic structure from normal (non-dark) matter, including stars, gas, and galaxies, which affect the distribution and evolution of matter.</p>
+						</ul>
+						
+					</div>
+				</div>
+			</section>
+<!-- ################################################################################################################################################### -->
+			<section>
+				<div class="left-content">
+					<h2 class='slide-title' style="position:absolute;top:0;">Inference</h2>
+					<br><br>
+					<div class="r-hstack">
+						<!-- Adding a style for bottom margin to the div directly -->
+						<div style="margin-right: 30px;">
+							<ul>
+								<p> Likelihood based analysis --> Fischer analysis, MCMC</p>
+								<p> Likelihood free inference --> MCMC, ML</p>
+								<p> More of this in other lectures..</p>    
+							</ul>
+						</div>
+						<img src="assets/inference_routine.png" style="width:720px; height:420px"></img>
+					</div>
+				</div>
+			</section>
+<!-- ################################################################################################################################################### -->
+			<section>
+				<div class="left-content">
+					<h2  class='slide-title' style="position:absolute;top:0;">Coclusion</h2>
+					<br>
+					<br>
+					<!-- <div class="r-vstack"> -->
+						<img src="assets/HOS_table.png"  style="width:1020px; height:520px"></img>
+						<a href="https://inspirehep.net/files/bdc9532b42af26cc7606b09f93125e47">Source</a>
+						<p> We are not done yet. There is still a lot to be done!</p>
+					<!-- </div> -->
+				</div>
+			</section>
 			</div>
 		</div>
 
