@@ -11,7 +11,9 @@
 
 		<link rel="stylesheet" href="reveal.js/dist/reset.css">
 		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
-		<link rel="stylesheet" href="reveal.js/dist/theme/darkenergy.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/darkenergy.css" id="theme">
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" id="highlight-theme">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
@@ -20,38 +22,53 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-
+<!-- ################################################################################################################################################### -->
 				<!-- Title Slide -->
 				<section>
-					<div class="title" style=" position: relative; border-radius: 10px; background-color:rgba(0, 0, 0, 0.2); color:#fff;">
-						<h2 style="color: #fff; font-size:72px;"> From telescope to science</h2>
+					<div class="container">
+						<div class="title" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.4);">
+							<h2>From telescope to Science</h2>
+						</div>
 					</div>
 				</section>
-
+<!-- ################################################################################################################################################### -->
 				<!-- Big Questions -->
 				<section>
-					<div class="slide" style="position: relative; color:#fff;">
-						<h2 class="slide-title">What do we want to know?</h2>
-						<ul>
-							<li> How did the universe began?</li>
-							<li> How did the structures appear?</li>
-							<li> What is driving the evolution?</li>
-							<li> What is our universe made of?</li>
-							<li> What is the non visible part of the universe made of?</li>
-							<li> Is our universe flat?</li>
-							<li> Is the universe infinite? </li>
-							<li> How did our universe began and how will it end?</li>
-						</ul>
+					<div class="left-content">
+						<h3  class='slide-title' style="position: fixed; top: 0; left: 0;">What do we want to know?</h3>
+						<br>
+						<br>
+						<div class="container">
+							<div class="col">
+							<div class="block fragment"  data-fragment-index="0" >
+								<div class="block-title">	</div>
+								<div class="block-content">
+									<ul>
+										<li> How did the universe began?</li>
+										<li> How did the structures appear?</li>
+										<li> What is driving the evolution?</li>
+										<li> What is our universe made of?</li>
+										<li> What is the non visible part of the universe made of?</li>
+										<li> Is our universe flat?</li>
+										<li> Is the universe infinite? </li>
+										<li> How did our universe began and how will it end?</li>
+									</ul>
+								</div>
+							</div>
+							</div>
+						</div>
 					</div>
 				</section>
-
+<!-- ################################################################################################################################################### -->
 				<!--Cosmologist pov -->
 				<section>
 					<img src="assets/cosmologist_questions.001.jpeg"></img>
 				</section>
-
+<!-- ################################################################################################################################################### -->
 				<section>
-					<h2>What's the game?</h2>
+					<div class="left-content">
+					<h3 class='slide-title' style="position:static;top:0;">What's the game?</h3>
+					<br>
 					<br>
 					<div class="r-hstack">
 						<div class="r-vstack">
@@ -76,14 +93,17 @@
 							<div style="height:120px;font-size:40px;color:red;">What do we use?</div>
 						</div>
 					</div>
+				</div>
 				  </section>
-
+<!-- ################################################################################################################################################### -->
 				<section>
-					<h2 class="slide-title">Summary Statistics</h2>
+					<div class="left-content">
+					<h3 class='slide-title' style="position: fixed; top: 0; left: 0;">Summary Statistics</h3>
 					<br>
 					<p> What is summary statistics?</p>
+					</div>
 				</section>
-
+<!-- ################################################################################################################################################### -->
 				<section>
 					<div class="r-hstack">
 						<img src="assets/summary_stat_balls_ex1.jpeg"></img>
@@ -100,7 +120,7 @@
 						</div>
 					</div>	
 				</section>
-
+<!-- ################################################################################################################################################### -->
 				<section>
 					<div class="r-hstack">
 						<img src="assets/summary_stat_map_ex2.jpeg" style="height:420px;width:820px;"></img>
@@ -117,7 +137,7 @@
 						</div>
 					</div>	
 				</section>
-
+<!-- ################################################################################################################################################### -->
 				<section>
 					<div class="r-hstack">
 						<img src="assets/lss.png" style="height:420px;width:920px;"></img>
@@ -128,45 +148,211 @@
 						</div>
 					</div>	
 				</section>
-
+<!-- ################################################################################################################################################### -->
 				<section>
-					<h2>What do we use?</h2>
-					<ul>
-						<li> Power Spectrum</li>
-						<li> Correlation functions</li>
-						<li> Cross-Correlation functions</li>
-						<li> Bispectrum</li>
-						<li> Probabilitydistribution functions</li>
-						<li> Peak and void statistics</li>
-						<li> $\ell_1$-norm</li>
-						<li> Many more...</li>
-					</ul>
+					<div class="left-content">
+						<h3  class='slide-title' style="position:absolute;top:0;">What do we use?</h3>
+						<br>
+						<br>
+						<div class="container">
+							<div class="col">
+							<div class="block fragment"  data-fragment-index="0" >
+								<div class="block-title">	</div>
+								<div class="block-content">
+									<ul>
+										<li> Power Spectrum</li>
+										<li> Correlation functions</li>
+										<li> Cross-Correlation functions</li>
+										<li> Bispectrum</li>
+										<li> Probabilitydistribution functions</li>
+										<li> Peak and void statistics</li>
+										<li> $\ell_1$-norm</li>
+										<li> Many more...</li>
+									</ul>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
 				</section>
+<!-- ################################################################################################################################################### -->
+				<section>
+					<div class="left-content">
+						<h2  class='slide-title' style="position:absolute;top:0;">Power Spectrum and 2PCF</h2>
+						<div class="container">
+							<div class="col">
+							<div class="block fragment"  data-fragment-index="0" >
+									<div class="block-title">	
+									</div>
+									<div class="block-content">
+										<section data-background-video="assets/2pcf.webm" data-background-size= "6px"  data-background-video-muted>
+											</section>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+				</section>
+<!-- ################################################################################################################################################### -->
+				<section>
+					<div class="left-content">
+						<h2  class='slide-title' style="position:absolute;top:0;">Beyond Gaussian statistics</h2>
+						<br>
+						<br>
+						<br>
+						<div class="container">
+							<div class="col">
+								<!-- <div class="block fragment"  data-fragment-index="0" > -->
+										<!-- <div class="block-title">	 -->
+										<!-- </div> -->
+										<div class="block-content">
+											<div class="r-vstack">
+												<img src="assets/dog.png"></img>
+												<img src="assets/FT_demo1_crop.png"></img>
+											</div>
+											
+										</div>
+								<!-- </div> -->
+							</div>
+						</div>
+					</div>
+				</section>
+<!-- ################################################################################################################################################### -->
+				<section>
+						<br>
+						<br>
+						<br>
+						<div class="block-content">
+							<div class="r-vstack">
+								<img src="assets/lss.png"></img>
+								<img src="assets/FT_demo2_crop.png"></img>
+							</div>
+							
+						</div>
+				</section>
+<!-- ################################################################################################################################################### -->
+				<section>
+					<p  class='slide-title' style="position:absolute;top:0;">Complexity increases as the scale decreases!</p>
+						<br>
+					<div class="r-vstack">
+						<img src="assets/dark_structures_small_scales1.jpeg" style="width:920px; height:320px"></img>
+						<img src="assets/dark_structures_small_scales2.jpeg" style="width:1020px; height:460px"></img>
+					</div>
+				</section>
+<!-- ################################################################################################################################################### -->
+			<section>
+				<div class="left-content">
+					<h2  class='slide-title' style="position:absolute;top:0;">How to deal with the complexity?</h2>
+					<br>
+					<br>
+					<br>
+					<div class="container">
+						<div class="col">
+							<div class="block fragment"  data-fragment-index="0" >
+									<div class="block-title">	
+									</div>
+									<div class="block-content">
+										<div class="r-vstack">
+											<p> Precesion Cosmology $\longrightarrow$ Explore non-Gaussian information</p>
+
+										</div>
+									</div>
+									
+							</div>
+							<p style="font-size: 40px; color: green;">Use Higher-order Statistics!</p>
+						</div>
+					</div>
+				</div>
+			</section>
+<!-- ################################################################################################################################################### -->
+			<section>
+				<div class="left-content">
+					<div class="r-vstack">
+						<div class="box">Bispectrum</div>
+						<div class="box">PDF</div>
+						<div class="box">$\ell_1$-norm</div>
+						<div class="box">Peak and Void statistics</div>
+					</div>
+				</div>
+
+			</section>
+<!-- ################################################################################################################################################### -->
+			<section>
+				<div class="left-content">
+					<h2  class='slide-title' style="position:absolute;top:0;">Bispectrum</h2>
+					<br>
+					<br>
+					<br>
+					<div class="r-hstack">
+						<ul>
+							<li> Lowest order statistic sensitive to LSS --> It probes the phases too!</li>
+							<li> The 3PCF, $\zeta$, for a set of points (or galaxies) in real space is defined as the excess probability, over random, of finding three galaxies at the vertices of a triangle with sides $r_{12}, r_{23}, and r_{31}$, compared to a random distribution.
+							</li>
+							<li> 3PCF: $\zeta(r_{12}, r_{23}, r_{31}) = \langle \delta(\mathbf{x})\delta(\mathbf{x} + \mathbf{r}_{12})\delta(\mathbf{x} + \mathbf{r}_{31}) \rangle$
+							</li>
+							<li> Bispectrum: $B(\mathbf{k}_1, \mathbf{k}_2, \mathbf{k}_3) = \langle \delta(\mathbf{k}_1) \delta(\mathbf{k}_2) \delta(\mathbf{k}_3) \rangle$; $\mathbf{k}_1 + \mathbf{k}_2 + \mathbf{k}_3 = 0$							</li>
+						</ul>
+						<img src="assets/bispectrum.001.jpeg" style="width:1020px; height:460px"></img>
+
+					</div>
+					
+				</div>
+			</section>
+<!-- ################################################################################################################################################### -->
+			<section>
+				<div class="r-vstack">
+					<a href="https://arxiv.org/pdf/astro-ph/0412626.pdf">Source: Sefusatti & Scoccimarro 2005 </a>
+					<img src="assets/bispectrum-ex1.png" style="width:1020px; height:330px"></img>
+					<img src="assets/bispectrum-ex2.png" style="width:1020px; height:330px"></img>
+				</div>
+			</section>
+<!-- ################################################################################################################################################### -->
 
 			</div>
 		</div>
 
 		<style>
-			  
-			  .cosmos-info {
-				display: flex;
-				justify-content: space-around;
-				align-items: center;
-			  }
-			  
-			  .cosmic-components, .cosmic-elements {
-				display: flex;
-				flex-direction: column;
-			  }
-			  
-			  .dark-energy, .total-matter, .dark-matter, .regular-matter, .stars, .galaxies, .dust-gas {
-				border: 1px solid #ccc; /* Example styling, replace with actual styles needed */
-				margin: 10px;
-				padding: 10px;
-				text-align: center;
-				background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-				color: white; /* White text color */
-			  }
+			  /* .reveal .slides {
+				border: 5px solid red;
+				min-height: 100%;
+				width: 128mm;
+				height: 96mm;
+			}  */
+	
+				.reveal .block {
+					background-color: #191919;
+					margin-left: 20px;
+					margin-right: 20px;
+					text-align: left;
+					padding-bottom: 0.1em;
+				}
+		
+				.reveal .block-title {
+					background-color: #333333;
+					padding: 8px 35px 8px 14px;
+					color: #FFAA7F;
+					font-weight: bold;
+				}
+		
+				.reveal .block-content {
+					padding: 8px 35px 8px 14px;
+				}
+		
+				.reveal .slide-title {
+					border-left: 5px solid white;
+					text-align: left;
+					margin-left: 20px;
+					padding-left: 20px;
+				}
+		
+				.reveal .alert {
+					color: #FFAA7F;
+					font-weight: bold;
+				}
+		
+				.reveal .inverted {
+					filter: invert(100%);
+				}
 			  
 			  /* You would add your background images and more specific styling here */
 			  .box {
@@ -261,10 +447,10 @@
 				// when the presentation is scaled to fit different resolutions. Can be
 				// specified using percentage units.
 				width: 1280,
-				height: 1020, //720,
+				height: 720, //720,
 	
 				// Factor of the display size that should remain empty around the content
-				margin: 0.01,
+				margin: 0.1,
 	
 				// Bounds for smallest/largest possible scale to apply to content
 				minScale: 0.2,
