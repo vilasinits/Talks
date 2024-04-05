@@ -50,13 +50,7 @@
 						</div>
 						<div class="block-content"
 							style="position: relative; bottom: 20px; right:10px; font-size:32px;">
-							<small>
-								<p>At recombination:</p>
-								<ul>
-									<li>$\bar{e} + p^+ \rightarrow H + \gamma$ </li>
-									<li>Photons decouple</li>
-								</ul>
-							</small>
+							
 							<p></p>
 						</div>
 					</div>
@@ -72,28 +66,35 @@
 			<section>
 				<h3>What is the first baby picture of the universe?</h3>
 				<br>
-				<img src="assets/Planck_CMB.jpg" class="plain" style="height: 500px"></img>
+				<img src="assets/Planck_CMB.jpg" class="plain" style="height: 480px"></img>
 				<br>
-				<a href="https://chrisnorth.github.io/planckapps/Simulator/#">Planck CMB simulator
-					(https://chrisnorth.github.io/planckapps/Simulator/#)</a>
-
-				<br>
-				<ul>
-					<small>
-						<li> $\Gamma \gg \mathrm{H} \rightarrow equilibrium$ </li>
-						<li> $\Gamma \ll \mathrm{H} \rightarrow freeze~out$ </li>
-					</small>
-				</ul>
+				<div class="r-hstack">
+					<div style="padding-right: 20px;">
+						<ul>
+							<li> $\Gamma \gg \mathrm{H} \rightarrow equilibrium$ </li>
+							<li> $\Gamma \ll \mathrm{H} \rightarrow freeze~out$ </li>
+						</ul>
+					</div>
+					<div>
+						<ul>
+							<li>$\bar{e} + p^+ \rightarrow H + \gamma$ </li>
+							<li>Photons decouple</li>
+						</ul>
+					</div>
+				</div>
 			</section>
+
+			<section data-background-iframe="https://chrisnorth.github.io/planckapps/Simulator/#"></section>
 <!-- ################################################################################################################## -->
 			<!-- Horizon Problem and Inflation-->
 			<section>
 				<div class="slide" style="position: relative; color:#fff;">
 					<h2 class="slide-title">Horizon Problem</h2>
 					<div class="r-hstack">
-						<p style="color:red;">Isotropy in CMB even when the universe is not in causal contact.</p>
+						<ul style="color:red; padding-right: 20px;">
+							<p>Isotropy in CMB even when the universe is not in causal contact.</p>
+						</ul>
 						<img src="assets/inflation.png" class="plain" style="height: 600px"></img>
-						<!-- <img src="assets/space-time-inflation.png" class="plain" height="700" style="position: relative;bottom: 50px; right:-10px"></img> -->
 					</div>
 				</div>
 			</section>
@@ -114,10 +115,8 @@
 							</p>
 						</ul>
 						<img src="assets/inflation2.png" class="plain" style="height: 600px"></img>
-						<!-- <img src="assets/space-time-inflation.png" class="plain" height="700" style="position: relative;bottom: 50px; right:-10px"></img> -->
 					</div>
 					<a href="https://arxiv.org/pdf/1303.1523.pdf">Source (https://arxiv.org/pdf/1303.1523.pdf)</a>
-
 				</div>
 			</section>
 <!-- ################################################################################################################## -->
@@ -135,24 +134,21 @@
 			</section>
 
 			<section>
-				Slide to include reionisation and dark ages and first star
+				<img src="assets/cosmic_history.jpeg" class="plain" style="height: 720px"></img>
 			</section>
 <!-- ################################################################################################################## -->
 			<!-- Structure of the Universe -->
 			<section>
 				<div class="slide" style="position: relative; color:#fff;">
 					<h2 class="slide-title">Structure of the Universe</h2>
-					<br><br>
-
+					<br>
 					<video width="620" height="620" autoplay muted>
 						<source src="assets/flamingo_cluster_zoom.mp4" type="video/mp4">
 						</video>
 				</div>
 			</section>
 <!-- ################################################################################################################## -->
-			<section>
-				<img src="assets/cosmic_history.jpeg" class="plain" style="height: 720px"></img>
-			</section>
+		
 <!-- ################################################################################################################## -->
 			<section>
 				<h2 class="slide-title">The FLRW Metric Line Element</h2>
@@ -187,13 +183,13 @@
 
 				<p>Similarly, for pressure and velocity, we have:</p>
 				$$P(t, \boldsymbol{x}) = \bar{P}(t) + \delta P(t, \boldsymbol{x})$$
-				$$\boldsymbol{x}(t, \boldsymbol{x}) = \bar{\boldsymbol{x}}(t) + \delta\boldsymbol{x}(t,
+				$$\boldsymbol{v}(t, \boldsymbol{x}) = \bar{\boldsymbol{v}}(t) + \delta\boldsymbol{v}(t,
 				\boldsymbol{x})$$
 				<ul>
 					<li>$\bar{\rho}(t), \bar{P}(t), \bar{\boldsymbol{x}}(t)$ represent the average (background) density,
 						pressure, and velocity,</li>
 
-					<li>$\delta\rho(t, \boldsymbol{x}), \delta P(t, \boldsymbol{x}), \delta\boldsymbol{x}(t,
+					<li>$\delta\rho(t, \boldsymbol{x}), \delta P(t, \boldsymbol{x}), \delta\boldsymbol{v}(t,
 						\boldsymbol{x})$ are the perturbations in density, pressure, and velocity at time $t$ and
 						position $\boldsymbol{x}$.</li>
 					</li>
@@ -285,7 +281,7 @@
 					<p> The evolution of these perturbation modes are given by the following equations: </p>
 					<ul>
 						<li><strong> Poisson Equation: </strong> $\nabla^2 \Phi = 4 \pi G a^2 \bar{\rho} \delta$ </li>
-						<li><strong> Equation off state: </strong> $\delta P = c_s^2 \delta \rho$</li>
+						<li><strong> Equation of state: </strong> $\delta P = c_s^2 \delta \rho$</li>
 						<li><strong> Continuity equation: </strong> $\frac{\partial \delta}{\partial t} + \nabla \cdot (1 + \delta) \mathbf{v} = 0$</li>
 						<li><strong> Euler equation: </strong> $\frac{\partial \mathbf{v}}{\partial t} + (\mathbf{v} \cdot \nabla) \mathbf{v} = -\frac{\nabla \Phi}{a} - \frac{\nabla \delta P}{\rho a}$</li>
 					</ul>
@@ -327,6 +323,30 @@
 						style="position: relative;bottom: 50px; right:-10px"></img>
 				</div>
 			</section>
+
+			<section>
+				<h2 class="slide-title">Standard Cosmological Model</h2>
+				<br>
+				<img src="assets/lcdm.001.jpeg" class="plain" style="height: 500px"></img>
+			</section>
+
+			<section>
+				<h2 class="slide-title">Standard Cosmological Model-Parameters</h2>
+				<br><br>
+				<div class="r-hstack">
+					<div>
+						<img src="assets/parameters.001.jpeg" class="plain" height="620"
+							style="position: relative;bottom: 50px; right:10px"></img>
+					</div>
+					<br>
+					<ul>
+						<p>There are many more parameters.</p>
+						<p> All of these are inferred from different observations</p>
+						<p> </p>
+						<p> Notebook here to play with the parameters</p>
+					</ul>
+				</div>
+			</section>
 <!-- ################################################################################################################## -->
 			<section>
 				<h2 class="slide-title">Unanswered questions in Lambda-CDM</h2>
@@ -355,42 +375,18 @@
 					<img src="assets/models_of_universe.002.jpeg" class="plain" style="height: 600px"></img>
 				</div>
 			</section>
+
 <!-- ################################################################################################################## -->
-			<section>
-				Introduce some handson examples for the models, maybe show how the contents evolve over time...
-				Show how the scale factors change with different content- jupyter notebook
-			</section>
-<!-- ################################################################################################################## -->
-			<!-- Cosmological Parameters-->
+			<!-- Cosmological Parameters
 			<section>
 				<div class="slide" style="position: relative; color:#fff;">
 					<h2 class="slide-title">Cosmological Parameterss</h2>
 				</div>
-			</section>
+			</section> -->
 <!-- ################################################################################################################## -->
-			<section>
-				<h2 class="slide-title">Standard Cosmological Model</h2>
-				<br>
-				<img src="assets/lcdm.001.jpeg" class="plain" style="height: 500px"></img>
-			</section>
+			
 <!-- ################################################################################################################## -->
-			<section>
-				<h2 class="slide-title">Standard Cosmological Model-Parameters</h2>
-				<br><br>
-				<div class="r-hstack">
-					<div>
-						<img src="assets/parameters.001.jpeg" class="plain" height="720"
-							style="position: relative;bottom: 50px; right:10px"></img>
-					</div>
-					<br>
-					<ul>
-						<p>There are many more parameters.</p>
-						<p> All of these are inferred from different observations</p>
-						<p> </p>
-						<p> Notebook here to play with the parameters</p>
-					</ul>
-				</div>
-			</section>
+
 <!-- ################################################################################################################## -->
 			<!-- Observational Cosmology -->
 			<!-- <section>
@@ -398,6 +394,11 @@
 					<h2>Observational Cosmology and Inference</h2>
 				</div>
 			</section> -->
+	<!-- ################################################################################################################## -->
+			<section>
+				Introduce some handson examples for the models, maybe show how the contents evolve over time...
+				Show how the scale factors change with different content- jupyter notebook
+			</section>
 <!-- ################################################################################################################## -->
 			<section>
 				<h2 class="slide-title">From phenomenon to implications</h2>
