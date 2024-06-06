@@ -1,21 +1,27 @@
+[submodule "template/reveal.js"]
+	path = template/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
 [submodule "template3/reveal.js"]
-        path = template3/reveal.js
-        url = https://github.com/EiffL/reveal.js.git
+	path = template3/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
+[submodule "ActionDarkEnergy23-Annecy/reveal.js"]
+	path = ActionDarkEnergy23-Annecy/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
 [submodule "TOSCA Nov2023/reveal.js"]
-        path = TOSCA Nov2023/reveal.js
-        url = https://github.com/EiffL/reveal.js.git
+	path = TOSCA Nov2023/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
 [submodule "TOSCA-Nov2023/reveal.js"]
-        path = TOSCA-Nov2023/reveal.js
-        url = https://github.com/EiffL/reveal.js.git
+	path = TOSCA-Nov2023/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
 [submodule "Euclid-France-2024/reveal.js"]
-        path = Euclid-France-2024/reveal.js
-        url = https://github.com/EiffL/reveal.js.git
-[submodule "Cosmology-and-Statistics-Day-CosmoStat/reveal.js"]
-        path = Cosmology-and-Statistics-Day-CosmoStat/reveal.js
-        url = https://github.com/EiffL/reveal.js.git
+	path = Euclid-France-2024/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
 [submodule "test/reveal.js"]
-        path = test/reveal.js
-        url = https://github.com/EiffL/reveal.js.git
-[submodule "z2C-Introduction-to-Cosmology/reveal.js"]
-        path = z2C-Introduction-to-Cosmology/reveal.js
-        url = https://github.com/EiffL/reveal.js.git
+	path = test/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
+[submodule "Cosmology-and-Statistics-Day-CosmoStat/reveal.js"]
+	path = Cosmology-and-Statistics-Day-CosmoStat/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
+[submodule "Introduction-to-Cosmology/reveal.js"]
+	path = Introduction-to-Cosmology/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
