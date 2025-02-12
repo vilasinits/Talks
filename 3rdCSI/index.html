@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>3rd CSI</title>
+	<meta name="description" content="3rd CSI">
+	<meta name="author" content="Vilasini Tinnaneri Sreekanth">
+
+	<link rel="stylesheet" href="reveal.js/dist/reset.css">
+	<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="reveal.js/dist/theme/darkenergy.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+  <script src="plugin/math/math.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Page 1 -->
+      <section data-background-image="/assets/Background-Euclid.jpeg">
+		<div class="container" style="display: flex; justify-content: center; align-items: center;">
+			<div class="title" style="border-radius: 50px; background-color: rgba(0, 0, 0, 0.4); padding: 20px; text-align: center;">
+				<h2>3rd Comite de Suvi</h2>
+				<h3>13 February 2025</h3>
+			</div>
+		</div>	
+		<hr>
+		<div class="col">
+			<div align="left" style="margin-left: 20px;">
+				<h3>Vilasini Tinnaneri Sreekanth</h3>
+				<!-- <br> -->
+				<h4>Supervisors: Dr. Jean-Luc starck and Dr. Sandrine Codis</h4>
+				<br>
+			</div>
+		</div>
+		<div class="logo-footer">
+			<div class="additional-logos">
+				<img src="assets/universite_paris_saclay.jpg" alt="University Logo" style="height: 50px">
+				<img src="assets/CosmoStat_Logo.png" alt="CosmoStat Logo" style="height: 50px">
+				<img src="assets/LOGO_CEA_ORIGINAL.png" alt="CEA" style="height: 50px">
+				<img src="assets/aim.png" alt="AIM" style="height: 50px">
+			</div>
+		</div>
+	</section>
+	
+	<section>
+		<h3 class="slide-title">
+			<b class="alert" style="border-radius: 10px;">
+				Outline
+			</b>
+		</h3>
+		<br>
+
+		<div class="container" style="border-radius: 20px; background-color: rgba(0, 0, 0, 0.7); padding: 50px;">
+				<ul>
+					<li>Context</li>
+					<li>Project 1</li>
+					<li>Project 2</li>
+					<li>Future</li>
+				</ul>
+		</div>	
+	</section>
+
+      <!-- Page 2 -->
+	<section>
+		<h3 class="slide-title">
+			<b class="alert" style="border-radius: 10px; background-color: rgba(0, 0, 0, 0.8);">
+				Introduction – Weak Lensing
+			</b>
+		</h3>
+		<br>
+	
+		<div class="fragment fade-up">
+			<div class="container" style="border-radius: 20px; background-color: rgba(0, 0, 0, 0.7); padding: 50px;">
+				<div class="col">
+					<ul>
+						<li><b class="alert">Weak Lensing (WL)</b>: An observational technique in cosmology used to study the distribution of matter in the universe.</li>
+						<br>
+						<li><b class="alert">Principle:</b> Light from distant galaxies is deflected by gravitational fields, leading to subtle distortions in their observed images.</li>
+						<br>
+						<li><b class="alert">Weak Lensing Effect:</b> Small, coherent distortions in the shapes of background galaxies.</li>
+					</ul>
+				</div>
+	
+				<div class="col">
+					<video src="/assets/wl_animation.mp4" class="plain" style="height: 300px;" controls></video>
+				</div>
+			</div>
+			<br>
+	
+			<div class="fragment fade-up">
+				<div class="block">
+					<div class="block-content">
+						<ul style="list-style-type: square;">
+							<li>WL provides a <span style="color: #ef4907;">direct measurement of gravitational distortions</span>.</li>
+							<li>It allows us to <span style="color: #ef4907;">probe cosmic structure</span>, <span style="color: #ef4907;">study dark matter</span>, and <span style="color: #ef4907;">constrain cosmological parameters</span>.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Page 3 -->
+	<section>
+		<h2 class="slide-title">The big picture</h2>
+        <div class="container">
+            <div class="box">Weak Lensing Catalogue</div>
+            <div class="arrow">➡️</div>
+            <div class="box">Pipeline</div>
+            <div class="arrow">➡️</div>
+            <div class="box">Cosmological Parameters</div>
+        </div>
+    </section>
+
+	<section>
+		<div class="title">Cosmology Inference Pipeline</div>
+		<div class="container">
+			<div class="box">
+				Observed Data
+			</div>
+			<div class="arrow">➡️</div>
+			<div class="box">
+				Summary Statistics
+				<div class="subtext">Extract key features</div>
+			</div>
+			<div class="arrow">⬅️</div>
+			<div class="box">
+				Simulations
+			</div>
+	
+		</div>
+	</section>
+
+	<section>
+		<div class="title">Cosmology Inference Pipeline</div>
+		<div class="container">
+			<div class="box">
+				Observed Data
+			</div>
+			<div class="arrow">➡️</div>
+			<div class="box highlight_box">
+				Summary Statistics
+				<div class="subtext">Extract key features</div>
+			</div>
+			<div class="arrow">⬅️</div>
+			<div class="box highlight_box">
+				Simulations
+			</div>
+		</div>
+	</section>
+
+	<section class="inverted" data-background="#000">
+		<h1>Project 1 (Recap)</h1>
+		<h2>What is the optimum way to exctract information?</h2>
+		<h4>My work: Extending Large Deviation Theory (LDT)<sup><a href="#fn1">[1]</a></sup> predicted PDF to predicted the wavelet $\ell_1$-norm.</h4>
+		<p id="fn1"><sup>[1]</sup> Large Deviation Theory</p>
+
+		
+	</section>
+	
+
+      <!-- Page 4 -->
+      <section>
+		<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)" ;>
+			<div class="col">
+        		<h2>General approach: 2 point statistics</h2>
+				<ul>
+				<li>Has a theory prediction</li>
+				<li class="fragment">Cannot extract non-Gaussian statistics</li>
+				</ul>
+			</div>
+			<div class=" fragment col">
+				<h5>But...not all the information is captured!</h5>
+				<image src="/assets/FT_demo2.png" class="plain" style="height: 300px;" controls></image>
+			</div>
+			<div class="fragment col">
+        		<h2>Alternative approach: Higher order statistics</h2>
+				<ul>
+				<li>Can extract non-Gaussian statistics</li>
+				<li class="fragment"> Does not have a theory prediction</li>
+				</ul>
+			</div>
+		</div>
+      </section>
+
+	  <!-- <section>
+		<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)" ;>
+			<div class="col">
+        		<h2>Alternative approach: Higher order statistics</h2>
+				<ul>
+				<li>Can extract non-Gaussian statistics</li>
+				<li class="fragment"> Does not have a theory prediction</li>
+				</ul>
+			</div>
+			<div class="col">
+				<img src="/assets/HOS_table_highlight.png" class="plain" style="height: 300px;" controls></img>	
+			</div>	
+		</div>
+      </section>  -->
+
+	  <!-- <section class="inverted" data-background="#000">
+		<h4>My work: extend LDT to obtain theory prediction for wavelet $\ell_1$-norm.</h4>
+	  </section> -->
+
+      <!-- Page 6 (Placeholder for figures) -->
+      <!-- <section>
+		<h2> Wavelet $\ell_1$-norm</h2>
+        <div class="container">
+		<div class="row">	
+		<div class="col">
+			<img src="/assets/full_map_ex_unsmooth.png" class="plain" style="height: 300px;" controls></img>
+			<div class="subtext">Full-sky map unsmoothened</div>
+		</div>
+		<div class="col">
+			<img src="/assets/full_map_ex_smooth.png" class="plain" style="height: 300px;" controls></img>
+			<div class="subtext">Full-sky map smoothened</div>
+		</div>
+		</div>
+		<div class="row">
+			<div class="col"
+				<h4>Wavelet: a class of compensated filters, that enables in probing the large scale structure better</h4>
+				<br><br>
+				<h4>$\ell_{1,theory}^{j,i} = \sum_{u=1}^{\#coef(Sj,i)} |S_{j,i}[u]|$</h4>
+			</div>
+			<div class="col">
+				<img src="/assets/wavelet_l1_norm_ex.png" class="plain" style="height: 300px;" controls></img>
+				<div class="subtext">Wavelet $\ell_1$-norm</div>
+			</div>
+		</div>
+      </section> -->
+
+	  <!-- <section>
+		<h2 class="section-title">Deriving wavelet $\ell_1$-norm using LDT</h2>
+		<br>
+		<div class="container">
+			<div class="col">
+				<ul>
+					<li>Framework to predict PDFs from <span style="color: #7670ee;">cosmological first principles</span></li>
+					<li>In <span style="color: #7670ee;">mildly non-linear regime</span></li>
+				</ul>
+			</div>
+			<div class="col">
+				<br>
+				<br>
+				<br>
+				<h4>Use LDT to first get the PDF of the wavelet coefficients $w_j$.</h4>
+				<h4>Relate the PDF to wavelet $\ell_1$-norm by:</h4>
+				<h4>$\ell^{j,i}_{1,pred} = \mathit{P_i}(w_j)\times |B_i|$</h4>
+			</div>
+		</div>
+	  </section> -->
+
+	  <section>
+		<h2 class="section-title">Results</h2>
+		<br>
+		<div class="row">
+			<div class="container"> 
+				<div class="col">
+				<img src="/assets/alltheta_z1_4.jpeg" class="plain" style="height: 450px;" controls></img>
+				</div>
+				<div class="col">
+					<img src="/assets/derivative_l1.png" class="plain" style="height: 450px;" controls></img>
+				</div>
+			</div>
+			<h4>Sreekanth, V. T., Codis, S., Barthelemy, A., & Starck, J.-L. 2024, A&A, 691,A80</h4>
+	    </div>
+		
+	</section>
+
+    <section class="inverted" data-background="#000">
+		<section>
+		<h1>Project 2</h1>
+		<h2>Is there an alternative to using N-body simulations?</h2>
+		</section>
+		<section>
+			<h2>Why Simulations are needed?</h2>
+			<ul>
+				<li>Cannot model the systematics in theory directly</li>
+				<li>Systematic effects can be directly incorporated in simulations</li>
+				<li>Combination of multiple probes</li>
+				<li>Helps in understanding the relation between theory and observation</li>
+			</ul>
+		</section>
+	</section> 
+
+      <!-- Page 8 -->
+	<section>
+		<section>
+		<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)" ;>
+			<div class="col">
+			<h2>Simulation Challenges</h2>
+			<ul>
+				<li>Multiple realizations required</li>
+				<li>High computational cost</li>
+				<li>Resource intensive</li>
+			</ul>
+			</div>
+			<div class="col">
+				<br>
+				<br>
+				<h2>Alternative: Emulation</h2>
+				<ul>
+					<li>Approximate methods or NN based methods to predict simulation outputs</li>
+					<li>Fast and efficient</li>
+					<li>Cost-effective</li>
+					<li><span style="color: #ef4907;"> They do not have correct HOS incorporated!</span></li>
+				</ul>
+			</div>
+			<br>	
+		</div>
+		</section>
+		<section>
+			<img src="/assets/lognormal_comparision.png" class="plain" style="height: 600px;" controls></img>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h2>My work: build an emulator using generalised forward backward method</h2>
+	    </section>
+		
+		<section>
+			<h2>Pipeline outline</h2>
+			<br>
+			<div class="container_">
+				<div class="row_">
+					<div class="square_big">Initial Map</div>
+					<div class="col">
+						<div class="row">
+							<div class="arrow">➡️</div>
+							Apply $\ell_1$ norm constraint
+						</div>	
+						<br>
+						<div class="row">
+							<div class="arrow">➡️</div>
+							Apply Cls constraint
+						</div>
+					</div>
+					<div class="col">
+						<div class="square_small">Modified map with correct l1</div>
+						<br>
+						<div class="square_small">Modified map with correct Cls</div>
+					</div>
+					<div class="col">
+						<div class="row">
+							<div class="arrow">➡️</div>
+						</div>
+						<div class ='row'>
+							Average over the two
+						</div>
+					</div>
+					<div class="square_big">Emulated map</div>
+				</div>
+		</section>
+	</section>
+	
+	<section>
+		<section>
+		<h2>Results</h2>
+		</section>
+		<section>
+			<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)">
+				<div class="col">
+					<img src="/assets/maps-tophat.png" class="plain" style="height: 300px;" controls></img>
+				</div>
+				
+			</div>
+			<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)">
+				<div class="col">
+					<img src="/assets/residual-tophat.png" class="plain" style="height: 300px;" controls></img>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)">
+				<div class= "col">
+					<img src="/assets/tophat-emulation.png" class="plain" style="height: 550px;" controls></img>
+				</div>
+				<div class= "col">
+					<img src="/assets/cls_tophat.png" class="plain" style="height: 550px;" controls></img>
+				</div>
+			</div>	
+		</section>
+		<!-- <section>
+		<div class="col">
+			<img src="/assets/from_theory.png" class="plain" style="height: 300px;" controls></img>
+		</div>
+		<div class="col">
+			<img src="/assets/l1_norm_theory.png" class="plain" style="height: 300px;" controls></img>
+		</section> -->
+
+	</section>
+
+	<section>
+		<h2>Future</h2>
+		<ul>
+			<li> February - July</li>
+				<ol> Manuscript writing: started (~50 pages)</ol>
+				<ol> Finding jury: we have tentative list, need to validate the list of people</ol> 
+				<ol>Science goal: keep working on theory for the starlet wavelet</ol>
+			<li> August - September</li>
+				<ol> Defence preparation</ol>
+				<ol> Wrapping up</ol>
+			<li> September: Defence (date to be fixed)</li>
+
+		</ul>
+	
+	</section>
+	<section>
+		<!-- <h2>Plan for defence</h2> -->
+		Started writing manuscript
+		<img src="/assets/thesis_outline.png" class="plain" style="height: 600px;" controls></img>
+	</section>
+
+	<section>
+		<h2>Schools and Conferences Attended</h2>
+
+		<h3>Past</h3>
+		<ul>
+			<li>Euclid-France Theory and Likelihood Workshop - Nov 28th 2022</li>
+			<li>Euclid-France Meeting - Nov 30-Dec 02 2022</li>
+			<li>Tonale Winter School - Dec 2022 (4-10)</li>
+			<li>Future Cosmology, Ecole thematique du CNRS, April 23-29, Cargese, France <span class="highlight">(Poster Presented)</span></li>
+			<li>ADA X Summer School - Sept 18-22 2023, Hersonissos, Crete, Greece</li>
+			<li>Colloque National Action Dark Energy - Nov 06-07 2023, Annecy, France <span class="highlight">(Talk)</span></li>
+			<li>TOSCA Reunion Meeting - Nov 16-17 2023, Nice, France <span class="highlight">(Talk)</span></li>
+			<li>Euclid-France Symposium 12 - Jan 24-26 2024, Lyon, France <span class="highlight">(Talk)</span></li>
+			<li>Euclid-SWG WL Meeting - Feb 19-21 2024, Innsbruck, Austria <span class="highlight">(Talk)</span></li>
+			<li>COSMO21 - May 21-24 2024, Chania, Crete, Greece <span class="highlight">(Talk)</span></li>
+			<li>Titan + TOSCA Meeting (Online) <span class="highlight">(Talk)</span></li>
+			<li>Euclid Consortium Meeting - June 17-21, Rome, Italy <span class="highlight">(Talk)</span></li>
+			<li>PI (Visitor) - July, Canada <span class="highlight">(Talk)</span></li>
+			<li>Euclid-France meeting- Jan 06 2025, Paris, France <span class="highlight">(Talk)</span> </li>
+			<li>Deep CosmoStat Days-Jan 16 2025, Paris, France <span class="highlight">(Talk)</span></li>
+		</ul>
+
+	</section>
+
+	<section>
+		<h2>Other activities</h2>
+		<ul>
+			<li>Cosmostat journal club organiser</li>
+			<li>Part of Euclid SWG-WL-HOWLS (attending meeting san dcontribution)</li>
+		</ul>
+		<h2>Course Work</h2>
+		<ul>
+			<li> Ethics and Science Integrity- 6hrs</li>
+			<li> Bayesian Statistics for Physical Sciences- 30hrs</li>
+			<li> Large surveys and cosmological structure- 15hrs </li>
+		</ul>
+	</section>
+
+	<section>
+
+	<section>
+		<h1>Thank You!</h1>
+	</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/dist/reveal.js"></script>
+  <script src="reveal.js/plugin/notes/notes.js"></script>
+  <script src="reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="reveal.js/plugin/highlight/highlight.js"></script>
+  <script src="reveal.js/plugin/math/math.js"></script>
+  <script>
+	  // More info about initialization & config:
+	  // - https://revealjs.com/initialization/
+	  // - https://revealjs.com/config/
+	  Reveal.initialize({
+		  controls: true,
+		  controlsBackArrows: 'faded',
+		  progress: true,
+		  slideNumber: 'c/t',
+		  hash: true,
+		  transition: 'slide',
+
+		  // The "normal" size of the presentation, aspect ratio will be preserved
+		  // when the presentation is scaled to fit different resolutions. Can be
+		  // specified using percentage units.
+		  width: 1200,
+		  height: 720,
+
+		  // Factor of the display size that should remain empty around the content
+		  margin: 0.1,
+
+		  // Bounds for smallest/largest possible scale to apply to content
+		  minScale: 0.2,
+		  maxScale: 1.5,
+
+		  autoPlayMedia: true,
+
+		  // Learn about plugins: https://revealjs.com/plugins/
+		  plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath],
+
+		  dependencies: [{
+			  src: 'reveal.js/plugin/markdown/marked.js'
+		  },
+		  {
+			  src: 'reveal.js/plugin/markdown/markdown.js'
+		  },
+		  {
+			  src: 'reveal.js/plugin/notes/notes.js',
+			  async: true
+		  },
+		  {
+			  src: 'reveal.js/plugin/math/math.js',
+			  async: true
+		  },
+		  {
+			  src: 'reveal.js/plugin/reveal.js-d3/reveald3.js'
+		  },
+		  {
+			  src: 'reveal.js/plugin/reveal.js-plugins/chart/Chart.min.js'
+		  },
+		  {
+			  src: 'reveal.js/plugin/reveal.js-plugins/chart/csv2chart.js'
+		  },
+		  {
+			  src: 'reveal.js/plugin/highlight/highlight.js',
+			  async: true
+		  },
+		  ]
+	  });
+  </script>
+  <style>
+	/* .reveal .slides {
+		border: 5px solid red;
+		min-height: 100%;
+		width: 128mm;
+		height: 96mm;
+	} */
+
+	.reveal .block {
+		background-color: #191919;
+		margin-left: 20px;
+		margin-right: 20px;
+		text-align: left;
+		padding-bottom: 0.1em;
+	}
+
+	.reveal .block-title {
+		background-color: #333333;
+		padding: 8px 35px 8px 14px;
+		color: #FFAA7F;
+		font-weight: bold;
+	}
+
+	.reveal .block-content {
+		padding: 8px 35px 8px 14px;
+	}
+
+	.reveal .slide-title {
+		border-left: 5px solid white;
+		text-align: left;
+		margin-left: 20px;
+		padding-left: 20px;
+	}
+
+	.reveal .alert {
+		color: #FFAA7F;
+		font-weight: bold;
+	}
+
+	.reveal .inverted {
+		filter: invert(100%);
+	}
+  </style>
+  <style>
+	.title-slide {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100vh;
+	}
+	.logo-header {
+	position: absolute;
+	top: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 40px;
+	box-sizing: border-box;
+	.logo-footer {
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 40px;
+	}
+	.title-content {
+	text-align: center;
+	padding: 20px;
+	border-radius: 15px;
+	background: rgba(0,0,0,0.7);
+	}
+	.title-slide h1 {
+	font-size: 2.5em;
+	margin-bottom: 0.5em;
+	text-transform: uppercase;
+	}
+	.title-slide h3 {
+	color: #00b4d8;
+	}
+	.affiliation {
+	margin-top: 2em;
+	font-size: 0.8em;
+	}
+	.logos img {
+	max-height: 60px;
+	margin: 0 15px;
+		}
+	}
+</style>
+<style>
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		background-color: #111;
+		color: white;
+		font-family: Arial, sans-serif;
+		text-align: center;
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.title {
+		font-size: 1.5em;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
+
+	.container {
+		display: flex;
+		align-items: center;
+		gap: 40px;
+	}
+
+	.box {
+		background: linear-gradient(to bottom, #f8f8f8, #ddd);
+		color: black;
+		padding: 20px 40px;
+		border-radius: 12px;
+		font-size: 1.5em;
+		font-weight: bold;
+		box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.2);
+	}
+
+	.arrow {
+		font-size: 2em;
+	}
+	.subtext {
+		font-size: 0.9em;
+		color: #3faf61;
+		margin-top: 5px;
+	}
+	.highlight_box {
+        background: linear-gradient(to bottom, #9784e3, #d5bef7); /* Warm highlight */
+        box-shadow: 0px 0px 15px rgba(167, 158, 175, 0.8); /* Glow effect */
+        color: black;
+        font-weight: bold;
+    }
+	.iteration {
+		margin-top: 20px;
+		font-size: 1.2em;
+		font-style: italic;
+		border-top: 2px solid white;
+		padding-top: 10px;
+		width: 80%;
+	}
+	.container_ {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.row_ {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.square_big {
+		background: linear-gradient(to bottom, #f8f8f8, #ddd);
+		color: black;
+		padding: 20px; /* Reduce padding to avoid affecting square shape */
+		border-radius: 10px;
+		font-weight: bold;
+		width: 200px; /* Set fixed width */
+		height: 200px; /* Set fixed height */
+		text-align: center;
+		display: flex; /* Use flexbox to center text */
+		justify-content: center;
+		align-items: center;
+		box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2);
+	}
+	.square_small {
+		background: linear-gradient(to bottom, #f8f8f8, #ddd);
+		color: black;
+		padding: 20px; /* Reduce padding to avoid affecting square shape */
+		border-radius: 10px;
+		font-weight: bold;
+		width: 120px; /* Set fixed width */
+		height: 120px; /* Set fixed height */
+		text-align: center;
+		display: flex; /* Use flexbox to center text */
+		justify-content: center;
+		align-items: center;
+		box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2);
+	}
+	.underline-text {
+		margin-top: 20px;
+		font-style: italic;
+		font-size: 18px;
+		border-top: 1px solid white;
+		padding-top: 10px;
+		width: 60%;
+		text-align: center;
+	}
+</style>
+
+</body>
+</html>
