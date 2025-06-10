@@ -28,3 +28,6 @@
 [submodule "3rdCSI/reveal.js"]
 	path = 3rdCSI/reveal.js
 	url = https://github.com/EiffL/reveal.js.git
+[submodule "COLOURS/reveal.js"]
+	path = COLOURS/reveal.js
+	url = https://github.com/EiffL/reveal.js.git

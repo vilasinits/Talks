@@ -1,0 +1,836 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>COLOURS Workshop Talk</title>
+		<meta name="description" content="Talk for COLOURS Workshop 2025">
+		<meta name="author" content="Vilasini">
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/darkenergy.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<!-- ######################################################################################################################################################################### -->
+				<section >
+					<!-- data-background-image="assets/colours_logo.png"  data-background-opacity="0.5" data-background-size="1100px 700px" -->
+					<div class="container" style="display: flex; justify-content: center; align-items: center;">
+						<div class="title" style="border-radius: 50px; background-color: rgba(0, 0, 0, 0.4); padding: 20px; text-align: center;">
+							<h2>Theoretical predictions for wavelet $\ell_1$-norm</h2>
+							<h3> <a href = "https://indico.ijclab.in2p3.fr/event/11110/">COLOURS,</a> 12 June 2025</h3>
+						</div>
+						
+					</div>	
+					<div> slides at <a href="https://vilasinits.github.io/Talks/COLOURS/">vilasinits.github.io/Talks/COLOURS/</a> </div>
+					<hr>
+					<div class="col">
+						<div align="left" style="margin-left: 20px;">
+							<h3>Vilasini Tinnaneri Sreekanth</h3>
+							<!-- <br> -->
+							<!-- <h4>Supervisors: Dr. Jean-Luc starck and Dr. Sandrine Codis</h4> -->
+							<br>
+						</div>
+						
+					</div>
+					<div class="logo-footer">
+						<div class="additional-logos">
+							<br>
+							<br>
+							<br>
+
+							<img src="assets/universite_paris_saclay.jpg" alt="University Logo" style="height: 50px; position: relative;
+							bottom: 0px;">
+							<img src="assets/CosmoStat_Logo.png" alt="CosmoStat Logo" style="height: 50px">
+							<img src="assets/LOGO_CEA_ORIGINAL.png" alt="CEA" style="height: 50px">
+							<img src="assets/aim.png" alt="AIM" style="height: 50px">
+						</div>
+					</div>
+				</section>
+<!-- ######################################################################################################################################################################### -->
+				 <!-- Page 2 -->
+				<section>
+					<h3 class="slide-title">
+						<b class="alert" style="border-radius: 10px; background-color: rgba(0, 0, 0, 0.8);">
+							Introduction – Weak Lensing
+						</b>
+					</h3>
+					<br>
+				
+					<div class="fragment fade-up">
+						<div class="container" style="border-radius: 20px; background-color: rgba(0, 0, 0, 0.7); padding: 50px;">
+							<div class="col">
+								<ul>
+									<li><b class="alert">Weak Lensing (WL)</b>: An observational technique in cosmology used to study the distribution of matter in the universe.</li>
+									<br>
+									<li><b class="alert">Principle:</b> Light from distant galaxies is deflected by gravitational fields, leading to subtle distortions in their observed images.</li>
+									<br>
+									<li><b class="alert">Weak Lensing Effect:</b> Small, coherent distortions in the shapes of background galaxies.</li>
+								</ul>
+							</div>
+				
+							<div class="col">
+								<video src="/assets/wl_animation.mp4" class="plain" style="height: 300px;" controls></video>
+							</div>
+						</div>
+						<br>
+				
+						<div class="fragment fade-up">
+							<div class="block">
+								<div class="block-content">
+									<ul style="list-style-type: square;">
+										<li>WL provides a <span style="color: #ef4907;">direct measurement of gravitational distortions</span>.</li>
+										<li>It allows us to <span style="color: #ef4907;">probe cosmic structure</span>, <span style="color: #ef4907;">study dark matter</span>, and <span style="color: #ef4907;">constrain cosmological parameters</span>.</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+<!-- ######################################################################################################################################################################### -->
+				<section class="inverted" data-background="#000">
+					<h2>Recap</h2>
+					<h3>Why use HOS?</h3>
+				</section>
+				<section>	
+					<section>
+						<div class="title">Cosmology Inference Pipeline</div>
+						<div class="container">
+							<div class="box">
+								Observed Data
+							</div>
+							<div class="arrow">➡️</div>
+							<div class="box">
+								Summary Statistics
+								<div class="subtext">Extract key features</div>
+								<div class="subtext">(powerspectrum, bispectrum etc)</div>
+							</div>
+							<div class="arrow">⬅️</div>
+							<div class="box">
+								Simulations
+							</div>
+
+						</div>
+					</section>
+
+					<section>
+						<div class="title">Cosmology Inference Pipeline</div>
+						<div class="container">
+							<div class="box">
+								Observed Data
+							</div>
+							<div class="arrow">➡️</div>
+							<div class="box highlight_box">
+								Summary Statistics
+								<div class="subtext">Extract key features</div>
+								<div class="subtext">(powerspectrum, bispectrum etc)</div>
+							</div>
+							<div class="arrow">⬅️</div>
+							<div class="box highlight_box">
+								Simulations
+							</div>
+						</div>
+					</section>
+				</section>			
+<!-- ######################################################################################################################################################################### -->
+				<section>
+					<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)" ;>
+						<div class="col">
+							<h2>General approach: 2 point statistics</h2>
+							<ul>
+								<li>Has a theory prediction</li>
+								<li class="fragment">Cannot extract non-Gaussian statistics</li>
+							</ul>
+						</div>
+						<div class=" fragment col">
+							<h5>But...not all the information is captured!</h5>
+							<image src="/assets/FT_demo2.png" class="plain" style="height: 300px;" controls></image>
+						</div>
+						<div class="fragment col">
+							<h2>Alternative approach: Higher order statistics</h2>
+							<ul>
+								<li>Can extract non-Gaussian statistics</li>
+								<li class="fragment"> Many do not have a theory prediction</li>
+							</ul>
+						</div>
+					</div>
+				  </section>
+<!-- ######################################################################################################################################################################### -->
+				  <section>
+					<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)" ;>
+						<div class="col">
+							<h2>Why wavelet $\ell_1$-norm?</h2>
+							<div class="anothe r-container" style="border-color: white">
+								$l_1^{j,i} = \sum_{u=1}^{coef(Sj,i)} |S_{j,i}[u]|$
+							</div>
+							<ul>
+								<!-- <li>$\ell_1 = \sum_k|x_k|$</li> -->
+								<li>the wavelet $\ell_1$-norm carries the information encoded in all pixels of the map. </li>
+								<li>It is shown in Ajani et al. (2021) that it remarkably outperforms commonly used summary statistics, such as the power spectrum or the combination of peak and void counts.</li>
+							</ul>
+							<image src="assets/starlet_l1_ajani-1.png"></image>
+						</div>
+					</div>
+				  </section>
+<!-- ######################################################################################################################################################################### -->
+				<section class="inverted" data-background="#000">
+					<h2>Working principle</h2>
+				</section>
+				
+				<section>
+					<h3 class="slide-title"> Wavelet decomposition of a convergence map: example </h3>
+					<div class="anothe r-container" style="border-color: white">
+						$w_j = <\kappa,\varphi_{j+1}> - <\kappa,\varphi_j>$
+					</div>
+					<img src="assets/convergence_map.jpg" class="plain;" style="width:250px; height:250px;"/img>
+					<p>||</p>
+					<img src="assets/wavelet_decompose.jpg" class="plain;" style="width:1500px; height:250px;" /img>
+					<p style="font-size:32px; color:black; position:relative; left:445px; bottom:200px;"> + </p>
+				</section>
+
+			
+				<section>
+					<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)" ;>
+						<div class="col">
+							<h2>Intuition for large deviation theory</h2>
+							<image src="assets/ldt_demo.png"></image>
+						</div>
+					</div>
+				</section>
+
+				<!-- <section>
+					<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)" ;>
+						<div class="col">
+							<h4>Start: From the first principles of Cosmology $\rightarrow$ Spherical Collapse Model (one-to-one mapping between initial and final densities) </h4>
+							<h4>LDT Framework: to get the distribution</h4>
+							<h4>Final: Relate distribution to the $\ell_1$-norm</h4>	
+						</div>
+					</div>
+				</section> -->
+
+			
+				<section>
+				<h2 class="slide-title">Theoretical Pipeline Overview</h2>
+				<div class="r-hstack" style="display: flex; gap: 24px; align-items: flex-start;">
+				
+					<img src="assets/ldt_overview_qr.png" alt="Documentation QR Code"
+						style="width: 100%; max-width: 100px; border-radius: 2px;
+								box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+				
+					<div>
+					<p>
+						<strong>Start:</strong> From the first principles of cosmology →
+						<em>Spherical Collapse Model</em><br>
+						<small style="opacity: 0.8;">(One-to-one mapping between initial and final densities)</small>
+					</p>
+				
+					<p style="margin: 24px 0;">
+						<strong>LDT Framework:</strong> used to predict the probability distribution
+					</p>
+				
+					<p>
+						<strong>Final:</strong> Connect the distribution to the
+						<span style="font-family: 'Courier New', monospace;">ℓ₁</span>-norm
+					</p>
+					</div>
+				
+				</div>
+				</section>
+				  
+				  
+
+				<!-- <section>
+					<div class="r-hstack">
+						<div class="circle-container" id="container">
+							<div class="circle" style="border-color: white">
+							Rate Function
+							</div>
+						</div>
+						<div  class="another-container" style="border-color: white">
+				
+							From the first principles of Cosmology $\downarrow$ Spherical Collapse Model (one-to-one mapping between initial and final densities)
+							$\zeta(\bar{\tau_k}) = \rho_k = \Bigl( 1 - \frac{\bar{\tau_k}}{\nu}\Bigr)^{-\nu}$
+							$\psi (\{ \rho_i\}) = \frac{\sigma^2_{R1}}{2} \sum_{k,j}\Xi_{kj}(\{\tau_i \}) \bar{\tau_k} \bar{\tau_j}$
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="circle">
+						Cumulant Generating Function
+					</div>
+					<br>
+					<br>
+					<div class="circle">
+						PDF
+					</div>
+				</section> -->
+
+				<!-- <section>
+					<div class="r-hstack">
+						<div class="circle-container" id="container">
+							<div class="circle">
+							Rate Function
+							</div>
+						</div>	
+						<div  class="another-container">
+							From the first principles of Cosmology $\downarrow$ Spherical Collapse Model
+							$\zeta(\bar{\tau_k}) = \rho_k = \Bigl( 1 - \frac{\bar{\tau_k}}{\nu}\Bigr)^{-\nu}$
+							$\psi (\{ \rho_i\}) = \frac{\sigma^2_{R1}}{2} \sum_{k,j}\Xi_{kj}(\{\tau_i \}) \bar{\tau_k} \bar{\tau_j}$
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="r-hstack">
+						<div class="circle-container" id="container">
+							<div class="circle" style="border-color: white">
+							Cumulant Generating Function
+							</div>
+						</div>
+						<div  class="another-container" style="border-color: white">
+							Legendre-Fenschel transformation
+							$\varphi_{\{ \rho_i\}}(\{ \lambda_i\}) = \sup_{\{ \rho_i\}} \Bigl[ \sum_{i}\lambda_i\rho_i -  \psi_{\{ \rho_i\}} (\{ \rho_i\})\Bigr]$
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="circle">
+						PDF
+					</div>
+				</section> -->
+
+				<!-- <section>
+					<div class="r-hstack">
+						<div class="circle-container" id="container">
+							<div class="circle">
+							Rate Function
+							</div>
+						</div>	
+						<div  class="another-container">
+							From the first principles of Cosmology $\downarrow$ Spherical Collapse Model
+							$\zeta(\bar{\tau_k}) = \rho_k = \Bigl( 1 - \frac{\bar{\tau_k}}{\nu}\Bigr)^{-\nu}$
+							$\psi (\{ \rho_i\}) = \frac{\sigma^2_{R1}}{2} \sum_{k,j}\Xi_{kj}(\{\tau_i \}) \bar{\tau_k} \bar{\tau_j}$
+						</div>
+					</div>
+					<br>
+					<div class="r-hstack">
+						<div class="circle-container" id="container">
+							<div class="circle">
+							Cumulant Generating Function
+							</div>
+						</div>
+						<div  class="another-container">
+							Legendre-Fenschel transformation
+							<br>
+							$\varphi_{\{ \rho_i\}}(\{ \lambda_i\}) = \sup_{\{ \rho_i\}} \Bigl[ \sum_{i}\lambda_i\rho_i -  \psi_{\{ \rho_i\}} (\{ \rho_i\})\Bigr]$
+						</div>
+					</div>
+					<br>
+					<div class="r-hstack">
+						<div class="circle-container" id="container">
+							<div class="circle" style="border-color: white">
+							PDF
+							</div>
+						</div>
+						<div  class="another-container" style="border-color: white">
+							Inverse laplace transformation 
+							<br>
+							$P(\kappa) = \int_{-i\infty}^{+i\infty} \frac{dy}{2\pi i} exp(-\lambda \kappa + \phi_{\kappa,\theta}(\lambda))$
+						</div>
+					</div>
+				</section> -->
+			<!-- </section> -->
+<!-- ######################################################################################################################################################################### -->
+			<section>
+				<h2 class="section-title">Results</h2>
+				<br>
+				<div class="row">
+					<div class="container"> 
+						<div class="col">
+							<!-- <image src="/assets/FT_demo2.png" class="plain" style="height: 300px;" controls></image> -->
+
+							<image src="assets/alltheta_z1_4.png" class="plain" style="height: 450px;" controls></image>
+						</div>
+						<div class="col">
+							<image src="assets/derivative_l1.png" class="plain" style="height: 450px;" controls></image>
+						</div>
+					</div>
+					<h4>Sreekanth, V. T., Codis, S., Barthelemy, A., & Starck, J.-L. 2024, A&A, 691,A80</h4>
+				</div>
+			</section>
+<!-- ######################################################################################################################################################################### -->
+			<section class="inverted" data-background="#000">
+				<h2>What about...</h2>
+				<div style="position: relative; width: 1000px; height: 450px; font-family: sans-serif;">
+					<span style="
+					  position: absolute;
+					  top: -50px;
+					  left: 450px;
+					  font-size: 18em;
+					  font-weight: bold;
+					  color: rgba(56, 54, 54, 0.5);
+					  z-index: 0;
+					  pointer-events: none;">?</span>
+
+					<span style="position: absolute; top: 120px; left: 220px; font-size: 2.2em; color: #f4a261;">biases</span>
+					<span style="position: absolute; top: 70px; left: 350px; font-size: 2.6em; color: #f08080;">combination-probes</span>
+					<span style="position: absolute; top: 150px; left: 500px; font-size: 2.4em; color: #2e2764;">intrinsic-alignment</span>
+					<span style="position: absolute; top: 210px; left: 800px; font-size: 2.1em; color: #f6f099;">noise</span>
+					<span style="position: absolute; top: 240px; left: 200px; font-size: 2.8em; color: #9c427b;">baryonic-processes</span>
+				  </div>  
+				  <h3>Is an N-body simulation still the only way? 🤔</h3>
+			</section>	
+
+<!-- ######################################################################################################################################################################### -->
+			<section>
+				
+				<div style="background-color: #111; color: #fff; font-family: sans-serif; padding: 40px; text-align: center;">
+
+					<!-- Title -->
+					<h2 style="color: #eee;">Generative Process of Weak Lensing Convergence Map</h2>
+				  
+					<!-- Process Flow -->
+					<div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin: 40px 0;">
+				  
+					  <div style="background-color: #b3e5fc; color: #111; padding: 16px 30px; border-radius: 12px;">
+						Gaussian Initial Map
+					  </div>
+				  
+					  <div style="font-size: 2em;">→</div>
+				  
+					  <div style="background-color: #ffe082; color: #111; padding: 16px 30px; border-radius: 12px;">
+						Iterative Forward–Backward Method
+					  </div>
+				  
+					  <div style="font-size: 2em;">→</div>
+				  
+					  <div style="background-color: #a5d6a7; color: #111; padding: 16px 30px; border-radius: 12px;">
+						Converged κ Map
+					  </div>
+				  
+					</div>
+				  
+					<!-- Minimization Equation -->
+					<!-- Equation from Paper -->
+					<div style="color: #ccc; font-size: 1.1em; max-width: 850px; margin: 40px auto 0;">
+						Minimize:
+						<br><br>
+						<span style="font-family: 'Courier New', monospace; color: #fff;">
+						&nbsp;&nbsp;&nbsp;&nbsp;𝓛(κ) = ‖P[κ] − P<sub>target</sub>‖²<sub>2</sub> + λ &nbsp;‖&nbsp;ℓ₁[κ] − ℓ₁<sub>target</sub>&nbsp;‖²
+						</span>
+						<br><br>
+						where P is the power spectrum operator and ℓ₁[κ] is the wavelet ℓ₁ norm of the map κ.
+					</div>
+
+				  
+				  </div>
+				  
+					  
+				  
+
+			</section>
+
+<!-- ######################################################################################################################################################################### -->
+<section>
+	<image src="assets/solution_animation.gif" class="plain" style="height: 550px;" controls></image>
+</section>
+<!-- ######################################################################################################################################################################### -->
+			<section>
+				<h2 style="font-family: Brush Script MT; font-size:132px;">Thank you!</h2>
+				<h2 style="font-size:32px;"> Questions?  </h2>
+			</section>
+<!-- ######################################################################################################################################################################### -->
+			<!-- <section>
+				<h3 class="slide-title">Extra slides</h3>
+			</section> -->
+
+<!-- ######################################################################################################################################################################### -->
+			<!-- <section>
+				<section>
+				<h3 class="slide-title">Wavelets</h3>
+				<p> A wavelet is a waveform of effectively limited duration that has an average value of zero and nonzero norm.
+				</p>
+				<img src="assets/db5_ex.png" /img>
+				<figcaption>This is an example of a DB5 wavelet</figcaption>
+				</section>
+
+				<section>
+					<img src="assets/wavelet_demo.png" /img>
+					<figcaption>The coefficients from Fourier transform and wavelet trandform respectively</figcaption>
+					<img src="assets/wavelet_demo2.png" /img>
+					
+				<div class="block">
+					<div class="block-content" style="font-size:34px;">
+						Especially useful in cases where we have discontinuties, trends etc that other techniques often tend to miss
+					</div>
+				</div>
+				</section>
+
+			</section> -->
+
+			<!-- <section>
+				<section>
+				<h2 class="slide-title"> wavelet $\ell_1$-norm</h2>
+				<h3>Wavelets</h3>
+				<p> A wavelet is a waveform of effectively limited duration that has an average value of zero and nonzero norm.
+				</p>
+				<img src="assets/db5_ex.png" /img>
+				<figcaption>This is an example of a DB 5 wavelet</figcaption>
+				</section>
+
+				<section>
+					<img src="assets/wavelet_demo.png" /img>
+					<figcaption>The coefficients from Fourier transform and wavelet trandform respectively</figcaption>
+					<img src="assets/wavelet_demo2.png" /img>
+					
+				<div class="block">
+					<div class="block-content" style="font-size:34px;">
+						Especially useful in cases where we have discontinuties, trends etc that other techniques often tend to miss
+					</div>
+				</div>
+				</section>
+
+				<section>
+				<h2 class="slide-title"> wavelet $\ell_1$-norm</h2>
+				<div class="container">
+					<div class="col">
+					<div class="block fragment" >
+							<div class="block-title"></div>
+							<div class="block-content" style="font-size:32px;">
+								<ul>
+									<li>$\ell_1 = \sum_k|x_k|$</li>
+									<li>the $\ell_1$-norm carries the information encoded in all pixels of the map. </li>
+									<li>It is shown in Ajani et al. (2021) that it remarkably outperforms commonly used summary statistics, such as the power spectrum or the combination of peak and void counts.</li>
+								</ul>
+									<img src="assets/starlet_l1_ajani-1.png" class="plain" height="640" style="position: relative; bottom: -20px; right:-10px;" alt="Description of the image" />
+									<figcaption> <a href="https://arxiv.org/abs/2101.01542"> Source: Ajani et al. (2021) </a></figcaption>
+							</div>
+					</div>
+					</div>
+				</div>
+				</section>
+
+				<section>
+					<h4 class="slide-title"> Wavelet decomposition of a convergence map: example </h4>
+					<img src="assets/convergence_map.jpg" class="plain;" style="width:300px; height:300px;"/img>
+					<p>||</p>
+					<img src="assets/wavelet_decompose.jpg" class="plain;" style="width:1500px; height:250px;" /img>
+					<p style="font-size:32px; color:black; position:relative; left:445px; bottom:200px;"> + </p>
+				</section>
+
+			</section> -->
+
+<!-- ######################################################################################################################################################################### -->
+<!-- ######################################################################################################################################################################### -->
+			<!-- <section>
+				<h3 class="slide-title">Wavelet transform vs fourier transform</h3>
+				<img src="assets/dwt_lss.png" /img>
+				<figcaption>LSS example using discrete wavelet transform</figcaption>
+			</section> -->
+
+<!-- ######################################################################################################################################################################### -->
+<!-- ######################################################################################################################################################################### -->
+			<!-- <section>
+				<h3 class="slide-title">$\ell_1$-norm</h3>
+			</section> -->
+
+<!-- ######################################################################################################################################################################### -->
+<!-- ######################################################################################################################################################################### -->
+
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+  <script src="reveal.js/plugin/notes/notes.js"></script>
+  <script src="reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="reveal.js/plugin/highlight/highlight.js"></script>
+  <script src="reveal.js/plugin/math/math.js"></script>
+  <script>
+	  // More info about initialization & config:
+	  // - https://revealjs.com/initialization/
+	  // - https://revealjs.com/config/
+	  Reveal.initialize({
+		  controls: true,
+		  controlsBackArrows: 'faded',
+		  progress: true,
+		  slideNumber: 'c/t',
+		  hash: true,
+		  transition: 'slide',
+
+		  // The "normal" size of the presentation, aspect ratio will be preserved
+		  // when the presentation is scaled to fit different resolutions. Can be
+		  // specified using percentage units.
+		  width: 1200,
+		  height: 720,
+
+		  // Factor of the display size that should remain empty around the content
+		  margin: 0.1,
+
+		  // Bounds for smallest/largest possible scale to apply to content
+		  minScale: 0.2,
+		  maxScale: 1.5,
+
+		  autoPlayMedia: true,
+
+		  // Learn about plugins: https://revealjs.com/plugins/
+		  plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath],
+
+		  dependencies: [{
+			  src: 'reveal.js/plugin/markdown/marked.js'
+		  },
+		  {
+			  src: 'reveal.js/plugin/markdown/markdown.js'
+		  },
+		  {
+			  src: 'reveal.js/plugin/notes/notes.js',
+			  async: true
+		  },
+		  {
+			  src: 'reveal.js/plugin/math/math.js',
+			  async: true
+		  },
+		  {
+			  src: 'reveal.js/plugin/reveal.js-d3/reveald3.js'
+		  },
+		  {
+			  src: 'reveal.js/plugin/reveal.js-plugins/chart/Chart.min.js'
+		  },
+		  {
+			  src: 'reveal.js/plugin/reveal.js-plugins/chart/csv2chart.js'
+		  },
+		  {
+			  src: 'reveal.js/plugin/highlight/highlight.js',
+			  async: true
+		  },
+		  ]
+	  });
+  </script>
+  <style>
+	/* .reveal .slides {
+		border: 5px solid red;
+		min-height: 100%;
+		width: 128mm;
+		height: 96mm;
+	} */
+
+	.reveal .block {
+		background-color: #191919;
+		margin-left: 20px;
+		margin-right: 20px;
+		text-align: left;
+		padding-bottom: 0.1em;
+	}
+
+	.reveal .block-title {
+		background-color: #333333;
+		padding: 8px 35px 8px 14px;
+		color: #FFAA7F;
+		font-weight: bold;
+	}
+
+	.reveal .block-content {
+		padding: 8px 35px 8px 14px;
+	}
+
+	.reveal .slide-title {
+		border-left: 5px solid white;
+		text-align: left;
+		margin-left: 20px;
+		padding-left: 20px;
+	}
+
+	.reveal .alert {
+		color: #FFAA7F;
+		font-weight: bold;
+	}
+
+	.reveal .inverted {
+		filter: invert(100%);
+	}
+  </style>
+  <style>
+	.title-slide {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100vh;
+	}
+	.logo-header {
+	position: absolute;
+	top: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 40px;
+	box-sizing: border-box;
+	.logo-footer {
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 40px;
+	}
+	.title-content {
+	text-align: center;
+	padding: 20px;
+	border-radius: 15px;
+	background: rgba(0,0,0,0.7);
+	}
+	.title-slide h1 {
+	font-size: 2.5em;
+	margin-bottom: 0.5em;
+	text-transform: uppercase;
+	}
+	.title-slide h3 {
+	color: #00b4d8;
+	}
+	.affiliation {
+	margin-top: 2em;
+	font-size: 0.8em;
+	}
+	.logos img {
+	max-height: 60px;
+	margin: 0 15px;
+		}
+	}
+</style>
+<style>
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		background-color: #111;
+		color: white;
+		font-family: Arial, sans-serif;
+		text-align: center;
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.title {
+		font-size: 1.5em;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
+
+	.container {
+		display: flex;
+		align-items: center;
+		gap: 40px;
+	}
+
+	.box {
+		background: linear-gradient(to bottom, #f8f8f8, #ddd);
+		color: black;
+		padding: 20px 40px;
+		border-radius: 12px;
+		font-size: 1.5em;
+		font-weight: bold;
+		box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.2);
+	}
+
+	.arrow {
+		font-size: 2em;
+	}
+	.subtext {
+		font-size: 0.9em;
+		color: #3faf61;
+		margin-top: 5px;
+	}
+	.highlight_box {
+        background: linear-gradient(to bottom, #9784e3, #d5bef7); /* Warm highlight */
+        box-shadow: 0px 0px 15px rgba(167, 158, 175, 0.8); /* Glow effect */
+        color: black;
+        font-weight: bold;
+    }
+	.iteration {
+		margin-top: 20px;
+		font-size: 1.2em;
+		font-style: italic;
+		border-top: 2px solid white;
+		padding-top: 10px;
+		width: 80%;
+	}
+	.container_ {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.row_ {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.square_big {
+		background: linear-gradient(to bottom, #f8f8f8, #ddd);
+		color: black;
+		padding: 20px; /* Reduce padding to avoid affecting square shape */
+		border-radius: 10px;
+		font-weight: bold;
+		width: 200px; /* Set fixed width */
+		height: 200px; /* Set fixed height */
+		text-align: center;
+		display: flex; /* Use flexbox to center text */
+		justify-content: center;
+		align-items: center;
+		box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2);
+	}
+	.square_small {
+		background: linear-gradient(to bottom, #f8f8f8, #ddd);
+		color: black;
+		padding: 20px; /* Reduce padding to avoid affecting square shape */
+		border-radius: 10px;
+		font-weight: bold;
+		width: 120px; /* Set fixed width */
+		height: 120px; /* Set fixed height */
+		text-align: center;
+		display: flex; /* Use flexbox to center text */
+		justify-content: center;
+		align-items: center;
+		box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2);
+	}
+	.underline-text {
+		margin-top: 20px;
+		font-style: italic;
+		font-size: 18px;
+		border-top: 1px solid white;
+		padding-top: 10px;
+		width: 60%;
+		text-align: center;
+	}
+	.word-cloud {
+		display: grid;
+		grid-template-columns: auto auto;
+		gap: 20px;
+		text-align: center;
+	  }
+  
+	.word {
+		font-weight: bold;
+		line-height: 1.2;
+	  }
+  
+	.small { font-size: 1.5rem; }
+	.medium { font-size: 2.2rem; }
+	.large { font-size: 3rem; }
+</style>
+
+</body>
+</html>
