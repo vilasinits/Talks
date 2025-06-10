@@ -100,46 +100,25 @@
 					<h2>Recap</h2>
 					<h3>Why use HOS?</h3>
 				</section>
-				<section>	
-					<section>
-						<div class="title">Cosmology Inference Pipeline</div>
-						<div class="container">
-							<div class="box">
-								Observed Data
-							</div>
-							<div class="arrow">➡️</div>
-							<div class="box">
-								Summary Statistics
-								<div class="subtext">Extract key features</div>
-								<div class="subtext">(powerspectrum, bispectrum etc)</div>
-							</div>
-							<div class="arrow">⬅️</div>
-							<div class="box">
-								Simulations
-							</div>
-
+				<section>
+					<div class="title">Cosmology Inference Pipeline</div>
+					<div class="container">
+						<div class="box">
+							Observed Data
 						</div>
-					</section>
-
-					<section>
-						<div class="title">Cosmology Inference Pipeline</div>
-						<div class="container">
-							<div class="box">
-								Observed Data
-							</div>
-							<div class="arrow">➡️</div>
-							<div class="box highlight_box">
-								Summary Statistics
-								<div class="subtext">Extract key features</div>
-								<div class="subtext">(powerspectrum, bispectrum etc)</div>
-							</div>
-							<div class="arrow">⬅️</div>
-							<div class="box highlight_box">
-								Simulations
-							</div>
+						<div class="arrow">➡️</div>
+						<div class="box">
+							Summary Statistics
+							<div class="subtext">Extract key features</div>
+							<div class="subtext">(powerspectrum, bispectrum etc)</div>
 						</div>
-					</section>
-				</section>			
+						<div class="arrow">⬅️</div>
+						<div class="box">
+							Simulations
+						</div>
+
+					</div>
+				</section>
 <!-- ######################################################################################################################################################################### -->
 				<section>
 					<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)" ;>
@@ -201,29 +180,21 @@
 					<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)" ;>
 						<div class="col">
 							<h2>Intuition for large deviation theory</h2>
-							<image src="assets/ldt_demo.png"></image>
+							<image src="/assets/ldt_demo.png"></image>
 						</div>
 					</div>
 				</section>
-
-				<!-- <section>
-					<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)" ;>
-						<div class="col">
-							<h4>Start: From the first principles of Cosmology $\rightarrow$ Spherical Collapse Model (one-to-one mapping between initial and final densities) </h4>
-							<h4>LDT Framework: to get the distribution</h4>
-							<h4>Final: Relate distribution to the $\ell_1$-norm</h4>	
-						</div>
-					</div>
-				</section> -->
-
 			
 				<section>
 				<h2 class="slide-title">Theoretical Pipeline Overview</h2>
 				<div class="r-hstack" style="display: flex; gap: 24px; align-items: flex-start;">
-				
-					<img src="assets/ldt_overview_qr.png" alt="Documentation QR Code"
-						style="width: 100%; max-width: 100px; border-radius: 2px;
-								box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+					<br>
+					<a href="https://github.com/vilasinits/LDT_2cell_l1_norm/tree/refactor-pyccl-version" target="_blank">
+						<img src="assets/ldt_overview_qr.png" alt="Documentation QR Code"
+							 style="width: 100%; max-width: 100px; border-radius: 2px;
+									box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+					  </a>
+					  
 				
 					<div>
 					<p>
@@ -244,109 +215,7 @@
 				
 				</div>
 				</section>
-				  
-				  
-
-				<!-- <section>
-					<div class="r-hstack">
-						<div class="circle-container" id="container">
-							<div class="circle" style="border-color: white">
-							Rate Function
-							</div>
-						</div>
-						<div  class="another-container" style="border-color: white">
-				
-							From the first principles of Cosmology $\downarrow$ Spherical Collapse Model (one-to-one mapping between initial and final densities)
-							$\zeta(\bar{\tau_k}) = \rho_k = \Bigl( 1 - \frac{\bar{\tau_k}}{\nu}\Bigr)^{-\nu}$
-							$\psi (\{ \rho_i\}) = \frac{\sigma^2_{R1}}{2} \sum_{k,j}\Xi_{kj}(\{\tau_i \}) \bar{\tau_k} \bar{\tau_j}$
-						</div>
-					</div>
-					<br>
-					<br>
-					<div class="circle">
-						Cumulant Generating Function
-					</div>
-					<br>
-					<br>
-					<div class="circle">
-						PDF
-					</div>
-				</section> -->
-
-				<!-- <section>
-					<div class="r-hstack">
-						<div class="circle-container" id="container">
-							<div class="circle">
-							Rate Function
-							</div>
-						</div>	
-						<div  class="another-container">
-							From the first principles of Cosmology $\downarrow$ Spherical Collapse Model
-							$\zeta(\bar{\tau_k}) = \rho_k = \Bigl( 1 - \frac{\bar{\tau_k}}{\nu}\Bigr)^{-\nu}$
-							$\psi (\{ \rho_i\}) = \frac{\sigma^2_{R1}}{2} \sum_{k,j}\Xi_{kj}(\{\tau_i \}) \bar{\tau_k} \bar{\tau_j}$
-						</div>
-					</div>
-					<br>
-					<br>
-					<div class="r-hstack">
-						<div class="circle-container" id="container">
-							<div class="circle" style="border-color: white">
-							Cumulant Generating Function
-							</div>
-						</div>
-						<div  class="another-container" style="border-color: white">
-							Legendre-Fenschel transformation
-							$\varphi_{\{ \rho_i\}}(\{ \lambda_i\}) = \sup_{\{ \rho_i\}} \Bigl[ \sum_{i}\lambda_i\rho_i -  \psi_{\{ \rho_i\}} (\{ \rho_i\})\Bigr]$
-						</div>
-					</div>
-					<br>
-					<br>
-					<div class="circle">
-						PDF
-					</div>
-				</section> -->
-
-				<!-- <section>
-					<div class="r-hstack">
-						<div class="circle-container" id="container">
-							<div class="circle">
-							Rate Function
-							</div>
-						</div>	
-						<div  class="another-container">
-							From the first principles of Cosmology $\downarrow$ Spherical Collapse Model
-							$\zeta(\bar{\tau_k}) = \rho_k = \Bigl( 1 - \frac{\bar{\tau_k}}{\nu}\Bigr)^{-\nu}$
-							$\psi (\{ \rho_i\}) = \frac{\sigma^2_{R1}}{2} \sum_{k,j}\Xi_{kj}(\{\tau_i \}) \bar{\tau_k} \bar{\tau_j}$
-						</div>
-					</div>
-					<br>
-					<div class="r-hstack">
-						<div class="circle-container" id="container">
-							<div class="circle">
-							Cumulant Generating Function
-							</div>
-						</div>
-						<div  class="another-container">
-							Legendre-Fenschel transformation
-							<br>
-							$\varphi_{\{ \rho_i\}}(\{ \lambda_i\}) = \sup_{\{ \rho_i\}} \Bigl[ \sum_{i}\lambda_i\rho_i -  \psi_{\{ \rho_i\}} (\{ \rho_i\})\Bigr]$
-						</div>
-					</div>
-					<br>
-					<div class="r-hstack">
-						<div class="circle-container" id="container">
-							<div class="circle" style="border-color: white">
-							PDF
-							</div>
-						</div>
-						<div  class="another-container" style="border-color: white">
-							Inverse laplace transformation 
-							<br>
-							$P(\kappa) = \int_{-i\infty}^{+i\infty} \frac{dy}{2\pi i} exp(-\lambda \kappa + \phi_{\kappa,\theta}(\lambda))$
-						</div>
-					</div>
-				</section> -->
-			<!-- </section> -->
+				  			
 <!-- ######################################################################################################################################################################### -->
 			<section>
 				<h2 class="section-title">Results</h2>
@@ -438,33 +307,53 @@
 			</section>
 
 <!-- ######################################################################################################################################################################### -->
-<section>
-	<image src="assets/solution_animation.gif" class="plain" style="height: 550px;" controls></image>
-</section>
+			<section>
+				<image src="assets/solution_animation.gif" class="plain" style="height: 550px;" controls></image>
+			</section>
+
+<!-- ######################################################################################################################################################################### -->
+			<section>
+				<h3 class="slide-title">Benchmarking</h3>
+				<image src="assets/skew-variance-kurtosis-tophatpng.png" class="plain" style="height: auto;" controls></image>
+				<!-- <div class="r-stack"> -->
+						
+				<div class="h-stack">
+					<image src="assets/time_analysis 2.png" class="plain" style="height: 400px;" controls></image>
+					<!-- <br> -->
+					<a href="https://github.com/vilasinits/GOLCONDA/tree/refactor" target="_blank">
+						<img src="assets/golconda_qr.png" class="plain qr" style="height: 100px; position:relative; left:245px; bottom:10px" alt="GOLCONDA QR Code">
+					  </a>
+									  </div>	
+				<!-- </div> -->
+			</section>
+
+
 <!-- ######################################################################################################################################################################### -->
 			<section>
 				<h2 style="font-family: Brush Script MT; font-size:132px;">Thank you!</h2>
 				<h2 style="font-size:32px;"> Questions?  </h2>
 			</section>
 <!-- ######################################################################################################################################################################### -->
-			<!-- <section>
-				<h3 class="slide-title">Extra slides</h3>
-			</section> -->
+			
 
 <!-- ######################################################################################################################################################################### -->
-			<!-- <section>
+			<section>
+				<section>
+					<h3 class="slide-title">Extra slides</h3>
+				</section>
+
 				<section>
 				<h3 class="slide-title">Wavelets</h3>
 				<p> A wavelet is a waveform of effectively limited duration that has an average value of zero and nonzero norm.
 				</p>
-				<img src="assets/db5_ex.png" /img>
+				<img src="assets/db5_ex.png" class="plain" style="height: 400px;" controls> </img>
 				<figcaption>This is an example of a DB5 wavelet</figcaption>
 				</section>
 
 				<section>
-					<img src="assets/wavelet_demo.png" /img>
+					<img src="assets/wavelet_demo.png" class="plain" style="height: 250px;" controls></img>
 					<figcaption>The coefficients from Fourier transform and wavelet trandform respectively</figcaption>
-					<img src="assets/wavelet_demo2.png" /img>
+					<img src="assets/wavelet_demo2.png" class="plain" style="height: 250px;" controls></img>
 					
 				<div class="block">
 					<div class="block-content" style="font-size:34px;">
@@ -472,83 +361,15 @@
 					</div>
 				</div>
 				</section>
+			</section>
 
-			</section> -->
-
-			<!-- <section>
-				<section>
-				<h2 class="slide-title"> wavelet $\ell_1$-norm</h2>
-				<h3>Wavelets</h3>
-				<p> A wavelet is a waveform of effectively limited duration that has an average value of zero and nonzero norm.
-				</p>
-				<img src="assets/db5_ex.png" /img>
-				<figcaption>This is an example of a DB 5 wavelet</figcaption>
-				</section>
-
-				<section>
-					<img src="assets/wavelet_demo.png" /img>
-					<figcaption>The coefficients from Fourier transform and wavelet trandform respectively</figcaption>
-					<img src="assets/wavelet_demo2.png" /img>
-					
-				<div class="block">
-					<div class="block-content" style="font-size:34px;">
-						Especially useful in cases where we have discontinuties, trends etc that other techniques often tend to miss
-					</div>
-				</div>
-				</section>
-
-				<section>
-				<h2 class="slide-title"> wavelet $\ell_1$-norm</h2>
-				<div class="container">
-					<div class="col">
-					<div class="block fragment" >
-							<div class="block-title"></div>
-							<div class="block-content" style="font-size:32px;">
-								<ul>
-									<li>$\ell_1 = \sum_k|x_k|$</li>
-									<li>the $\ell_1$-norm carries the information encoded in all pixels of the map. </li>
-									<li>It is shown in Ajani et al. (2021) that it remarkably outperforms commonly used summary statistics, such as the power spectrum or the combination of peak and void counts.</li>
-								</ul>
-									<img src="assets/starlet_l1_ajani-1.png" class="plain" height="640" style="position: relative; bottom: -20px; right:-10px;" alt="Description of the image" />
-									<figcaption> <a href="https://arxiv.org/abs/2101.01542"> Source: Ajani et al. (2021) </a></figcaption>
-							</div>
-					</div>
-					</div>
-				</div>
-				</section>
-
-				<section>
-					<h4 class="slide-title"> Wavelet decomposition of a convergence map: example </h4>
-					<img src="assets/convergence_map.jpg" class="plain;" style="width:300px; height:300px;"/img>
-					<p>||</p>
-					<img src="assets/wavelet_decompose.jpg" class="plain;" style="width:1500px; height:250px;" /img>
-					<p style="font-size:32px; color:black; position:relative; left:445px; bottom:200px;"> + </p>
-				</section>
-
-			</section> -->
 
 <!-- ######################################################################################################################################################################### -->
-<!-- ######################################################################################################################################################################### -->
-			<!-- <section>
-				<h3 class="slide-title">Wavelet transform vs fourier transform</h3>
-				<img src="assets/dwt_lss.png" /img>
-				<figcaption>LSS example using discrete wavelet transform</figcaption>
-			</section> -->
-
-<!-- ######################################################################################################################################################################### -->
-<!-- ######################################################################################################################################################################### -->
-			<!-- <section>
-				<h3 class="slide-title">$\ell_1$-norm</h3>
-			</section> -->
-
-<!-- ######################################################################################################################################################################### -->
-<!-- ######################################################################################################################################################################### -->
-
 
 			</div>
 		</div>
 
-		<script src="reveal.js/dist/reveal.js"></script>
+  <script src="reveal.js/dist/reveal.js"></script>
   <script src="reveal.js/plugin/notes/notes.js"></script>
   <script src="reveal.js/plugin/markdown/markdown.js"></script>
   <script src="reveal.js/plugin/highlight/highlight.js"></script>
@@ -830,6 +651,9 @@
 	.small { font-size: 1.5rem; }
 	.medium { font-size: 2.2rem; }
 	.large { font-size: 3rem; }
+	.qr {
+		margin-left: auto; /* pushes QR image to the far right in the stack */
+	}
 </style>
 
 </body>
