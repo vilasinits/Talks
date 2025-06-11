@@ -101,7 +101,7 @@
 					<h3>Why use HOS?</h3>
 				</section>
 				<section>
-					<div class="title">Cosmology Inference Pipeline</div>
+					<h2 class="slide-title">Cosmology Inference Pipeline</h2>
 					<div class="container">
 						<div class="box">
 							Observed Data
@@ -123,39 +123,58 @@
 				<section>
 					<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)" ;>
 						<div class="col">
-							<h2>General approach: 2 point statistics</h2>
+							<h3>General approach: 2 point statistics</h3>
 							<ul>
 								<li>Has a theory prediction</li>
+								<br>
+								<div class=" fragment col">
+									<h5>But...not all the information is captured!</h5>
+									<image src="/assets/FT_demo2.png" class="plain" style="height: 300px;" controls></image>
+								</div>
 								<li class="fragment">Cannot extract non-Gaussian statistics</li>
 							</ul>
 						</div>
-						<div class=" fragment col">
-							<h5>But...not all the information is captured!</h5>
-							<image src="/assets/FT_demo2.png" class="plain" style="height: 300px;" controls></image>
-						</div>
+						
 						<div class="fragment col">
-							<h2>Alternative approach: Higher order statistics</h2>
+							<h3>Alternative approach: Higher order statistics</h3>
 							<ul>
 								<li>Can extract non-Gaussian statistics</li>
 								<li class="fragment"> Many do not have a theory prediction</li>
+								<li class="fragment">Several HOS exists 
+									<ul> 
+										<li>Bispectrum</li> 
+										<li>Minkowski functionals</li> 
+										<li>Betti numbers</li>
+										<li>PDF</li>
+										<li>Wavelet $\ell_1$-norm</li>
+									</ul>
+								</li>
+								<li class="fragment">But, they all need simulations</li>
 							</ul>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
 						</div>
 					</div>
 				  </section>
+
 <!-- ######################################################################################################################################################################### -->
 				  <section>
 					<div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)" ;>
 						<div class="col">
-							<h2>Why wavelet $\ell_1$-norm?</h2>
+							<h2 class="slide-title">Why wavelet $\ell_1$-norm?</h2>
 							<div class="anothe r-container" style="border-color: white">
 								$l_1^{j,i} = \sum_{u=1}^{coef(Sj,i)} |S_{j,i}[u]|$
 							</div>
 							<ul>
 								<!-- <li>$\ell_1 = \sum_k|x_k|$</li> -->
 								<li>the wavelet $\ell_1$-norm carries the information encoded in all pixels of the map. </li>
-								<li>It is shown in Ajani et al. (2021) that it remarkably outperforms commonly used summary statistics, such as the power spectrum or the combination of peak and void counts.</li>
+								<li>It is shown in that it remarkably outperforms commonly used summary statistics, such as the power spectrum or the combination of peak and void counts.</li>
 							</ul>
-							<image src="assets/starlet_l1_ajani-1.png"></image>
+							<img src="assets/starlet_l1_ajani-1.png" class="plain;" style="width:950px; height:550px;"><a href="https://www.aanda.org/articles/aa/pdf/2021/01/aa39988-20.pdf">Ajani et al. (2021)</a></img>
 						</div>
 					</div>
 				  </section>
@@ -186,34 +205,27 @@
 				</section>
 			
 				<section>
-				<h2 class="slide-title">Theoretical Pipeline Overview</h2>
-				<div class="r-hstack" style="display: flex; gap: 24px; align-items: flex-start;">
-					<br>
-					<a href="https://github.com/vilasinits/LDT_2cell_l1_norm/tree/refactor-pyccl-version" target="_blank">
-						<img src="assets/ldt_overview_qr.png" alt="Documentation QR Code"
-							 style="width: 100%; max-width: 100px; border-radius: 2px;
-									box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-					  </a>
-					  
-				
-					<div>
-					<p>
-						<strong>Start:</strong> From the first principles of cosmology →
-						<em>Spherical Collapse Model</em><br>
-						<small style="opacity: 0.8;">(One-to-one mapping between initial and final densities)</small>
-					</p>
-				
-					<p style="margin: 24px 0;">
-						<strong>LDT Framework:</strong> used to predict the probability distribution
-					</p>
-				
-					<p>
-						<strong>Final:</strong> Connect the distribution to the
-						<span style="font-family: 'Courier New', monospace;">ℓ₁</span>-norm
-					</p>
-					</div>
-				
-				</div>
+					<h2 class="slide-title">Theoretical Pipeline Overview</h2>
+					<div class="fragment fade-up">
+						<div class="container" style="border-radius: 20px; background-color: rgba(0, 0, 0, 0.7); padding: 50px;">
+							<a href="https://github.com/vilasinits/LDT_2cell_l1_norm/tree/refactor-pyccl-version" target="_blank">
+								<img src="assets/ldt_overview_qr.png" alt="Documentation QR Code"
+									 style="width: 100%; max-width: 100px; border-radius: 2px;
+											box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+							  </a>
+							<div class="col">
+								<ul>
+									<li><b class="alert">Start:</b> From the first principles of cosmology →
+										<em>Spherical Collapse Model</em><br>
+										<small style="opacity: 0.8;">(One-to-one mapping between initial and final densities)</small></li>
+									<br>
+									<li><b class="alert">LDT Framework:</b> used to predict the probability distribution</li>
+									<br>
+									<li><b class="alert">Final:</b> Connect the distribution to the
+										<span style="font-family: 'Courier New', monospace;">ℓ₁</span>-norm</li>
+								</ul>
+							</div>
+						</div>
 				</section>
 				  			
 <!-- ######################################################################################################################################################################### -->
@@ -231,7 +243,7 @@
 							<image src="assets/derivative_l1.png" class="plain" style="height: 450px;" controls></image>
 						</div>
 					</div>
-					<h4>Sreekanth, V. T., Codis, S., Barthelemy, A., & Starck, J.-L. 2024, A&A, 691,A80</h4>
+					<h4><a href = "">Sreekanth, V. T., Codis, S., Barthelemy, A., & Starck, J.-L. 2024, A&A, 691,A80 </a></h4>
 				</div>
 			</section>
 <!-- ######################################################################################################################################################################### -->
@@ -261,33 +273,22 @@
 			<section>
 				
 				<div style="background-color: #111; color: #fff; font-family: sans-serif; padding: 40px; text-align: center;">
-
 					<!-- Title -->
 					<h2 style="color: #eee;">Generative Process of Weak Lensing Convergence Map</h2>
-				  
 					<!-- Process Flow -->
 					<div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin: 40px 0;">
-				  
 					  <div style="background-color: #b3e5fc; color: #111; padding: 16px 30px; border-radius: 12px;">
 						Gaussian Initial Map
 					  </div>
-				  
 					  <div style="font-size: 2em;">→</div>
-				  
 					  <div style="background-color: #ffe082; color: #111; padding: 16px 30px; border-radius: 12px;">
 						Iterative Forward–Backward Method
 					  </div>
-				  
 					  <div style="font-size: 2em;">→</div>
-				  
 					  <div style="background-color: #a5d6a7; color: #111; padding: 16px 30px; border-radius: 12px;">
 						Converged κ Map
 					  </div>
-				  
 					</div>
-				  
-					<!-- Minimization Equation -->
-					<!-- Equation from Paper -->
 					<div style="color: #ccc; font-size: 1.1em; max-width: 850px; margin: 40px auto 0;">
 						Minimize:
 						<br><br>
@@ -297,37 +298,35 @@
 						<br><br>
 						where P is the power spectrum operator and ℓ₁[κ] is the wavelet ℓ₁ norm of the map κ.
 					</div>
-
-				  
 				  </div>
-				  
-					  
-				  
-
 			</section>
 
 <!-- ######################################################################################################################################################################### -->
 			<section>
 				<image src="assets/solution_animation.gif" class="plain" style="height: 550px;" controls></image>
+				<h6><a>Submitted to, A&A</a></h6>
 			</section>
 
 <!-- ######################################################################################################################################################################### -->
 			<section>
 				<h3 class="slide-title">Benchmarking</h3>
 				<image src="assets/skew-variance-kurtosis-tophatpng.png" class="plain" style="height: auto;" controls></image>
-				<!-- <div class="r-stack"> -->
-						
 				<div class="h-stack">
 					<image src="assets/time_analysis 2.png" class="plain" style="height: 400px;" controls></image>
-					<!-- <br> -->
 					<a href="https://github.com/vilasinits/GOLCONDA/tree/refactor" target="_blank">
 						<img src="assets/golconda_qr.png" class="plain qr" style="height: 100px; position:relative; left:245px; bottom:10px" alt="GOLCONDA QR Code">
 					  </a>
-									  </div>	
-				<!-- </div> -->
+				</div>	
 			</section>
-
-
+<!-- ######################################################################################################################################################################### -->
+			<section>
+				<h3 class="slide-title">Future Work</h3>
+				<ul>
+					<li> Include stochasticity in the prediction tool.</li>
+					<li> Investigate the potential of using other filtering schemes in wavelet $\ell_1$-norm. </li>
+					<li> Validate theory wrt simulations in terms of inference. </li>
+				</ul>
+			</section>
 <!-- ######################################################################################################################################################################### -->
 			<section>
 				<h2 style="font-family: Brush Script MT; font-size:132px;">Thank you!</h2>
