@@ -27,7 +27,7 @@
 						<div class="title" style="border-radius: 50px; background-color: rgba(0, 0, 0, 0.4); padding: 20px; text-align: center;">
 							<h2>Theoretical predictions for wavelet $\ell_1$-norm</h2>
 							<h3> <a href = "https://indico.ijclab.in2p3.fr/event/11110/">COLOURS,</a>12 June 2025</h3>
-							<h3>Institute Pascal, Orsay, France</h3>
+							<h3>Institut Pascal, Orsay, France</h3>
 						</div>
 						
 					</div>	
@@ -60,9 +60,9 @@
 				 <!-- Page 2 -->
 				<section>
 					<h3 class="slide-title">
-						<b class="alert" style="border-radius: 10px; background-color: rgba(0, 0, 0, 0.8);">
+						<!-- <b class="alert" style="border-radius: 10px; background-color: rgba(0, 0, 0, 0.8);"> -->
 							Introduction – Weak Lensing
-						</b>
+						<!-- </b> -->
 					</h3>
 					<br>
 				
@@ -131,14 +131,14 @@
 									<h5>But...not all the information is captured!</h5>
 									<image src="/assets/FT_demo2.png" class="plain" style="height: 300px;" controls></image>
 								</div>
-								<li class="fragment">Cannot extract non-Gaussian statistics</li>
+								<li class="fragment"><span style="color: #72b5ec;">Cannot extract</span> non-Gaussian statistics</li>
 							</ul>
 						</div>
 						
 						<div class="fragment col">
 							<h3>Alternative approach: Higher order statistics</h3>
 							<ul>
-								<li>Can extract non-Gaussian statistics</li>
+								<li><span style="color: #72b5ec;">Can extract</span> non-Gaussian statistics</li>
 								
 								<li class="fragment">Several HOS exists 
 									<ul> 
@@ -149,7 +149,7 @@
 										<li>Wavelet $\ell_1$-norm</li>
 									</ul>
 								</li>
-								<li class="fragment"> Many do not have a theory prediction</li>
+								<li class="fragment"> Many <span style="color: #72b5ec;"> do not have </span> a theory prediction</li>
 								<li class="fragment"> Need simulations</li>
 							</ul>
 							<br>
@@ -171,8 +171,8 @@
 								$l_1^{j,i} = \sum_{u=1}^{coef(Sj,i)} |S_{j,i}[u]|$
 							</div>
 							<ul>
-								<li>the wavelet $\ell_1$-norm carries the information encoded in all pixels of the map. </li>
-								<li>It is shown in that it remarkably outperforms commonly used summary statistics, such as the power spectrum or the combination of peak and void counts.</li>
+								<li>the wavelet $\ell_1$-norm carries the <span style="color: #72b5ec;">information encoded in all pixels</span> of the map. </li>
+								<li>It is shown in that it remarkably <span style="color: #72b5ec;">outperforms commonly used summary statistics</span>, such as the power spectrum or the combination of peak and void counts.</li>
 							</ul>
 							<img src="assets/starlet_l1_ajani-1.png" class="plain;" style="width:850px; height:450px;"><a href="https://www.aanda.org/articles/aa/pdf/2021/01/aa39988-20.pdf">Ajani et al. (2021)</a></img>
 						</div>
@@ -325,17 +325,41 @@
 			</section>
 <!-- ######################################################################################################################################################################### -->
 			<section>
-				<h3 class="slide-title">Future Work</h3>
-				<ul>
-					<li> Include stochasticity in the prediction tool.</li>
-					<li> Investigate the potential of using other filtering schemes in wavelet $\ell_1$-norm. </li>
-					<li> Validate theory wrt simulations in terms of inference. </li>
-				</ul>
+				<h3 class="slide-title">Conclusion</h3>
+				<div class="fragment fade-up">
+					<!-- <div class="container" -->
+					<div class="block">
+						<ul>
+							<li> Need HOS to extract non-gaussian information.</li>
+							<li> We have <span style="color: #72b5ec;">developed a theoretical prediction tool </span> for the wavelet $\ell_1$-norm using large deviation theory.</li>
+							<li> The prediction is <span style="color: #72b5ec;">validated </span> against N-body simulations and is <span style="color: #72b5ec;">robust</span>.</li>
+							<li> Developed an emulator for kappa maps using forward-backward method.</li>
+							<li> The emulator is relatively <span style="color: #72b5ec;">fast </span> and can be used to generate kappa maps with <span style="color: #72b5ec;">desired properties</span>.</li>
+						</ul>
+					</div>
+					<br><br>
+				</div>
+				
+				<div class="fragment fade-up">
+					<h3 class="slide-title">Future Work</h3>
+				</div>
+				<div class="fragment fade-up">
+					
+					<!-- <div class="container" -->
+						<div class="block">
+							<ul>
+								<li> Include <span style="color: #72b5ec;">stochasticity</span> in the prediction tool.</li>
+								<li> Investigate the potential of using <span style="color: #72b5ec;">other filtering schemes</span> in wavelet $\ell_1$-norm. </li>
+							</ul>
+						</div>
+					<!-- </div> -->
+				</div>
+				
 			</section>
 <!-- ######################################################################################################################################################################### -->
 			<section>
 				<h2 style="font-family: Brush Script MT; font-size:132px;">Thank you!</h2>
-				<h2 style="font-size:32px;"> Questions?  </h2>
+				<!-- <h2 style="font-size:32px;"> Questions?  </h2> -->
 			</section>
 <!-- ######################################################################################################################################################################### -->
 			
