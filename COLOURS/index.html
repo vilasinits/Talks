@@ -264,6 +264,7 @@
 			
 			<section>
 				<image src="assets/lognormal_comparision.png" class="plain" style="height: 550px;" controls></image>
+				<p> Current emulators for weak-lensing convergence maps does not encode accurate HOS!</p>
 			</section>
 
 <!-- ######################################################################################################################################################################### -->
@@ -278,23 +279,32 @@
 					  </div>
 					  <div style="font-size: 2em;">→</div>
 					  <div style="background-color: #ffe082; color: #111; padding: 16px 30px; border-radius: 12px;">
-						Iterative Forward–Backward Method
+						Iterative Generalised Forward–Backward Method
 					  </div>
 					  <div style="font-size: 2em;">→</div>
 					  <div style="background-color: #a5d6a7; color: #111; padding: 16px 30px; border-radius: 12px;">
 						Converged κ Map
 					  </div>
 					</div>
-					<div class="container"  style="border-radius: 20px; background-color: rgba(0, 0, 0, 0.7); padding: 50px;">
-						Minimize:
-						<br><br>
-						<span style="font-family: 'Courier New', monospace; color: #fff;">
-						&nbsp;&nbsp;&nbsp;&nbsp;𝓛(κ) = ‖P[κ] − P<sub>target</sub>‖²<sub>2</sub> + λ &nbsp;‖&nbsp;ℓ₁[κ] − ℓ₁<sub>target</sub>&nbsp;‖²
-						</span>
+					<div class="fragment fade-up">
+						<!-- <div class="container"  style="border-radius: 20px; background-color: rgba(0, 0, 0, 0.7); padding: 50px;"> -->
+							GFB → decompose the optimisation into <span style="color: #72b5ec;">simpler sub-problems</span> associated with each constraint and alternate between them
+						<!-- </div> -->
+						<div class="container"  style="border-radius: 20px; background-color: rgba(0, 0, 0, 0.7); padding: 50px;">
+							<br><br>
+							<ul>
+								<li>
+									<span style="font-family: 'Courier New', monospace; color: #fff;">
+										&nbsp;&nbsp;&nbsp;&nbsp;‖$\mathrm{P}[\kappa]$ − $\mathrm{P}_{target}$</sub>‖²<sub>2</sub> ; &nbsp;‖&nbsp;$\ell_1[\kappa]$ − $\ell_1[\kappa]_{target}$</sub>&nbsp;‖²
+										</span>
+								</li>
+							</ul>
+							
+						</div>
+						<!-- <br><br> -->
+						where P is the power spectrum operator and $\ell_1[\kappa]$ is the wavelet $\ell_1$ norm of the map $\kappa$.
 					</div>
-					<br><br>
-					where P is the power spectrum operator and ℓ₁[κ] is the wavelet ℓ₁ norm of the map κ.
-				  </div>
+				</div>
 			</section>
 
 			<section>
