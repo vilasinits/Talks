@@ -188,12 +188,11 @@
 					<div class="anothe r-container" style="border-color: white">
 						$w_j = <\kappa,\varphi_{j+1}> - <\kappa,\varphi_j>$
 					</div>
-					<img src="assets/convergence_map.jpg" class="plain;" style="width:250px; height:250px;"/img>
+					<img src="assets/convergence_map.jpg" class="plain;" style="width:250px; height:250px;"></img>
 					<p>||</p>
-					<img src="assets/wavelet_decompose.jpg" class="plain;" style="width:1500px; height:250px;" /img>
-					<p style="font-size:32px; color:black; position:relative; left:445px; bottom:200px;"> + </p>
+					<img src="assets/wavelet_decompose.jpg" class="plain;" style="width:1500px; height:180px;"> </img>
+					<p style="font-size:32px; color:black; position:relative; left:415px; bottom:150px;"> + </p>
 				</section>
-
 			
 				<section>
 					<!-- <div class="container" style="border-radius: 20px; background-color:rgba(0, 0, 0, 0.7)" ;> -->
@@ -230,7 +229,7 @@
 				  			
 <!-- ######################################################################################################################################################################### -->
 			<section>
-				<h2 class="section-title">Results</h2>
+				<h2 class="slide-title">Results</h2>
 				<br>
 				<div class="row">
 					<div class="container"> 
@@ -271,10 +270,9 @@
 
 <!-- ######################################################################################################################################################################### -->
 			<section>
-				
 				<div style="background-color: #111; color: #fff; font-family: sans-serif; padding: 40px; text-align: center;">
 					<!-- Title -->
-					<h2 style="color: #eee;">Generative Process of Weak Lensing Convergence Map</h2>
+					<h2 class="slide-title" style="color: #eee;">Generative Process of Weak Lensing Convergence Map</h2>
 					<!-- Process Flow -->
 					<div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin: 40px 0;">
 					  <div style="background-color: #b3e5fc; color: #111; padding: 16px 30px; border-radius: 12px;">
@@ -289,16 +287,25 @@
 						Converged κ Map
 					  </div>
 					</div>
-					<div style="color: #ccc; font-size: 1.1em; max-width: 850px; margin: 40px auto 0;">
+					<div class="container"  style="border-radius: 20px; background-color: rgba(0, 0, 0, 0.7); padding: 50px;">
 						Minimize:
 						<br><br>
 						<span style="font-family: 'Courier New', monospace; color: #fff;">
 						&nbsp;&nbsp;&nbsp;&nbsp;𝓛(κ) = ‖P[κ] − P<sub>target</sub>‖²<sub>2</sub> + λ &nbsp;‖&nbsp;ℓ₁[κ] − ℓ₁<sub>target</sub>&nbsp;‖²
 						</span>
-						<br><br>
-						where P is the power spectrum operator and ℓ₁[κ] is the wavelet ℓ₁ norm of the map κ.
 					</div>
+					<br><br>
+					where P is the power spectrum operator and ℓ₁[κ] is the wavelet ℓ₁ norm of the map κ.
 				  </div>
+			</section>
+
+			<section>
+				<!-- <h3 class="slide-title">Generative Process of Weak Lensing Convergence Map</h3> -->
+				<div class="container" style="border-radius: 20px; background-color: rgba(0, 0, 0, 0.7); padding: 50px;">
+					<image src="assets/fwd-bkwd.png" class="plain" style="height: 400px;" controls></image>
+					<a href="https://github.com/vilasinits/GOLCONDA/tree/refactor" target="_blank">
+						<img src="assets/golconda_qr.png" class="plain qr" style="height: 100px; position:relative; left:245px; bottom:10px" alt="GOLCONDA QR Code">
+					  </a>
 			</section>
 
 <!-- ######################################################################################################################################################################### -->
@@ -312,10 +319,8 @@
 				<h3 class="slide-title">Benchmarking</h3>
 				<image src="assets/skew-variance-kurtosis-tophatpng.png" class="plain" style="height: auto;" controls></image>
 				<div class="h-stack">
-					<image src="assets/time_analysis 2.png" class="plain" style="height: 400px;" controls></image>
-					<a href="https://github.com/vilasinits/GOLCONDA/tree/refactor" target="_blank">
-						<img src="assets/golconda_qr.png" class="plain qr" style="height: 100px; position:relative; left:245px; bottom:10px" alt="GOLCONDA QR Code">
-					  </a>
+					<image src="assets/time_analysis 2.png" class="plain" style="height: 300px;" controls></image>
+					
 				</div>	
 			</section>
 <!-- ######################################################################################################################################################################### -->
