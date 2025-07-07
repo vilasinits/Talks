@@ -31,3 +31,6 @@
 [submodule "COLOURS/reveal.js"]
 	path = COLOURS/reveal.js
 	url = https://github.com/EiffL/reveal.js.git
+[submodule "TITAN-ARGOS-TOSCA 2025/reveal.js"]
+	path = TITAN-ARGOS-TOSCA 2025/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
