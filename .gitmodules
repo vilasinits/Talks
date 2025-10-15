@@ -34,3 +34,6 @@
 [submodule "TITAN-ARGOS-TOSCA 2025/reveal.js"]
 	path = TITAN-ARGOS-TOSCA 2025/reveal.js
 	url = https://github.com/EiffL/reveal.js.git
+[submodule "PhD-Defence/reveal.js"]
+	path = PhD-Defence/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
