@@ -20,6 +20,9 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+				<!-- Global footer text (hidden on slide 1 via JS below) -->
+				<!-- <div class="global-footer-text" id="vf">Vilasini PhD Defence — 22 October 2025</div> -->
+
 
 <!-- ######################################################################################################################################################################### -->
 				<section data-background-image="assets/joint-titan-argos-tosca-workshop-background.png"  data-background-opacity="0.4" >
@@ -45,15 +48,18 @@
 						</div>		
 					</div>
 					<div class="logo-footer">
-						<div class="additional-logos">
-							<img src="assets/universite_paris_saclay.jpg" alt="University Logo" style="height: 50px; position: relative;
-							bottom: 0px;">
-							<img src="assets/CosmoStat_Logo.png" alt="CosmoStat Logo" style="height: 50px">
-							<img src="assets/LOGO_CEA_ORIGINAL.png" alt="CEA" style="height: 50px">
-							<img src="assets/aim.png" alt="AIM" style="height: 50px">
+						<div class="footer-logos">
+						  <img src="assets/CosmoStatDarkBK.png" alt="CosmoStat" />
+						  <img src="assets/aim.png" alt="AIM" />
+						  <img src="assets/universite_paris_saclay.jpg" alt="Université Paris-Saclay" />
 						</div>
-					</div>
+					  </div>
+					  
+					<!-- </div> -->
+  
 				</section>
+
+				
 <!-- ######################################################################################################################################################################### -->
 
 <!--########################## AIM ############################-->
@@ -1475,7 +1481,7 @@
 					  <li><b>Probe combination:</b> joint analysis of multiple datasets with shared physics</li>
 					  <li><b>Model complexity:</b> capture nonlinear growth, baryons, galaxy formation</li>
 					  <li><b>Beyond analytics:</b> no need for tractable likelihood \(p(x|\boldsymbol{\theta})\)</li>
-					  <li><b>Methods: </b> Full N-body, approximation method, or Neural net based</li>
+					  <li><b>Methods: </b> Full N-body, approximate method, or Neural net based</li>
 					</ul>
 				  </div>
 				</div>
@@ -2678,14 +2684,68 @@
 		box-sizing: border-box;
 	}
 
+	/* === Unified footer: fixed at bottom, centered logos, clean text === */
 	.logo-footer {
-		position: absolute;
-		bottom: 20px;
-		width: 100%;
+		position: fixed;
+		bottom: -15em;
+		left: 0;
+		width: 90%;
+		z-index: 1000;
+	
+		display: flex;
+		flex-direction: column;   /* text above logos */
+		align-items: center;
+		justify-content: center;
+		gap: 6px;                 /* space between text and logos */
+		padding-bottom: 8px;
+		background: transparent;  /* transparent so it blends with any slide */
+		pointer-events: none;     /* doesn’t block clicks on slides */
+	}
+	
+	.logo-footer .footer-text {
+		font-size: 0.95rem;
+		color: #a8b2c7;
+		font-weight: 500;
+		opacity: 0.9;
+		pointer-events: none;
+	}
+	
+	.logo-footer .footer-logos {
 		display: flex;
 		justify-content: center;
-		gap: 40px;
+		align-items: center;
+		gap: 22px;
+		pointer-events: none;
 	}
+	
+	.logo-footer .footer-logos img {
+		height: 35px;
+		border: none !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		background: none !important;
+		filter: none !important;
+		object-fit: contain;
+		pointer-events: auto; /* allow right-click/save on logos */
+	}
+  
+  
+	/* keep logos original (no rounding/shadow/border) */
+	img.plain{
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		border: none !important;
+		background: transparent !important;
+		filter: none !important;
+		object-fit: contain;
+		pointer-events: auto; /* allow right-click/save on logos if needed */
+	}
+	
+	/* If Reveal/theme adds rounding to all images, nuke it here too */
+	.reveal img{
+		border-radius: 0; box-shadow: none; border: none;
+	}
+	
 
 	.title-content {
 		text-align: center;
@@ -3285,8 +3345,36 @@
 	  opacity:0.06;         /* more faded */
 	  text-shadow:0 0 4px rgba(0,0,0,.25);
 	}
+
+	/* same bottom as your slide number (you set 40px earlier) */
+	.global-footer-text{
+		position: fixed;
+		bottom: 40px;         /* match .reveal .slide-number bottom */
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 0.95rem;
+		color: #a8b2c7;
+		opacity: .9;
+		z-index: 1000;
+		pointer-events: none;
+		display: none;        /* hidden on title slide via JS below */
+	}
+  
+	  
   </style>
 
+  <script>
+	(function(){
+	  function toggleVF(){
+		const el = document.getElementById('vf');
+		const i = Reveal.getIndices().h || 0;   // current horizontal slide index
+		el.style.display = (i > 0) ? 'block' : 'none'; // show from 2nd slide onward
+	  }
+	  Reveal.on('ready', toggleVF);
+	  Reveal.on('slidechanged', toggleVF);
+	})();
+	</script>
+	
   
   
 
