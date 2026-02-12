@@ -37,3 +37,9 @@
 [submodule "PhD-Defence/reveal.js"]
 	path = PhD-Defence/reveal.js
 	url = https://github.com/EiffL/reveal.js.git
+[submodule "reveal.js"]
+	path = reveal.js
+	url = https://github.com/EiffL/reveal.js.git
+[submodule "DeepCosmoStatDays2026/reveal.js"]
+	path = DeepCosmoStatDays2026/reveal.js
+	url = https://github.com/EiffL/reveal.js.git

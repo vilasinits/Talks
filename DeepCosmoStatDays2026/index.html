@@ -1,0 +1,1704 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Deep CosmoStat Days 2026- Vilasini</title>
+		<meta name="description" content="Talk for Deep CosmoStat Days 2026">
+		<meta name="author" content="Vilasini">
+
+		<link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/darkenergy.css">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Global footer text (hidden on slide 1 via JS below) -->
+				<!-- <div class="global-footer-text" id="vf">Vilasini PhD Defence - 22 October 2025</div> -->
+
+
+<!-- ######################################################################################################################################################################### -->
+				<section   data-background-opacity="0.4" >
+					<br>
+					<br>
+					<br>
+					<br>
+					<!-- <br>
+					<br>
+					<br>
+					<br> -->
+					<div class="container" style="display: flex; justify-content: center; align-items: center;">
+						<div class="title" style="border-radius: 50px; background-color: rgba(0, 0, 0, 0.4); padding: 20px; text-align: center;" >
+							
+							<h3 style="font-size:2.em;">Convergence map emulator & validation</h3>
+
+						</div>
+					</div>	
+					<h2>Vilasini Tinnaneri Sreekanth</h2>
+					<h5> Deep CosmoStat Days, 12 February 2026</h5>
+					<!-- <div> slides at <a href="https://vilasinits.github.io/Talks/PhD-Defence/">vilasinits.github.io/Talks/Phd-Defence/</a> </div> -->
+					<hr>
+					<!-- <div class="col">
+						<div align="left" style="margin-left: 20px;">
+							
+							<h5>Supervisors: Jean-Luc Starck and Sandrine Codis</h5>
+							<h5>CosmoStat, CEA Paris-Saclay, IRFU/DAp-AIM
+								Université Paris-Saclay, ED Astronomie et Astrophysique d’Ile de France</h5>
+							<br>
+						</div>		
+					</div> -->
+					<div class="logo-footer">
+						<div class="footer-logos">
+						  <img src="assets/logo_IAS.jpg" alt="IAS" />
+						  <img src="assets/cnrslogo.png" alt="CNRS" />
+						  <img src="assets/universite_paris_saclay.jpg" alt="UPS" />
+						</div>
+					  </div>  
+				</section>
+
+				
+<!-- ######################################################################################################################################################################### -->
+
+
+
+<!-- ################################################################### PROJECT 1 ########################################################################################### -->
+
+				
+<!-- ######################################################################################################################################################################### -->
+<!-- ######################################################################################################################################################################### -->
+<!-- ################################################################### PROJECT 2 ########################################################################################### -->
+
+
+			<section data-background="#000">
+				<h3 class="slide-title">Forward Modelling of the Universe</h3>
+			  
+				<div style="display:flex; justify-content:center; align-items:center; gap:40px; margin-top:60px;">
+			  
+				  <!-- Parameters -->
+				  <div  style="text-align:center;">
+					<b style="color:#6bdcff;">Parameters</b><br>
+					<span style="font-size:1.2em;">\( \boldsymbol{\theta} \)</span>
+				  </div>
+			  
+				  <div style="font-size:2em; color:#999;">&#8594;</div>
+			  
+				  <!-- STATIC 3D Cube -->
+				  <div style="perspective:800px;">
+					<div style="
+						position:relative;
+						width:156px; height:156px;
+						transform-style:preserve-3d;
+						transform: rotateY(-28deg) rotateX(16deg);
+						">
+					  <!-- Front -->
+					  <div style="
+						  position:absolute; inset:0;
+						  background:#181818; border:1px solid #444; border-radius:6px;
+						  transform: translateZ(78px);
+						  display:flex; flex-direction:column; justify-content:center; align-items:center;
+						  color:#eaeaea; box-shadow:0 10px 28px rgba(0,0,0,.35);">
+						<b style="color:#ffaa7f; margin-bottom:6px;">Forward Model</b>
+						<span style="font-size:0.85em;">Physics + ICs</span>
+					  </div>
+					  <!-- Top -->
+					  <div style="
+						  position:absolute; inset:0;
+						  background:#111; border:1px solid #333; border-radius:6px;
+						  transform: rotateX(90deg) translateZ(78px); opacity:.95;">
+					  </div>
+					  <!-- Right -->
+					  <div style="
+						  position:absolute; inset:0;
+						  background:#141414; border:1px solid #333; border-radius:6px;
+						  transform: rotateY(90deg) translateZ(78px); opacity:.95;">
+					  </div>
+					</div>
+				  </div>
+			  
+				  <div style="font-size:2em; color:#999;">&#8594;</div>
+			  
+				  <!-- Observables -->
+				  <div style="text-align:center;">
+					<b style="color:#6bdcff;">Observables</b><br>
+					<span style="font-size:1.2em;">\( x \)</span>
+				  </div>
+				</div>
+			  
+				<div style="text-align:center; margin-top:30px; font-size:1.1em;">
+				  \[
+					\boldsymbol{\theta} \;\xrightarrow{\text{simulate}}\; x \quad\text{instead of}\quad p(x|\boldsymbol{\theta})
+				  \]
+				</div>
+			  
+				<div style="margin-top:20px;">
+				  <div class="block-title">Why Forward Model?</div>
+				  <div class="block-content">
+					<ul>
+					  <li><b>Flexibility:</b> -> includes systematics (masks, noise, selection effects)</li>
+					  <li><b>Probe combination:</b> -> joint analysis of multiple datasets with shared physics</li>
+					  <li><b>Model complexity:</b> -> capture nonlinear growth, baryons, galaxy formation</li>
+					  <!-- <li><b>Beyond analytics:</b> no need for tractable likelihood \(p(x|\boldsymbol{\theta})\)</li> -->
+					  <li><b>Methods: </b> -> Full N-body, approximate method, or Neural net based</li>
+					</ul>
+				  </div>
+				</div>
+			</section>
+
+		
+			
+			<section data-background="#000" data-auto-animate>
+				<h3 class="slide-title">Approximate method: Shifted lognormal maps</h3>
+			  
+				<div style="display:grid; grid-template-columns:55% 45%; gap:16px; align-items:center;">
+			  
+				  <!-- LEFT: figure -->
+				  <figure style="margin:0; text-align:center;">
+					<img src="assets/lognormal_comparision.png"
+						 alt="Lognormal vs target comparison"
+						 class="plain"
+						 style="width:100%; max-height:58vh; object-fit:contain; border-radius:8px;">
+				  </figure>
+			  
+				  <!-- RIGHT: compact equation card -->
+				  <!-- <div class="block" style="margin:0;"> -->
+					<!-- <div class="block-title">Shifted lognormal construction</div> -->
+				
+			  
+					  <div class="block" style="margin:0;">
+						<div class="block-title">Shifted lognormal</div>
+						<div class="block-content" style="font-size:1.2em;">
+						  <div style="background:rgba(20,28,40,.55); border:1px solid #355; border-radius:10px; padding:10px 12px;">
+							\[
+							  \boxed{\, X_i \;=\; e^{Z_i} \;-\; \lambda_i \,}
+							\]
+						  </div>
+						  <!-- <p style="margin:.4em 0 0; color:#9ecbff;">
+							\(Z_i\) Gaussian; choose \(\lambda_i\) (e.g. \(\lambda_i=\mathbb{E}[e^{Z_i}]\)) to set the mean/variance or match the target 2-pt.
+						  </p> -->
+						  <p class="eq-small" style="margin:.25em 0 0; color:#ffccaa;">
+							Matches variance / power by construction, but <b>HOS not guaranteed</b>.
+						  </p>
+						</div>
+					  </div>
+					  
+			  
+					  
+					<!-- </div> -->
+				  <!-- </div> -->
+			  
+				<!-- </div> -->
+			  
+				<p style="text-align:center; margin-top:8px; font-size:1.2em; color:#aaa;">
+				  Current weak-lensing convergence emulators often capture 2-pt well, but lack accurate higher-order statistics.
+				</p>
+			  </section>
+
+			  <section data-background-color="#ffffff" class="white-center" data-transition="none">
+				<div class="centerbox">
+				<!-- <h2></h2> -->
+				<h4 class="slide-title" style="margin-top:0;">Can we have a better emulator for convergence maps?</h4>
+				</div>
+			</section>
+			  
+
+			<!-- Decomposition -->
+			<section data-auto-animate  data-background="#000">
+				<h3 class="slide-title">Wavelet decomposition</h3>
+				<div style="text-align:center; padding:10px; margin-bottom:12px;">
+				  <img src="assets/wavelet_decomposition_filters.png"
+					   alt="Starlet scales and coarse map"
+					   class="plain"
+					   style="max-width:100%; max-height:58vh; width:auto; height:auto; border-radius:8px;">
+				</div>
+			  </section>
+			  
+			  
+
+			  <section data-auto-animate  data-background="#000">
+				<div style="display:grid; grid-template-columns:40% 45%; gap:26px; align-items:center;">
+			  
+				<div>
+					<div class="block-title">Requirements</div>
+					<div class="block-content" style="font-size:1.1em; line-height:1.5;">
+						<ol style="margin-left:10px;">
+						<li><b style="color:#6bdcff;">Map with correct $P(k)$</b><br>
+							<span style="color:#aaa; font-size:0.9em;">(power spectrum / 2-pt statistics)</span>
+						</li>
+						<li style="margin-top:10px;">
+							<b style="color:#ffaa7f;">Map with correct wavelet&nbsp;$\ell_1$-norm</b><br>
+							<span style="color:#aaa; font-size:0.9em;">(at scales of interest)</span>
+						</li>
+						<li>Fast and accurate.</li>
+						</ol>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+					</div>
+					</div>
+				  <div >
+					<div class="block-title">Idea -> Scale wise reconstruction</div>
+					<div class="block-content" style="text-align:center; font-size:1.0em;">
+					  \[
+						\underbrace{\kappa}_{\text{input}}
+						\;\xrightarrow{\text{wavelet}}\;
+						\{\,w_j\,\}_{j=1}^J \;+\; c_J
+					  \]
+					  <br>
+					  \[
+						w_j \;\xrightarrow[\;P(k),\,\ell_1^j\;]{\text{method}}\; \widehat w_j
+					  \]
+					  <br>
+					  \[
+						\widehat{\kappa}
+						\;=\;
+						\widehat c_J \;+\; \sum_{j=1}^{J} \widehat w_j
+					  \]
+					  <div class="small muted" style="margin-top:6px;">
+						decompose → constrain each scale → sum to reconstruct
+					  </div>
+					</div>
+				  </div>
+			  
+				</div>
+			  </section>
+			  
+  
+  
+
+<!-- ######################################################################################################################################################################### -->
+			<section  data-background="#000">
+				<div style="background-color: #111; color: #fff; font-family: sans-serif; padding: 40px; text-align: center;">
+					<!-- Title -->
+					<h2 class="slide-title" style="color: #eee;">Generative Process of Weak Lensing Convergence Map</h2>
+					<!-- Process Flow -->
+					<div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin: 40px 0;">
+					  <div style="background-color: #b3e5fc; color: #111; padding: 16px 30px; border-radius: 12px;">
+						Gaussian Initial Map
+					  </div>
+					  <div style="font-size: 2em;">→</div>
+					  <div style="background-color: #ffe082; color: #111; padding: 16px 30px; border-radius: 12px;">
+						Iterative Generalised Forward–Backward Method (GFB)
+					  </div>
+					  <div style="font-size: 2em;">→</div>
+					  <div style="background-color: #a5d6a7; color: #111; padding: 16px 30px; border-radius: 12px;">
+						Converged κ Map
+					  </div>
+					</div>
+					<div class="fragment fade-up">
+						<!-- <div class="container"  style="border-radius: 20px; background-color: rgba(0, 0, 0, 0.7); padding: 50px;"> -->
+							GFB → decompose the optimisation into <span style="color: #72b5ec;">simpler sub-problems</span> associated with each constraint and alternate between them
+						<!-- </div> -->
+						<div class="container"  style="border-radius: 20px; background-color: rgba(0, 0, 0, 0.7); padding: 50px;">
+							<br><br>
+							<ul>
+								<li>
+									<span style="font-family: 'Courier New', monospace; color: #fff;">
+										&nbsp;&nbsp;&nbsp;&nbsp;‖$\mathrm{P}[\kappa]$ - $\mathrm{P}_{target}$</sub>‖²<sub>2</sub> ; &nbsp;‖&nbsp;$\ell_1[\kappa]$ - $\ell_1[\kappa]_{target}$</sub>&nbsp;‖²
+										</span>
+								</li>
+							</ul>
+							
+						</div>
+						<!-- <br><br> -->
+						where P is the power spectrum operator and $\ell_1[\kappa]$ is the wavelet $\ell_1$ norm of the map $\kappa$.
+					</div>
+				</div>
+			</section>
+
+			<section  data-background="#000">
+				<!-- <h3 class="slide-title">Generative Process of Weak Lensing Convergence Map</h3> -->
+				<div class="container" style="border-radius: 20px; background-color: rgba(0, 0, 0, 0.7); padding: 50px;">
+					<image src="assets/fwd-bkwd.png" class="plain" style="height: 600px;" controls></image>
+					<!-- <a href="https://github.com/vilasinits/GOLCONDA/tree/refactor" target="_blank">
+						<img src="assets/golconda_qr.png" class="plain qr" style="height: 100px; position:relative; left:245px; bottom:10px" alt="GOLCONDA QR Code">
+					  </a> -->
+			</section>
+
+<!-- ######################################################################################################################################################################### -->
+			<section>
+				<image src="assets/solution_animation.gif" class="plain" style="height: 550px;" controls></image>
+				<h4><a href = "https://arxiv.org/pdf/2507.01707">Tinnaneri Sreekanth, V., Starck, J.-L., & Codis, S. 2025, , arXiv:2507.01707., A&A, 701, A170  </a></h4>
+			</section>
+
+			<section>
+				<image src="assets/l1-norm-scales.png" class="plain" style="height: 550px;" controls></image>
+			</section>
+<!-- ######################################################################################################################################################################### -->
+			<section>
+				<h3 class="slide-title">Benchmarking</h3>
+				<image src="assets/skew-variance-kurtosis-tophatpng.png" class="plain" style="height: auto;" controls></image>
+				<div style="display:grid; grid-template-columns:58% 42%; gap:0px; align-items:start;">
+					<!-- LEFT -->
+					<figure style="margin:0;">
+					  <img src="assets/time_analysis 2.png" alt="Timing analysis"
+						   class="plain"
+						   style="height:300px; width:auto; border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,.35); object-fit:contain;">
+					  <figcaption style="font-size:0.9rem; color:#a8b2c7; margin-top:6px;">
+						<em>Runtime profile (single run)</em>
+					  </figcaption>
+					</figure>
+					<!-- RIGHT: CENTERED box -->
+					<div class="block" style="margin:0; place-self:center; width:min(420px, 100%);">
+					  <div class="block-title" style="display:flex; align-items:center; gap:10px;">
+						<!-- … SVG hand … -->
+						Runtime & Pixels
+					  </div>
+					  <div class="block-content" style="font-size:0.95rem; line-height:1.4;">
+						<ul style="margin:0;">
+						  <li>Runs on a <b>single CPU</b>.</li>
+						  <li>Pixel size: <b>2 arcmin</b>.</li>
+						</ul>
+					  </div>
+					</div>
+				  </div>	  
+			</section>
+
+			<section>
+				<h3>Benchmarking- comparing PDF and peak counts at different scales</h3>
+				<img src="assets/pdf_scales.png" class="plain" style="height: 350px;" controls></img>
+				<img src="assets/peak_count.png" class="plain" style="height: 350px;" controls></img>
+			</section>
+
+			<section>
+				<h3 slide-title>Convergence map generation for lower Omega m</h3>
+				<section>
+					<img src="assets/low_omegam_maps.png" class="plain" style="height: 400px;" controls></img>
+
+				</section>
+				<section>
+					<img src="assets/low_omegam_l1norms.png" class="plain" style="height: 400px;" controls></img>
+				</section>
+				<section>
+					<img src="assets/low_omega_m_error.png" class="plain" style="height: 400px;" controls></img>
+				</section>
+				
+			</section>
+			<section>
+				<h3 slide-title>Convergence map generation for higher Omega m</h3>
+				<section>
+					<img src="assets/highomegam_maps.png" class="plain" style="height: 400px;" controls></img>
+
+				</section>
+				<section>
+					<img src="assets/highomegam_l1norms.png" class="plain" style="height: 400px;" controls></img>
+				</section>
+				<section>
+					<img src="assets/highomegam_error.png" class="plain" style="height: 400px;" controls></img>
+				</section>
+			</section>
+			  
+
+			
+
+			<!-- ########################################### RECAP Project 2 ################################################################################## -->
+			
+				<section>
+				<h3>The missing ingredient - covariance</h3>
+				<div>				  <ul>
+					<li><b class="alert">Stochasticity of wavelet $\ell_1$-norm:</b> investigate a tractable analytical model.</li>
+				  </ul>
+				  <figure class="fragment" style="margin:0;">
+					<img src="assets/stochasticity_example.png"
+						 alt="Stochasticity of wavelet l1-norm example"
+						 class="plain"
+						 style="width:100%; max-height:62vh; object-fit:contain; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.35);" />
+					<figcaption style="color:#bbb; font-size:1.0em; text-align:center; margin-top:6px;">
+					  Covariance estimate using GPR and PCA decomposition
+					</figcaption>
+				  </figure>
+				</div>
+			</section>
+
+			<section data-auto-animate  data-background="#000">
+				<h3 class="slide-title">Takeaways</h3>
+			  
+				<div class="block fragment" data-fragment-index="0">
+				  <div class="block-content">
+					<ul>
+						<li><b>Goal:</b> fast κ emulator matching <i>P(k)</i> + wavelet ℓ₁.</li>
+						<li><b>Method:</b> Gaussian init → <i>GFB</i> iterations → constrained κ.</li>
+						<li><b>Constraints:</b> ‖P[κ]-P<sub>tgt</sub>‖² &nbsp;,&nbsp; ‖ℓ₁[κ]-ℓ₁<sub>tgt</sub>‖².</li>
+						<li><b>Results:</b> realistic HOS, good PDF/skew/kurtosis; fast generation.</li>
+						<li><b>Cost:</b> minutes per map on CPU; no training set needed.</li>
+						<li><b>Stocasticity:</b>A working model in place but yet to be tested.</li>
+					</ul>
+				  </div>
+				</div>
+			</section>
+
+
+			  
+<!-- ######################################################################################################################################################################### -->			  
+<!-- ######################################################################################################################################################################### -->
+			<section data-background-image="assets/joint-titan-argos-tosca-workshop-background.png"  data-background-opacity="0.4">
+				<h2 style="font-family: Brush Script MT; font-size:132px;">Thank you!</h2>
+			</section>
+<!-- ######################################################################################################################################################################### -->
+			<section>
+
+			</section>
+
+<!-- ######################################################################################################################################################################### -->
+			
+
+			<section data-background-color="#ffffff" class="white-center" data-transition="none">
+					<div class="centerbox">
+					<!-- <h2>Part 1</h2> -->
+					<h4 class="slide-title" style="margin-top:0;">Quick recap</h4>
+					</div>n
+				</section>
+
+				<section data-background="#000">
+					<h3 class="slide-title">What we have now</h3>
+					<div style="width:100%;max-width:1100px;margin:8px auto 0;">
+					  <svg viewBox="0 0 1100 520" style="width:100%;height:auto;display:block;">
+						<defs>
+						  <filter id="soft">
+							<feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity=".45"/>
+						  </filter>
+				  
+						  <!-- arrowheads -->
+						  <marker id="arrA" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+							<polygon points="0,0 7,3.5 0,7" fill="#b7c6ff"/>
+						  </marker>
+						  <marker id="arrB" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+							<polygon points="0,0 7,3.5 0,7" fill="#63e6b0"/>
+						  </marker>
+						  <marker id="arrG" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+							<polygon points="0,0 7,3.5 0,7" fill="#bfbfbf"/>
+						  </marker>
+				  
+						  <!-- soft green glow for the Theory→HOS arrow -->
+						  <filter id="glowG" x="-50%" y="-50%" width="200%" height="200%">
+							<feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#63e6b0" flood-opacity=".85"/>
+						  </filter>
+				  
+						  <!-- soft green halo around HOS box -->
+						  <filter id="boxGlowG" x="-40%" y="-40%" width="180%" height="180%">
+							<feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#63e6b0" flood-opacity=".55"/>
+							<feDropShadow dx="0" dy="0" stdDeviation="14" flood-color="#63e6b0" flood-opacity=".25"/>
+						  </filter>
+						</defs>
+				  
+						<!-- headings -->
+						<text x="170" y="60" fill="#ffffff" font-size="28" font-weight="700" text-anchor="middle">Theory</text>
+						<!-- SOFT-FADE simulations heading -->
+						<text x="930" y="60" fill="#ffffff" fill-opacity=".75" font-size="28" font-weight="700" text-anchor="middle">Simulations</text>
+				  
+						<!-- 2-pt: FADED box + labels -->
+						<g opacity=".45">
+						  <rect x="70" y="160" width="280" height="96" rx="16" ry="16"
+								fill="#171717" stroke="#2a2a2a" filter="url(#soft)"/>
+						  <text x="210" y="198" fill="#e9e9e9" font-size="22" font-weight="700" text-anchor="middle">2-point statistics</text>
+						  <!-- <text x="210" y="220" fill="#a9a9a9" font-size="14" text-anchor="middle">(\(C_\ell,\ \xi\))</text> -->
+						</g>
+				  
+						<!-- HOS: GREEN HALO on box -->
+						<rect x="720" y="160" width="320" height="96" rx="16" ry="16"
+							  fill="#2b313c" stroke="#63e6b0" stroke-width="1.6" filter="url(#boxGlowG)"/>
+						<text x="880" y="198" fill="#eef2fa" font-size="22" font-weight="700" text-anchor="middle">Higher-order statistics</text>
+						<text x="880" y="220" fill="#c9d5ff" font-size="14" text-anchor="middle">HOS</text>
+				  
+						<!-- data + inference -->
+						<circle cx="540" cy="208" r="28" fill="#262626" stroke="#3a3a3a" filter="url(#soft)"/>
+						<text x="540" y="213" fill="#fff" font-size="16" text-anchor="middle">Data</text>
+						<ellipse cx="540" cy="400" rx="210" ry="46" fill="#f5f5f5" filter="url(#soft)"/>
+						<text x="540" y="405" fill="#111" font-size="22" font-weight="700" text-anchor="middle">Cosmological Inference</text>
+				  
+						<!-- existing (neutral) arrows -->
+						<line x1="170" y1="88" x2="210" y2="160" stroke="#bfbfbf" stroke-width="2.2" marker-end="url(#arrG)"/>
+						<line x1="512" y1="208" x2="350" y2="208" stroke="#bfbfbf" stroke-width="2.2" marker-end="url(#arrG)"/>
+						<line x1="210" y1="256" x2="440" y2="372" stroke="#bfbfbf" stroke-width="2.2" marker-end="url(#arrG)"/>
+				  
+						<!-- Simulations → HOS: SOFT-FADE arrow -->
+						<line x1="930" y1="88"  x2="880" y2="160"
+							  stroke="#9adcc1" stroke-width="2.2" stroke-opacity=".7" marker-end="url(#arrA)"/>
+				  
+						<!-- Data → HOS & HOS → Inference (kept) -->
+						<line x1="568" y1="208"  x2="720" y2="208" stroke="#b7c6ff" stroke-width="2.2" marker-end="url(#arrA)"/>
+						<line x1="880" y1="256"  x2="640" y2="372" stroke="#b7c6ff" stroke-width="2.2" marker-end="url(#arrA)"/>
+				  
+						<!-- NEW: glowing Theory → HOS arrow -->
+						<line x1="240" y1="60" x2="720" y2="150"
+							  stroke="#63e6b0" stroke-width="3.2" filter="url(#glowG)" marker-end="url(#arrB)"/>
+					  </svg>
+					</div>
+				  </section>
+				  
+				  
+					
+				  
+
+				  
+				  
+<!-- ######################################################################################################################################################################### -->
+				
+				  			
+<!-- ######################################################################################################################################################################### -->
+			<section  data-background="#000">
+				<!-- <h2 class="slide-title">Results</h2> -->
+				<br>
+				<div class="row">
+					<div class="container"> 
+						<div class="col">
+							<image src="assets/alltheta_z1_4.png" class="plain" style="height: 450px;" controls></image>
+						</div>
+						<div class="col">
+							<image src="assets/derivative_l1.png" class="plain" style="height: 450px;" controls></image>
+						</div>
+					</div>
+					<h4><a href = "https://www.aanda.org/articles/aa/full_html/2024/11/aa50061-24/aa50061-24.html">Sreekanth, V. T., Codis, S., Barthelemy, A., & Starck, J.-L. 2024, A&A, 691,A80 </a></h4>
+				</div>
+			</section>
+
+			<!-- <section data-background="#000" data-auto-animate>
+				<h3 class="slide-title">Can this be used for other filters?</h3>
+				<div style="display:grid; grid-template-columns:55% 45%; gap:16px; align-items:center;">
+				<div class="block" style="margin:0;">
+					<div class="block-title">Filter choice: Starlet</div>
+					<div class="block-content" style="font-size:1.2em;">
+						<p style="margin:0.3em 0;">Cubic B-spline (1D scaling function):</p>
+							\[
+							B(x)\;=\;\frac{1}{12}\Big(\,|x-2|^{3}-4|x-1|^{3}+6|x|^{3}-4|x+1|^{3}+|x+2|^{3}\,\Big)
+							\]
+					<ul style="margin:.5em 0;">
+						<li><b>Compact & compensated</b> → minimal leakage, stable HOS</li>
+						<li><b>Isotropic, non-oscillatory</b> → no ringing artifacts</li>
+						<li><b>Multiscale redundant (à trous)</b> → robust ℓ₁ with noise & masks</li>
+					</ul>
+					<p style="margin:.5em 0 0; color:#6bdcff; font-weight:600;">
+						→ Starlet can be better filter choice
+					</p>
+					</div>
+				</div>
+				<div class="card" style="text-align:center; padding:12px;">
+					<img src="assets/Filter_comparisions_fourier.png" alt="Fourier-space filter comparison"
+						class="plain"
+						style="max-width:100%; max-height:48vh; width:auto; height:auto; border-radius:8px;">
+				</div>
+				</div>
+			</section> -->
+			
+			<!-- SLIDE 2: Implementation strategy -->
+			<!-- <section data-background="#000" data-auto-animate>
+				<div style="display:grid; grid-template-columns:55% 45%; gap:16px; align-items:center;">
+				<div class="block" style="margin:0;">
+					<div class="block-title">From theory to practice</div>
+					<div class="block-content" style="font-size:1.2em;">
+					<p style="margin:.3em 0;"><b>Approach:</b></p>
+					<ul style="margin:.3em 0;">
+						<li><b>Filter swap:</b> \(W(kR)\rightarrow\widehat{\phi}_{\mathrm{B3}}(kR)\)</li>
+						<li><b>Properties:</b> radial, compact, non-oscillatory</li>
+						<li><b>Pipeline:</b> rate → CGF → PDF → \( \ell_1 \)</li>
+					  </ul>
+					<p style="margin:.4em 0 0; color:#9adcc1;">
+						<b>Solution:</b> Shape-matched B3 swap - valid when power is central-\(\ell\) dominated
+					</p>
+					</div>
+				</div>
+				<figure style="margin:0; text-align:center;">
+					<img src="assets/Filter_comparisions_fourier.png" alt="Fourier-space filter comparison"
+						style="max-width:100%; max-height:48vh; border-radius:8px; box-shadow:0 8px 25px rgba(0,0,0,.35);">
+				</figure>
+				</div>
+			</section> -->
+			
+			<!-- SLIDE 3: Results -->
+			<section data-auto-animate data-background="#000">
+				<h3 class="slide-title">Extension to starlet filter</h3>
+				<!-- <h3 class="slide-title">Results</h3> -->
+			  
+				<div style="display:grid; grid-template-columns:45% 55%; gap:16px; align-items:center;">
+			  
+				  <div>
+					<div class="block-content" style="font-size:1.2em; line-height:1.3;">
+					  <ul>
+						<li>Top: starlet $\ell_1$ at $\theta=15'$ for multiple cosmologies (prediction vs simulations).</li>
+						<li>Bottom: relative residual = $(\text{theory} - \text{sim}) / \text{theory}$.</li>
+						<li>Error bars: simulation scatter (finite realisations).</li>
+					  </ul>
+			  
+					  <p style="margin:.6em 0 0; color:#6bdcff; font-weight:600;">
+						→ LDT + B3 scaling reproduces the $\ell_1$ at 15′.
+					  </p>
+					</div>
+				  </div>
+			  
+				  <div style="text-align:center; padding:12px;">
+					<img src="assets/l1-norm-starlet.png"
+						 alt="Starlet $\ell_1$-norm prediction vs simulations"
+						 class="plain"
+						 style="max-width:100%; max-height:60vh; width:auto; height:auto; border-radius:8px;">
+					<div class="small muted" style="margin-top:6px; font-size:1.2em;">
+					  LDT + B3 substitution matches simulations at $\theta=15'$
+					</div>
+				  </div>
+			  
+				</div>
+			  </section>
+		
+
+			  <section data-background="#000">
+				<h3 class="slide-title">What is a “mildly non-linear” scale?</h3>
+			  
+				<div style="display:grid; grid-template-columns:56% 44%; gap:18px; align-items:start;">
+			  
+				  <!-- LEFT: definitions & mapping -->
+				  <div class="block" style="margin:0;">
+					<div class="block-content" style="font-size:1.15em; line-height:1.42;">
+					  <ul style="margin:0;">
+						<li class="fragment">
+						  Defined by fluctuation amplitude: <b>linear</b> if \( \sigma(R)\!\ll\!1 \),
+						  <b>mildly non-linear</b> if \( \sigma(R)\!\sim\!0.5{-}1 \)
+						  (equivalently \( \Delta^2(k)\!\equiv\!k^3P(k)/(2\pi^2)\sim\mathcal{O}(1) \)).
+						</li>
+			  
+						<li class="fragment">
+						  For weak lensing with sources at \(z_s\!\approx\!2\), the efficiency kernel \(W(z)\propto (1+z)\,\chi(z)\big[1-\chi(z)/\chi_s\big]\)
+						  <b>peaks at</b> \(z_\text{peak}\approx 0.97\) (here: \( \chi(z_\text{peak})\approx 3.23\times10^3\) Mpc).
+						</li>
+			  
+						<li class="fragment">
+						  Angular scale \(\theta\) probes a comoving scale near the peak:
+						  \[
+							R \approx \chi\!\left(z_\text{peak}\right)\,\theta \quad(\theta\ \text{in radians}).
+						  \]
+						  <!-- <li class="fragment"> -->
+							Example: $\theta = 15'$  $\Rightarrow$  $R \approx 14.1\ \mathrm{Mpc}$ at the kernel peak ($z\simeq 0.97$).
+						  <!-- </li> -->
+						  
+						</li>
+					  </ul>
+					</div>
+				  </div>
+			  
+				  <!-- RIGHT: kernel figure -->
+				  <figure style="margin:0;">
+					<img src="assets/lensing_kernel_z2.png"
+						 alt="Lensing kernel for z_s=2 (normalized), peak marked"
+						 class="plain"
+						 style="width:100%; max-height:62vh; object-fit:contain; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.35);" />
+					<figcaption style="font-size:0.95rem; color:#a8b2c7; margin-top:6px;">
+					  Lensing efficiency (normalized) for \(z_s=2\); peak at \(z\simeq0.97\).
+					</figcaption>
+				  </figure>
+			  
+				</div>
+			  </section>
+			  
+			  <section data-background="#000">
+				<h3 class="slide-title">What has been done for the PDF covariance — and what this implies for $\ell_{1}$</h3>
+			  
+				<div class="block" style="margin:0;">
+				  <div class="block-content" style="font-size:1.2em; line-height:1.4;">
+					<ul style="margin:0;">
+			  
+					  <li class="fragment">
+						Build a semi-analytic model for the PDF covariance (halo-model / perturbative)  
+						and calibrate it against simulations <span style="color:#888;">(Sun+2022)</span>.
+					  </li>
+			  
+					  <li class="fragment">
+						Use simulation ensembles to capture non-Gaussian off-diagonals  
+						and correct the theory in the tails where sampling noise is largest  
+						<span style="color:#888;">(D’Amico+2020)</span>.
+					  </li>
+			  
+					  <li class="fragment">
+						Combine theory+simulation in a hybrid covariance to avoid the known  
+						failure of Gaussian covariance for 1-pt summaries.
+					  </li>
+			  
+					  <li class="fragment">
+						<b>Implication for our work:</b> the same steps (theory core + simulation correction)  
+						can be applied to build a full covariance model for the <b>wavelet $\ell_{1}$-norm</b>.
+					  </li>
+			  
+					</ul>
+				  </div>
+				</div>
+			  </section>
+
+			  <section data-background="#000">
+				<h3 class="slide-title">Cosmologies where theory is not working</h3>
+			  
+				<div style="display:grid; grid-template-columns:46% 54%; gap:18px; align-items:start;">
+			  
+				  <!-- LEFT BLOCK: table -->
+				  <div class="block" style="margin:0;">
+					<div class="block-title">HALOFIT validity ranges (from Mead+2020)</div>
+					<div class="block-content" style="font-size:1.05em; line-height:1.42;">
+			  
+					  <table style="font-size:0.95em; border-collapse:collapse;">
+						<tr><td><b>$\Omega_m$</b></td><td>0.21 - 0.40</td></tr>
+						<tr><td><b>$\omega_b$</b></td><td>0.02 - 0.024</td></tr>
+						<tr><td><b>$\omega_c$</b></td><td>0.10 - 0.13</td></tr>
+						<tr><td><b>$A_s/10^{-9}$</b></td><td>1.72 - 2.58</td></tr>
+						<tr><td><b>$n_s$</b></td><td>0.85 - 1.05</td></tr>
+						<tr><td><b>$h$</b></td><td>-</td></tr>
+						<tr><td><b>$w_0$</b></td><td>-1.05 - -0.95</td></tr>
+					  </table>
+			  
+					</div>
+				  </div>
+			  
+				  <!-- RIGHT: scatter figure -->
+				  <figure style="margin:0; text-align:center;">
+					<img src="assets/invalidcosmos.png"
+						 class="plain"
+						 style="width:100%; max-height:60vh; object-fit:contain; border-radius:8px; box-shadow:0 8px 24px rgba(0,0,0,0.35);" />
+					<figcaption style="font-size:0.95em; color:#aaa; margin-top:4px;">
+					  Points where theory fails
+					</figcaption>
+				  </figure>
+			  
+				</div>
+			  </section>
+			  
+			  
+			  
+			  
+			  
+
+			  
+
+
+<!-- ######################################################################################################################################################################### -->
+
+			</div>
+		</div>
+
+	<script src="reveal.js/dist/reveal.js"></script>
+	<script src="reveal.js/plugin/notes/notes.js"></script>
+	<script src="reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="reveal.js/plugin/highlight/highlight.js"></script>
+	<script src="reveal.js/plugin/math/math.js"></script>
+
+	
+	<script>
+		Reveal.initialize({
+			controls: true,
+			controlsBackArrows: 'faded',
+			progress: true,
+			slideNumber: 'c/t', // Current / Total
+			hash: true,			
+			transition: 'fade', // Use 'fade', 'slide', or 'none'
+			width: 1280,
+			height: 720,
+			margin: 0.09,
+			minScale: 0.2,
+			maxScale: 1.5,
+			autoPlayMedia: true,
+			hashOneBasedIndex: true,
+			plugins: [
+				RevealMarkdown,
+				RevealHighlight,
+				RevealNotes,
+				RevealMath
+			],
+			
+			dependencies: [{
+				src: 'reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: 'reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: 'reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: 'reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: 'reveal.js/plugin/reveal.js-d3/reveald3.js'
+			},
+			{
+				src: 'reveal.js/plugin/reveal.js-plugins/chart/Chart.min.js'
+			},
+			{
+				src: 'reveal.js/plugin/reveal.js-plugins/chart/csv2chart.js'
+			},
+			{
+				src: 'reveal.js/plugin/highlight/highlight.js',
+				async: true
+			},
+			]
+		});
+	</script>
+
+  
+  <script type="text/javascript" id="MathJax-script" async
+	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  
+  <script>
+    (function(){
+      function placeNodes(){
+        const slide = document.getElementById('lcdm-slide');
+        if (!slide || !slide.classList.contains('present')) return;
+        const svg = slide.querySelector('svg');
+        const path = svg.querySelector('#lcdm-arc');
+        const L = path.getTotalLength();
+        svg.querySelectorAll('g.node').forEach(g => {
+          const t = Math.min(1, Math.max(0, parseFloat(g.dataset.t || 0.5)));
+          const p = path.getPointAtLength(L * t);
+          g.setAttribute('transform', `translate(${p.x},${p.y})`);
+        });
+      }
+      // On load, resize, and when entering the slide
+      if (window.Reveal) {
+        Reveal.on('ready', placeNodes);
+        Reveal.on('slidechanged', placeNodes);
+      }
+      window.addEventListener('resize', placeNodes);
+      // small delay to ensure layout settled
+      setTimeout(placeNodes, 0);
+    })();
+  </script>
+  
+  
+  <style>
+	/* Styles from the first block */
+	.reveal .slides {
+		/* border: 5px solid red;
+		min-height: 100%;
+		width: 128mm;
+		height: 96mm; */
+	}
+	.reveal .slide-title {
+		border-left: 5px solid white;
+		text-align: left;
+		margin-left: 20px;
+		padding-left: 20px;
+		font-size: 2.0em;
+	}
+
+	.reveal .alert {
+		color: #FFAA7F;
+		font-weight: bold;
+	}
+
+	.reveal .new-container {
+		/* Your CSS properties for the container go here */
+		border: 1px solid #000; /* Example border for visualization */
+		padding: 10px; /* Example padding */
+		background-color: #191919; /* Example background color */
+	}
+
+	.reveal .circle-container {
+		display: flex;
+		flex-direction: column;
+		align-items: left;
+	}
+
+	.reveal .another-container {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid #000;
+		background-color: #191919;
+		padding: 10px;
+		margin-left: 100px;
+		width: 1050px;
+		text-align: center;
+		justify-content: center;
+		align-items: center;
+	}
+
+
+	.reveal .circle {
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		background-color: #1b1a1a;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		border: 2px solid transparent;
+		transition: border 0.3s;
+	}
+
+
+	.reveal .text-on-right {
+		/* Your styles for the text on the right go here */
+		float: right;
+		margin-right: 20px;
+	}
+
+	.reveal .flow-container {
+		display: flex;
+		align-items: center;
+	}
+
+	.reveal .square {
+		width: 200px;
+		height: 200px;
+		background-color: #0693f1;
+		border: 2px solid #2980b9;
+		text-align: center;
+		align-items: center;
+		line-height: 100px;
+		color: #fff;
+		justify-content: center;
+		border-radius: 20px;
+		margin: 0 20px
+	}
+
+	/* .reveal .arrow - The definition in the third style block seems different (for a general layout, not flow chart)
+	   The one below is for a flowchart arrow. Kept this one for the specific structure, but noted the conflict. */
+	.reveal .arrow {
+		width: 100px; /* Adjust the length of the arrow as needed */
+		height: 2px;
+		background-color: #2980b9;
+		position: relative;
+	}
+
+	.reveal .arrow::before {
+		content: "";
+		position: absolute;
+		top: -5px; /* Adjust the position of the arrowhead */
+		right: -15px; /* Adjust the position of the arrowhead */
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent transparent transparent #2980b9;
+	}
+
+	.reveal .watermark {
+		position: fixed;
+		bottom: 45px;
+		right: 90px;
+		opacity: 0.8;
+		z-index: 99;
+		color: rgb(234, 230, 230);
+	}
+
+	/* Bigger, crisper slide numbers */
+	.reveal .slide-number {
+		/* your existing positioning kept */
+		font-size: 0.7em !important;   /* bump this to taste: 1.6–2.2em */
+		font-weight: 700;
+		line-height: 1.0;
+		letter-spacing: .02em;
+	
+		padding: 10px 14px;            /* give it some breathing room */
+		border-radius: 12px;
+	
+		color: #eaf2ff;
+		background: rgba(0,0,0,.45);
+		border: 1px solid rgba(255,255,255,.18);
+		box-shadow: 0 6px 18px rgba(0,0,0,.35);
+	}
+  
+
+	/* Styles from the second block (Title Slide) */
+	.title-slide {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100vh;
+	}
+
+	.logo-header {
+		position: absolute;
+		top: 20px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		padding: 0 40px;
+		box-sizing: border-box;
+	}
+
+	/* === Unified footer: fixed at bottom, centered logos, clean text === */
+	.logo-footer {
+		position: fixed;
+		bottom: -15em;
+		left: 0;
+		width: 90%;
+		z-index: 1100;
+	
+		display: flex;
+		flex-direction: column;   /* text above logos */
+		align-items: center;
+		justify-content: center;
+		gap: 6px;                 /* space between text and logos */
+		padding-bottom: 8px;
+		background: transparent;  /* transparent so it blends with any slide */
+		pointer-events: none;     /* doesn’t block clicks on slides */
+	}
+	
+	.logo-footer .footer-text {
+		font-size: 0.95rem;
+		color: #a8b2c7;
+		font-weight: 500;
+		opacity: 0.9;
+		pointer-events: none;
+	}
+	
+	.logo-footer .footer-logos {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 18px;
+		pointer-events: none;
+	}
+	
+	.logo-footer .footer-logos img {
+		height: 45px;
+		border: none !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		background: none !important;
+		filter: none !important;
+		object-fit: contain;
+		pointer-events: auto; /* allow right-click/save on logos */
+	}
+  
+  
+	/* keep logos original (no rounding/shadow/border) */
+	img.plain{
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		border: none !important;
+		background: transparent !important;
+		filter: none !important;
+		object-fit: contain;
+		pointer-events: auto; /* allow right-click/save on logos if needed */
+	}
+	
+	/* If Reveal/theme adds rounding to all images, nuke it here too */
+	.reveal img{
+		border-radius: 0; box-shadow: none; border: none;
+	}
+
+	.affiliation {
+		margin-top: 2em;
+		font-size: 0.8em;
+	}
+
+	.logos img {
+		max-height: 60px;
+		margin: 0 15px;
+	}
+
+	/* Styles from the third block (General Layout/Boxes) */
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		background-color: #111;
+		color: white;
+		font-family: Arial, sans-serif;
+		text-align: center;
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.title {
+		font-size: 1.5em;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
+
+	.container {
+		display: flex;
+		align-items: center;
+		gap: 40px;
+	}
+
+	.box {
+		background: linear-gradient(to bottom, #f8f8f8, #ddd);
+		color: black;
+		padding: 20px 40px;
+		border-radius: 12px;
+		font-size: 1.5em;
+		font-weight: bold;
+		box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.2);
+	}
+
+	.arrow {
+		font-size: 2em;
+	}
+
+	.subtext {
+		font-size: 0.9em;
+		color: #3faf61;
+		margin-top: 5px;
+	}
+
+	.highlight_box {
+		background: linear-gradient(to bottom, #9784e3, #d5bef7); /* Warm highlight */
+		box-shadow: 0px 0px 15px rgba(167, 158, 175, 0.8); /* Glow effect */
+		color: black;
+		font-weight: bold;
+	}
+
+	.iteration {
+		margin-top: 20px;
+		font-size: 1.2em;
+		font-style: italic;
+		border-top: 2px solid white;
+		padding-top: 10px;
+		width: 80%;
+	}
+
+	.container_ {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.row_ {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.square_big {
+		background: linear-gradient(to bottom, #f8f8f8, #ddd);
+		color: black;
+		padding: 20px; /* Reduce padding to avoid affecting square shape */
+		border-radius: 10px;
+		font-weight: bold;
+		width: 200px; /* Set fixed width */
+		height: 200px; /* Set fixed height */
+		text-align: center;
+		display: flex; /* Use flexbox to center text */
+		justify-content: center;
+		align-items: center;
+		box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2);
+	}
+
+	.square_small {
+		background: linear-gradient(to bottom, #f8f8f8, #ddd);
+		color: black;
+		padding: 20px; /* Reduce padding to avoid affecting square shape */
+		border-radius: 10px;
+		font-weight: bold;
+		width: 120px; /* Set fixed width */
+		height: 120px; /* Set fixed height */
+		text-align: center;
+		display: flex; /* Use flexbox to center text */
+		justify-content: center;
+		align-items: center;
+		box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2);
+	}
+
+	.underline-text {
+		margin-top: 20px;
+		font-style: italic;
+		font-size: 18px;
+		border-top: 1px solid white;
+		padding-top: 10px;
+		width: 60%;
+		text-align: center;
+	}
+
+	.word-cloud {
+		display: grid;
+		grid-template-columns: auto auto;
+		gap: 20px;
+		text-align: center;
+	}
+
+	.word {
+		font-weight: bold;
+		line-height: 1.2;
+	}
+
+	.small {
+		font-size: 1.5rem;
+	}
+
+	.medium {
+		font-size: 2.2rem;
+	}
+
+	.large {
+		font-size: 3rem;
+	}
+
+	.qr {
+		margin-left: auto; /* pushes QR image to the far right in the stack */
+	}
+
+	/* Styles from the fourth block (Overlay Card) */
+	.overlay-card {
+		background: rgba(0,0,0,.55);
+		border: 1px solid rgba(255,255,255,.12);
+		border-radius: 14px;
+		padding: 18px 22px;
+		box-shadow: 0 10px 30px rgba(0,0,0,.35);
+		text-align: center;
+		margin: 0 auto;
+	}
+
+	/* Styles from the fifth block (Fig Fit) */
+	.fig-fit {
+		height: 20vh; /* tune: 55–65vh */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		border-radius: 12px;
+		background: rgba(255,255,255,.03);
+		border: 1px solid rgba(255,255,255,.12);
+		box-shadow: 0 10px 28px rgba(0,0,0,.35);
+		padding: 10px;
+	}
+
+	.fig-fit img {
+		max-width: 100%;
+		max-height: 100%;
+		width: auto;
+		height: auto;
+		object-fit: contain; /* prevents seepage */
+		border-radius: 8px;
+	}
+
+	/* Styles from the sixth block (Slimmer/Fig Narrow) */
+	/* turn off chrome just for slides that opt-in */
+	.reveal.state-plain .slides section.present .card,
+	.reveal.state-plain .slides section.present .block,
+	.reveal.state-plain .slides section.present .title-band {
+		background: none !important;
+		border: none !important;
+		box-shadow: none !important;
+		backdrop-filter: none !important;
+	}
+
+	/* slimmer equation + bullets */
+	.eq-small {
+		font-size: 0.95em;
+	}
+
+	.bullets-tight {
+		font-size: 0.98rem;
+		line-height: 1.25;
+	}
+
+	/* figure constrained, centered, never overflows */
+	.fig-narrow {
+		width: 78%; /* reduce overall footprint */
+		max-height: 52vh; /* tune 48–58vh to taste */
+		margin: 10px auto 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		border-radius: 12px;
+	}
+
+	.fig-narrow img {
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: contain;
+		display: block;
+	}
+
+	.fig-caption {
+		position: absolute;
+		right: 18px;
+		bottom: 8px;
+		font-size: .95rem;
+		color: #72b5ec;
+	}
+
+	/* Styles from the seventh block (Theme Tokens & Base) */
+	/* ---- Theme tokens ---- */
+	:root {
+		--bg: #0b1020; /* canvas */
+		--surface: #11182b; /* cards */
+		--surface-2: #0f1628; /* darker cards */
+		--ink: #eaf2ff; /* main text */
+		--muted: #a8b2c7; /* secondary text */
+		--accent: #6bdcff; /* primary accent */
+		--accent-2: #a78bfa; /* secondary accent */
+		--ok: #3dd68c; /* good */
+		--warn: #ffd166; /* warm */
+		--danger: #ff6b6b; /* danger */
+		--ring: rgba(107, 220, 255, .25);
+		--radius: 18px;
+		--shadow: 0 10px 30px rgba(0,0,0,.35);
+		--mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+		--sans: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+	}
+
+	/* ---- Base canvas ---- */
+	body {
+		background: radial-gradient(1200px 800px at 60% -10%, #101937 0%, var(--bg) 55%) no-repeat fixed;
+	}
+
+	.reveal {
+		color: var(--ink);
+		font-family: var(--sans);
+	}
+
+	.reveal a {
+		color: var(--accent);
+		text-decoration: none;
+		border-bottom: 1px solid rgba(107,220,255,.35);
+	}
+
+	.reveal a:hover {
+		filter: brightness(1.1);
+		border-bottom-color: var(--accent);
+	}
+
+	/* ---- Slide chrome ---- */
+	.reveal .slides {
+		text-align: left;
+	}
+
+	.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+		line-height: 1.15;
+		letter-spacing: .2px;
+	}
+
+	.reveal h1 {
+		font-weight: 800;
+	}
+
+	.reveal h2, .reveal h3 {
+		font-weight: 700;
+	}
+
+	.reveal p, .reveal li {
+		color: var(--ink);
+		font-size: 1.0em;
+	}
+
+	.reveal small, .reveal .small {
+		color: var(--muted);
+	}
+
+	/* Nicer bullets */
+	.reveal ul {
+		padding-left: 1.2em;
+		font-size: 1.0em;
+	}
+
+	.reveal ul > li {
+		margin: .35em 0;
+		position: relative;
+		list-style: none;
+	}
+
+	.reveal ul > li::before {
+		content: "";
+		width: .55em;
+		height: .55em;
+		border-radius: 6px;
+		background: linear-gradient(135deg, var(--accent), var(--accent-2));
+		box-shadow: 0 0 0 4px rgba(107,220,255,.08);
+		display: inline-block;
+		margin-right: .55em;
+		transform: translateY(2px);
+	}
+
+	/* ---- Card / block (Kept theme definitions) ---- */
+	.card, .reveal .block {
+		background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+		border: 1px solid rgba(255,255,255,.08);
+		backdrop-filter: blur(6px);
+		border-radius: var(--radius);
+		box-shadow: var(--shadow);
+		padding: 18px 22px;
+	}
+
+	.reveal .block-title {
+		background-color: #333333;
+		padding: 8px 35px 8px 14px;
+		color: #FFAA7F;
+		font-weight: bold;
+		font-size: 1.4em;
+	}
+
+	.reveal .block-content {
+		color: var(--ink);
+	}
+
+	/* ---- Slide section headers ---- */
+	.section-title {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		margin: 0 0 18px 0;
+	}
+
+	.section-title .bar {
+		width: 8px;
+		height: 28px;
+		border-radius: 10px;
+		background: linear-gradient(180deg, var(--accent), var(--accent-2));
+		box-shadow: 0 0 0 6px rgba(107,220,255,.08);
+	}
+
+	.section-title h3 {
+		margin: 0;
+	}
+
+	/* ---- Pills / chips ---- */
+	.pill {
+		display: inline-flex;
+		align-items: center;
+		gap: .5ch;
+		padding: 6px 10px;
+		border-radius: 999px;
+		background: rgba(107,220,255,.12);
+		color: var(--ink);
+		border: 1px solid rgba(107,220,255,.25);
+		font-weight: 600;
+		letter-spacing: .2px;
+	}
+
+	/* ---- Grids ---- */
+	.grid {
+		display: grid;
+		gap: 18px;
+	}
+
+	.grid.cols-2 {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.grid.cols-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.v-center {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+	}
+
+	.center {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* ---- Image polish ---- */
+	.img, .reveal img, .reveal video {
+		border-radius: 14px;
+		box-shadow: var(--shadow);
+		border: 1px solid rgba(255,255,255,.08);
+	}
+
+	/* ---- Title / footer bands ---- */
+	.title-band {
+		background: linear-gradient(135deg, rgba(107,220,255,.12), rgba(167,139,250,.12));
+		border: 1px solid rgba(255,255,255,.12);
+		border-radius: 22px;
+		padding: 24px 28px;
+		box-shadow: var(--shadow);
+	}
+
+	.logo-row {
+		display: flex;
+		gap: 26px;
+		align-items: center;
+		flex-wrap: wrap;
+		opacity: .95;
+	}
+
+	/* ---- Progress & slide numbers ---- */
+	.reveal .progress {
+		height: 6px;
+		background: rgba(255,255,255,.07);
+	}
+
+	.reveal .progress span {
+		background: linear-gradient(90deg, var(--accent), var(--accent-2));
+		box-shadow: 0 0 12px rgba(107,220,255,.35);
+	}
+
+	/* Ensure the container is on top and has no transition */
+	/* ---- Progress & slide numbers ---- */
+	.reveal .slide-number {
+		background: rgba(0,0,0,.4);
+		border: 1px solid rgba(255,255,255,.15);
+		padding: 6px 10px;
+		border-radius: 10px;
+		color: var(--muted);
+		
+		/* MOVED TO LEFT */
+		position: fixed;
+		right: auto;
+		left: 40px;
+		bottom: 40px;
+		
+		/* AGGRESSIVE FIX */
+		transition: none !important;
+		z-index: 100 !important;
+	}
+
+	/* Additional aggressive fix for overlapping text inside the number box */
+	.reveal .slide-number *,
+	.reveal .slide-number:before,
+	.reveal .slide-number:after {
+		transition: none !important;
+		animation: none !important;
+		opacity: 1 !important;
+	}
+
+	/* ---- Inverted slides (Kept theme definition) ---- */
+	.inverted, .reveal .inverted {
+		filter: none;
+		background: radial-gradient(900px 500px at 50% -10%, #0a0f1d 0%, #04070f 60%);
+	}
+
+	.inverted h2, .inverted p, .inverted li {
+		color: #f5f7ff;
+	}
+
+	/* ---- Math/code accents ---- */
+	.reveal code, .code {
+		font-family: var(--mono);
+		color: #dfe8ff;
+	}
+
+	.math-accent {
+		color: var(--accent-2);
+		font-weight: 700;
+	}
+
+	/* ---- Utilities ---- */
+	.muted {
+		color: var(--muted);
+	}
+
+	.callout-ok {
+		border-left: 6px solid var(--ok);
+		padding-left: 14px;
+	}
+
+	.callout-warn {
+		border-left: 6px solid var(--warn);
+		padding-left: 14px;
+	}
+
+	.callout-danger {
+		border-left: 6px solid var(--danger);
+		padding-left: 14px;
+	}
+
+	/* Make big hero backgrounds read better */
+	[data-background-image] .title-band {
+		background: rgba(10,16,32,.55);
+		border-color: rgba(255,255,255,.15);
+	}
+
+	/* Tighter space on widescreens */
+	.reveal .slides section {
+		padding-right: 10px;
+	}
+
+	.white-center {
+		position: relative;
+	}
+
+	.white-center .centerbox {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.white-center .centerbox>* {
+		color: #000;
+		margin: 0;
+	}
+
+	/* compact lists */
+	.tight>li {
+		margin: .32em 0;
+	}
+
+	/* blue highlight (uses your accent if defined) */
+	.hl-blue {
+		color: var(--accent, #4db8ff);
+	}
+
+	/* optional: card look if you don't already have it (same as card, so removed extra definition) */
+	.card {
+		background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+		border: 1px solid rgba(255,255,255,.08);
+		border-radius: 18px;
+		backdrop-filter: blur(6px);
+		box-shadow: 0 10px 30px rgba(0,0,0,.35);
+		padding: 15px 15px;
+	} 
+</style>
+
+<style>
+	.watermark-small{
+	  position:absolute;
+	  right:18px;
+	  bottom:14px;
+	  pointer-events:none;
+	  z-index:2;
+	  font-size:2.4rem;     /* smaller */
+	  font-weight:700;
+	  letter-spacing:.12em;
+	  color:#fff;
+	  opacity:0.06;         /* more faded */
+	  text-shadow:0 0 4px rgba(0,0,0,.25);
+	}
+
+	/* same bottom as your slide number (you set 40px earlier) */
+	.global-footer-text{
+		position: fixed;
+		bottom: 40px;         /* match .reveal .slide-number bottom */
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 0.95rem;
+		color: #a8b2c7;
+		opacity: .9;
+		z-index: 1000;
+		pointer-events: none;
+		display: none;        /* hidden on title slide via JS below */
+	}
+  
+	  
+  </style>
+
+  <script>
+	(function(){
+	  function toggleVF(){
+		const el = document.getElementById('vf');
+		const i = Reveal.getIndices().h || 0;   // current horizontal slide index
+		el.style.display = (i > 0) ? 'block' : 'none'; // show from 2nd slide onward
+	  }
+	  Reveal.on('ready', toggleVF);
+	  Reveal.on('slidechanged', toggleVF);
+	})();
+	</script>
+	
+  
+  
+
+</body>
+</html>
