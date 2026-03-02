@@ -23,7 +23,7 @@
 			<!-- Slide footer: name left, event+date right — hidden on title slide via JS -->
 			<div id="slide-footer">
 				<span>Vilasini Tinnaneri Sreekanth</span>
-				<span>IAS Cosmo Update &nbsp;·&nbsp; 2 March 2026</span>
+				<span>3 March 2026</span>
 			</div>
 
 			<div class="slides">
@@ -40,8 +40,6 @@
 					<div class="container" style="display: flex; justify-content: center; align-items: center;">
 						<div class="title" style="border-radius: 50px; background-color: rgba(0, 0, 0, 0.4); padding: 20px; text-align: center;" >
 							<h2>IAS Cosmo Seminar: update </h2>
-							<h4 style="font-size:1.3em;">Likelihood-free cosmological parameter inference using theoretical high-order statistics
-								predictions</h4>
 						</div>
 					</div>	
 					<h2>Vilasini Tinnaneri Sreekanth</h2>
@@ -93,6 +91,7 @@
 
 		<section data-auto-animate>
 			<h3 class="slide-title">Phd recap</h3>
+			<h6 style="font-size:1.3em;">Likelihood-free cosmological parameter inference using theoretical high-order statistics predictions.</h6>
 			<div style="
 			max-width:1100px; margin:10px auto 0;
 			background:rgba(255,255,255,.045);
@@ -147,55 +146,38 @@
   
 
 <!--########################## MOTIVATION ############################-->
-				<!-- <section 
-				data-background-video="assets/wl_animation.mp4"
-				data-background-video-loop
-				data-background-video-muted
-				data-background-video-size="cover"
-				data-background-color="#000">
-				</section> -->
-							
-				<!-- <section data-background-image="assets/Euclid_sees_spiral_galaxy_NGC_2188_and_galaxy_cluster_Abell_3381.jpg">
-				<div style="
-				position:fixed; right:70px; bottom:-600px;  /* bump right to avoid slide number */
-				background:rgba(0,0,0,.55); color:#e9e9f0;
-				padding:3px 8px; border-radius:999px; font-size:.8rem;
-				border:1px solid rgba(255,255,255,.18); z-index:1000;">
-				© ESA / Euclid Consortium
-				</div>
-				</section> -->
 
 				   <section>
 					<h3 class="slide-title">Inference pipeline</h3>
 				  
-					<div style="display:flex;justify-content:center;gap:40px;margin-top:4px;flex-wrap:wrap;font-size:1.20em;">
+					<div style="display:flex;justify-content:center;gap:8px;margin-top:2px;flex-wrap:wrap;font-size:1.0em;">
 				  
 					  <!-- TOP: two sources, each with its own ↓ -->
 					  <div style="display:flex;gap:40px;align-items:flex-start;justify-content:center;">
 				  
 						<!-- Observed data -->
 						<div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
-						  <div style="background:#0d0618;border:1px solid rgba(196,157,255,0.18);border-radius:12px;padding:14px 22px;min-width:210px;text-align:center;box-shadow:0 0 16px rgba(140,80,255,0.15);">
+						  <div style="background:#0d0618;border:1px solid rgba(196,157,255,0.18);border-radius:12px;padding:8px 16px;min-width:190px;text-align:center;box-shadow:0 0 16px rgba(140,80,255,0.15);">
 							<b style="color:#c49dff;">Observed data</b><br>
 							\( \mathbf{d}_{\mathrm{obs}} \)
 						  </div>
-						  <div style="font-size:1.2em;color:#777;line-height:1;">&#8595;</div>
+						  <div style="font-size:0.9em;color:#555;line-height:0.8;margin:0;">&#8595;</div>
 						</div>
 				  
 						<!-- Sim/Theory -->
 						<div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
-						  <div style="background:#0d0618;border:1px solid rgba(196,157,255,0.15);border-radius:12px;padding:14px 22px;min-width:210px;text-align:center;box-shadow:0 0 16px rgba(140,80,255,0.15);">
+						  <div style="background:#0d0618;border:1px solid rgba(196,157,255,0.15);border-radius:12px;padding:8px 16px;min-width:190px;text-align:center;box-shadow:0 0 16px rgba(140,80,255,0.15);">
 							<b style="color:#ff7eb3;">Simulations / Theory</b><br>
 							\( \mathbf{d}_{\mathrm{pred}}(\boldsymbol{\theta}) \)
 						  </div>
-						  <div style="font-size:1.2em;color:#777;line-height:1;">&#8595;</div>
+						  <div style="font-size:0.9em;color:#555;line-height:0.8;margin:0;">&#8595;</div>
 						</div>
 				  
 					  </div>
 				  
 					  <!-- SUMMARY STAT -->
 					  <div style="flex-basis:100%;display:flex;justify-content:center;margin-top:0;">
-						<div style="background:#100820;border:1px solid rgba(196,157,255,0.15);border-radius:12px;padding:14px 24px;min-width:480px;text-align:center;box-shadow:0 0 20px rgba(140,80,255,0.2);">
+						<div style="background:#100820;border:1px solid rgba(196,157,255,0.15);border-radius:12px;padding:8px 18px;min-width:400px;text-align:center;box-shadow:0 0 20px rgba(140,80,255,0.2);">
 						  <b style="color:#e7e7e7;">Summary statistic</b>
 						  \( s(\cdot) \)
 						</div>
@@ -203,12 +185,12 @@
 				  
 					  <!-- ↓ to Likelihood -->
 					  <div style="flex-basis:100%;display:flex;justify-content:center;margin-top:2px;">
-						<div style="font-size:1.4em;color:#777;line-height:1;">&#8595;</div>
+						<div style="font-size:0.9em;color:#555;line-height:0.8;margin:0;">&#8595;</div>
 					  </div>
 				  
 					  <!-- LIKELIHOOD with formula inside -->
 					  <div style="flex-basis:100%;display:flex;justify-content:center;margin-top:0;">
-						<div style="position:relative;background:#1a1a1a;border:1px solid rgba(196,157,255,0.15);border-radius:12px;padding:14px 24px;min-width:480px;text-align:center;box-shadow:0 0 24px rgba(0,0,0,0.45);">
+						<div style="position:relative;background:#1a1a1a;border:1px solid rgba(196,157,255,0.15);border-radius:12px;padding:8px 18px;min-width:400px;text-align:center;box-shadow:0 0 24px rgba(0,0,0,0.45);">
 						  <b style="color:#ff7eb3;">Likelihood</b><br>
 						  \( p\!\left(s_{\mathrm{obs}}\mid\boldsymbol{\theta}\right) \) <br>
 						  <span style="color:#ddd; font-size:0.95em;">
@@ -228,12 +210,12 @@
 				  
 					  <!-- ↓ to Inference -->
 					  <div style="flex-basis:100%;display:flex;justify-content:center;margin-top:6px;">
-						<div style="font-size:1.4em;color:#777;line-height:1;">&#8595;</div>
+						<div style="font-size:0.9em;color:#555;line-height:0.8;margin:0;">&#8595;</div>
 					  </div>
 				  
 					  <!-- INFERENCE -->
 					  <div style="flex-basis:100%;display:flex;justify-content:center;margin-top:0;">
-						<div style="background:#171717;border:1px solid rgba(196,157,255,0.15);border-radius:12px;padding:14px 24px;min-width:480px;text-align:center;box-shadow:0 0 20px rgba(140,80,255,0.2);">
+						<div style="background:#171717;border:1px solid rgba(196,157,255,0.15);border-radius:12px;padding:8px 18px;min-width:400px;text-align:center;box-shadow:0 0 20px rgba(140,80,255,0.2);">
 						  <b style="color:#c49dff;">Inference</b><br>
 						  \( p\!\left(\boldsymbol{\theta}\mid s_{\mathrm{obs}}\right) \)
 						</div>
@@ -342,13 +324,21 @@
 						<strong style="font-size:1.2em;">…but is this sufficient?</strong>
 					</div>
 				  </section> -->
+				  <section>
 
+				  
 				  <section>
 					<h3 class="slide-title">Traditional Approach: The 2-Point Route</h3>
 					<img src="assets/pk_lss.png" 
-						 style="width:85%; height:auto; max-height:274px; display:block; margin:25px auto; border-radius:10px; box-shadow:0 0 15px rgba(255,255,255,0.08);">
+						 style="width:89%; height:auto; max-height:288px; display:block; margin:25px auto; border-radius:10px; box-shadow:0 0 15px rgba(255,255,255,0.08);">
 					<br>
 					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					
 				  </section>
 
 				  <section>
@@ -359,8 +349,8 @@
 							<li >Efficient, but lose <b>non-Gaussian</b> info.</li>
 							<li><span style="color:#ff7eb3;">Non-Gaussian structure</span> lives in higher orders.</li>
 							<li>To access it → go beyond 2-pt: <b>Higher-Order Statistics (HOS)</b> (bispectrum, peak counts, Minkowski Functionals etc).</li>
-						  </ul>
-						  
+						  </ul>  
+				  </section>
 				  </section>
 				  
 				
@@ -487,47 +477,35 @@
 					  </svg>
 					</div>
 				  </section>
-				  
-				  <section>
-					<h3 class="slide-title">The $\ell_1$ Norm: From PDF to Prediction</h3>
-				  
-					<style>
-					  .pdf-glow {
-						color: #FFAA7F;
-						text-shadow: 0 0 15px rgba(255,170,127,0.8),
-									 0 0 25px rgba(255,170,127,0.6),
-									 0 0 35px rgba(255,170,127,0.4);
-						font-weight: bold;
-					  }
-					</style>
-				  
-					<div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:576px; transform:translateY(-44px);">
-					  <div style="background:rgba(20,28,40,.65); border:2px solid #c49dff; border-radius:15px; padding:30px 50px; box-shadow:0 0 30px rgba(68,204,255,0.4);">
-						<p style="text-align:center; margin:0; color:#fff; font-size:1.2em;">
-						  To predict $\ell_1$ in theory, we must model the <b>Wavelet PDF</b>:
-						</p>
-				  
-						<p style="text-align:center; color:#fff; font-size:1.4em; margin-top:20px;">
-							$
-							  \ell_{1}^{(j,i)} \;=\;
-							  \int_{B_i} |w|\;
-							  \color{orange}{\mathbf{P_j(w)}}\,dw
 
 
-							$
-						  </p>
-						  
-					  </div>
-				  
-					  <div style="font-size:5em; color:#B39DDB; font-weight:bold; margin:40px 0 10px 0;">
-						$\Downarrow$
-					  </div>
-				  
-					  <div style="padding:10px 30px; border:2px solid #B39DDB; background-color:#0A141A; border-radius:10px;">
-						<p style="margin:0; font-size:1.8em; color:#B39DDB; font-weight:bold;">
-						  Use Large Deviation Theory (LDT) to predict $\color{orange}{\mathbf{P_j(w)}}$.
+								<section>
+					<h3 class="slide-title">Key ingredient: Large-Deviation Theory?</h3>
+
+					<div style="display:grid; grid-template-rows:auto 1fr; align-items:start; gap:15px; margin-top:16px;">
+
+					  <div style="
+						background:rgba(255,255,255,.045);
+						border:1px solid rgba(255,255,255,.12);
+						border-left:4px solid #c49dff;
+						border-radius:12px;
+						padding:16px 24px;
+						box-shadow:0 0 20px rgba(140,80,255,.2);
+					  ">
+						<p style="margin:0; font-size:1.0em;">
+							<b>Large-Deviation Theory (LDT):</b> a framework to describe the <b>probability of rare events</b> by quantifying the
+							<b>exponential decay of probabilities</b> in the tails of distributions.
 						</p>
 					  </div>
+
+					  <div style="text-align:center;">
+						<img src="assets/LDT_demo.png"
+							 style="width:72%; border-radius:12px; box-shadow:0 6px 25px rgba(0,0,0,.35);">
+						<div style="font-size:0.8em; color:#8b7fa8; margin-top:8px;">
+						  Gaussian approximations fail in the tails — where rare events dominate
+						</div>
+					  </div>
+
 					</div>
 				  </section>
 				  
@@ -558,8 +536,8 @@
 						<h3 class="slide-title">Step 1 - Rate Function (physics input)</h3>
 					  
 						<div class="r-hstack" style="align-items:center; gap:8px; margin-bottom:15px;">
-						  <div class="circle" style="font-size:1.8em;">Rate Function</div>
-						  <div class="another-container" style="font-size:1.8em;">
+						  <div class="circle" style="font-size:0.85em; width:150px; height:150px; flex-shrink:0;">Rate Function</div>
+						  <div class="another-container" style="font-size:1.0em;">
 							\[
 							\psi(\rho_i)
 							= \frac{\sigma_{R_1}^2}{2}\,
@@ -591,21 +569,19 @@
 								  $\tau$
 								</div>
 							  
-								<div style="font-size:1.25em; color:#aaa; margin-top:6px;">
-								  Gaussian Initial Conditions
-								</div>
+								<div style="font-size:0.82em; color:#aaa; margin-top:4px;">Gaussian Initial Conditions</div>
 							  </div>
 							  
 					  
 						  <div style="display:flex; flex-direction:column; align-items:center;">
-							<div style="font-size:2.5em; color:#fff;">&#8594;</div>
+							<div style="font-size:1.6em; color:#fff;">&#8594;</div>
 							<div style="background:rgba(255,255,255,0.1); padding:3px 10px; border-radius:6px;
-										font-size:1.25em; color:#ffb347; margin-top:4px;">
+										font-size:0.82em; color:#ffb347; margin-top:4px;">
 							  Spherical Collapse
 							</div>
 						  </div>
 					  
-						  <div style="text-align:center;">
+						  <div style="text-align:center; position:relative; display:inline-block;">
 							<img src="assets/lss2.png" alt="Nonlinear LSS" 
 								 style="width:250px; border-radius:8px;">
 							<div style="
@@ -620,7 +596,7 @@
 									 border-radius:4px;">
 								  $\rho$
 								</div>
-							<div style="font-size:1.25em; color:#aaa; margin-top:4px;">Non-linear Cosmic Web</div>
+							<div style="font-size:0.82em; color:#aaa; margin-top:4px;">Non-linear Cosmic Web</div>
 						  </div>
 						</div>
 					  </section>
@@ -629,8 +605,8 @@
 						<h3 class="slide-title">Step 2 - Cumulant Generating Function</h3>
 					  
 						<div class="r-hstack" style="align-items:center; gap:8px;">
-						  <div class="circle" style="font-size:1.8em;">Cumulant Generating Function</div>
-						  <div class="another-container" style="font-size:1.8em;">
+						  <div class="circle" style="font-size:0.85em; width:150px; height:150px; flex-shrink:0;">Cumulant Generating Function</div>
+						  <div class="another-container" style="font-size:1.0em;">
 							Rate function → cumulants (variance, skewness, kurtosis, …),<br>
 							capturing how non-linear growth drives departures from Gaussianity.
 						  </div>
@@ -640,12 +616,12 @@
 						  <img src="assets/cumulants_demo.png"
 							   alt="Cumulant visualisation"
 							   style="width:40%; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,.35);">
-						  <div style="font-size:1.6em; color:#aaa; margin-top:6px;">
+						  <div style="font-size:0.75em; color:#aaa; margin-top:4px;">
 							Example PDF evolution - increasing variance widens it, skewness tilts it, kurtosis sharpens tails.
 						  </div>
 						</div>
 					  
-						<p  style="text-align:center; font-size:1.5em; color:#c49dff; margin-top:14px;">
+						<p style="text-align:center; font-size:0.9em; color:#c49dff; margin-top:8px;">
 						  Cumulants bridge the rate function and observable higher-order statistics.
 						</p>
 					  </section>
@@ -654,18 +630,17 @@
 						<h3 class="slide-title">Step 2 - Cumulant Generating Function</h3>
 					  
 						<div class="r-hstack" style="align-items:center; gap:8px;">
-						  <div class="circle" style="font-size:1.8em;">Cumulant Generating Function</div>
-						  <div class="another-container" style="font-size:1.8em;">
+						  <div class="circle" style="font-size:0.85em; width:150px; height:150px; flex-shrink:0;">Cumulant Generating Function</div>
+						  <div class="another-container" style="font-size:1.0em;">
 							Rate function → cumulants (variance, skewness, kurtosis, …),<br>
 							capturing how non-linear growth drives departures from Gaussianity.
 						  </div>
 						</div>
-						<br><br><br>
-						<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+
 						<h3 class="slide-title">Step 3 - Predicting the Wavelet \( \ell_1 \)-Norm</h3>
 						<div class="r-hstack" style="align-items:center; gap:8px;">
-							<div class="circle" style="font-size:1.8em; box-shadow:0 0 8px 2px rgba(255,255,255,0.35);">Predicted Observable</div>
-							<div class="another-container" style="font-size:1.8em; box-shadow:0 0 8px 2px rgba(255,255,255,0.35);">
+							<div class="circle" style="font-size:0.85em; width:140px; height:140px; flex-shrink:0; box-shadow:0 0 8px 2px rgba(255,255,255,0.35);">Predicted Observable</div>
+							<div class="another-container" style="font-size:0.95em; box-shadow:0 0 8px 2px rgba(255,255,255,0.35);">
 							  <div style="margin-top:.6em;">
 								\[
 								  \ell_{1}^{(j,i)}
@@ -683,7 +658,7 @@
 						<h3 class="slide-title">Step 3 - Predicting the Wavelet \( \ell_1 \)-Norm</h3>
 						<div class="r-hstack" style="align-items:center; gap:8px;">
 							<div class="circle" style="font-size:1.8em;">Predicted Observable</div>
-							<div class="another-container" style="font-size:1.8em;">
+							<div class="another-container" style="font-size:1.0em;">
 							  <div style="margin-top:.6em;">
 								\[
 								  \ell_{1}^{(j,i)}
@@ -916,8 +891,72 @@
 <!-- ######################################################################################################################################################################### -->		
 	
   
-<!-- ######################################################################################################################################################################### -->
-			<section id="thankyou" data-background-image="assets/joint-titan-argos-tosca-workshop-background.png"  data-background-opacity="0.4">
+
+<!-- ########################## CURRENT ROLE ########################## -->
+			<section>
+				<h3 class="slide-title">What I&#39;m Working on Now</h3>
+
+				<div style="display:flex; align-items:center; height:560px; gap:60px; padding:0 20px;">
+
+					<!-- LEFT: role details -->
+					<div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:32px;">
+
+						<!-- Role badge -->
+						<div style="display:flex; align-items:baseline; gap:14px;">
+	
+						</div>
+						<div style="border-left:3px solid rgba(196,157,255,0.5); padding-left:22px;">
+							<div style="color:#ffffff; font-size:1.35em; font-weight:700; line-height:1.2;">Research Engineer</div>
+						</div>
+
+						<!-- Focus area -->
+						<div style="border-left:3px solid rgba(255,126,179,0.45); padding-left:22px; margin-top:4px;">
+							<div style="color:#ff7eb3; font-size:0.8em; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Focus</div>
+							<div style="color:#f0ecf8; font-size:1.05em; line-height:1.5;">
+								Cross-correlations between <b>CMB</b> and <b>Euclid</b> data
+							</div>
+							<div style="color:#8b7fa8; font-size:0.9em; margin-top:6px; line-height:1.5;">
+								CMB lensing &times; Euclid weak lensing &amp; galaxy clustering
+							</div>
+						</div>
+
+					</div>
+
+					<!-- RIGHT: simple icon diagram -->
+					<div style="flex-shrink:0; width:320px; display:flex; flex-direction:column; align-items:center; gap:18px;">
+						<svg viewBox="0 0 280 340" style="width:100%; height:auto;">
+							<defs>
+								<radialGradient id="cmbGrad" cx="50%" cy="50%" r="50%">
+									<stop offset="0%" stop-color="#c49dff" stop-opacity="0.25"/>
+									<stop offset="100%" stop-color="#c49dff" stop-opacity="0"/>
+								</radialGradient>
+								<radialGradient id="euclidGrad" cx="50%" cy="50%" r="50%">
+									<stop offset="0%" stop-color="#ff7eb3" stop-opacity="0.25"/>
+									<stop offset="100%" stop-color="#ff7eb3" stop-opacity="0"/>
+								</radialGradient>
+							</defs>
+
+							<!-- CMB circle -->
+							<circle cx="140" cy="90" r="70" fill="url(#cmbGrad)" stroke="#c49dff" stroke-width="1.5" stroke-opacity="0.6"/>
+							<text x="140" y="82" text-anchor="middle" fill="#c49dff" font-size="15" font-weight="700">CMB</text>
+							<text x="140" y="100" text-anchor="middle" fill="#c49dff" font-size="11" opacity="0.8">lensing / temperature</text>
+
+							<!-- cross symbol -->
+							<text x="140" y="185" text-anchor="middle" fill="#8b7fa8" font-size="28" font-weight="300">&times;</text>
+
+							<!-- Euclid circle -->
+							<circle cx="140" cy="265" r="70" fill="url(#euclidGrad)" stroke="#ff7eb3" stroke-width="1.5" stroke-opacity="0.6"/>
+							<text x="140" y="257" text-anchor="middle" fill="#ff7eb3" font-size="15" font-weight="700">Euclid</text>
+							<text x="140" y="275" text-anchor="middle" fill="#ff7eb3" font-size="11" opacity="0.8">WL &amp; galaxy clustering</text>
+						</svg>
+					</div>
+
+				</div>
+			</section>
+<!-- ################################################################## -->
+
+			<!-- ######################################################################################################################################################################### -->
+			<section id="thankyou">
 				<h2 style="font-family: 'Dancing Script', 'Brush Script MT', cursive; font-size:132px; font-weight:700;">Thank you!</h2>
 			</section>
 <!-- ######################################################################################################################################################################### -->
@@ -928,6 +967,14 @@
 <!-- ######################################################################################################################################################################### -->
 			<section>
 				<h3 class="slide-title">Backup</h3>
+			</section>
+
+			<section 
+				data-background-video="assets/wl_animation.mp4"
+				data-background-video-loop
+				data-background-video-muted
+				data-background-video-size="cover"
+				data-background-color="#000">
 			</section>
 
 			<section>
@@ -1785,8 +1832,8 @@
 		border: 1px solid #000;
 		background-color: #130920;
 		padding: 10px;
-		margin-left: 100px;
-		width: 82%;
+		flex: 1;
+		width: auto;
 		text-align: center;
 		justify-content: center;
 		align-items: center;
@@ -2407,6 +2454,16 @@
 	.reveal .progress span {
 		background: linear-gradient(90deg, var(--accent), var(--accent-2));
 		box-shadow: 0 0 12px rgba(196,157,255,.35);
+		transition: none !important;
+	}
+
+	/* Backup-mode: muted amber bar so it's visually distinct */
+	.reveal.in-backup .progress {
+		background: rgba(255,255,255,.04);
+	}
+	.reveal.in-backup .progress span {
+		background: linear-gradient(90deg, #6b4f2a, #c9924a);
+		box-shadow: 0 0 8px rgba(201,146,74,.25);
 	}
 
 	/* Ensure the container is on top and has no transition */
@@ -2610,37 +2667,52 @@
   </script>
 
   <script>
-  /* === Progress bar: cap at "Thank You" slide, ignore backup slides === */
+  /* === Progress bar: main flow ends at #thankyou; backup slides get a
+         separate amber bar showing progress through the backup section === */
   (function(){
     function setupProgressOverride(){
       const thankYouSlide = document.getElementById('thankyou');
       if (!thankYouSlide) return;
       const progressSpan = document.querySelector('.reveal .progress span');
-      if (!progressSpan) return;
+      const revealEl     = document.querySelector('.reveal');
+      if (!progressSpan || !revealEl) return;
 
-      function calcWidth(){
-        const slides = Array.from(document.querySelectorAll('.slides > section'));
-        const endIdx = slides.indexOf(thankYouSlide);
-        if (endIdx <= 0) return '100%';
-        const currentIdx = Reveal.getIndices().h || 0;
-        const ratio = Math.min(currentIdx / endIdx, 1.0);
-        return (ratio * 100).toFixed(3) + '%';
+      function update(){
+        const slides   = Array.from(document.querySelectorAll('.slides > section'));
+        const endIdx   = slides.indexOf(thankYouSlide);
+        if (endIdx <= 0){ progressSpan.style.width = '100%'; return; }
+
+        const current  = Reveal.getIndices().h || 0;
+
+        if (current < endIdx){
+          /* ── Main presentation (before Thank You) ── purple, proportional */
+          revealEl.classList.remove('in-backup');
+          progressSpan.style.width = ((current / endIdx) * 100).toFixed(3) + '%';
+        } else if (current === endIdx){
+          /* ── Thank You slide: purple bar, explicitly full ── */
+          revealEl.classList.remove('in-backup');
+          progressSpan.style.width = '100%';
+        } else {
+          /* ── Backup slides: amber bar, 0 → 100% through backup ── */
+          revealEl.classList.add('in-backup');
+          const backupTotal   = slides.length - 1 - endIdx;   // slides after thankyou
+          const backupCurrent = current - endIdx;              // how many past thankyou
+          const ratio = backupTotal > 0 ? backupCurrent / backupTotal : 1;
+          progressSpan.style.width = (Math.min(ratio, 1) * 100).toFixed(3) + '%';
+        }
       }
 
-      /* Override every time Reveal.js touches the progress bar width */
+      /* Override every time Reveal.js writes to the progress bar.
+         Disconnect before our own write to avoid infinite recursion. */
       const observer = new MutationObserver(function(){
-        const target = calcWidth();
-        if (progressSpan.style.width !== target){
-          progressSpan.style.width = target;
-        }
+        observer.disconnect();
+        update();
+        observer.observe(progressSpan, { attributes: true, attributeFilter: ['style'] });
       });
       observer.observe(progressSpan, { attributes: true, attributeFilter: ['style'] });
 
-      /* Also force-update on slide change so the bar is always correct */
-      Reveal.on('slidechanged', function(){
-        progressSpan.style.width = calcWidth();
-      });
-      progressSpan.style.width = calcWidth();
+      Reveal.on('slidechanged', update);
+      update();
     }
     Reveal.on('ready', setupProgressOverride);
   })();
