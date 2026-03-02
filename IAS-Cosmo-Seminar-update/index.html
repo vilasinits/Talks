@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>PhD Defence- Vilasini</title>
+		<title>Cosmo Seminar update- Vilasini</title>
 		<meta name="description" content="Talk for IAS cosmo seminar update defence">
 		<meta name="author" content="Vilasini">
 
@@ -13,13 +13,19 @@
 		<link rel="stylesheet" href="reveal.js/dist/theme/darkenergy.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" id="highlight-theme">
 	</head>
 	<body>
 		<div class="reveal">
+			<!-- Slide footer: name left, event+date right — hidden on title slide via JS -->
+			<div id="slide-footer">
+				<span>Vilasini Tinnaneri Sreekanth</span>
+				<span>IAS Cosmo Update &nbsp;·&nbsp; 2 March 2026</span>
+			</div>
+
 			<div class="slides">
 				<!-- Global footer text (hidden on slide 1 via JS below) -->
 				<!-- <div class="global-footer-text" id="vf">Vilasini PhD Defence - 22 October 2025</div> -->
@@ -905,14 +911,14 @@
 
 			<!-- ########################################### RECAP Project 2 ################################################################################## -->
 			  
-			
+
 			  
 <!-- ######################################################################################################################################################################### -->		
 	
   
 <!-- ######################################################################################################################################################################### -->
-			<section data-background-image="assets/joint-titan-argos-tosca-workshop-background.png"  data-background-opacity="0.4">
-				<h2 style="font-family: Brush Script MT; font-size:132px;">Thank you!</h2>
+			<section id="thankyou" data-background-image="assets/joint-titan-argos-tosca-workshop-background.png"  data-background-opacity="0.4">
+				<h2 style="font-family: 'Dancing Script', 'Brush Script MT', cursive; font-size:132px; font-weight:700;">Thank you!</h2>
 			</section>
 <!-- ######################################################################################################################################################################### -->
 			<section>
@@ -2553,6 +2559,27 @@
 	}
   
 	  
+	/* ---- Slide footer (name left · event+date right) above progress bar ---- */
+	#slide-footer {
+		position: fixed;
+		bottom: 6px;           /* sits just above the 6px progress bar */
+		left: 0;
+		right: 0;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 20px;
+		box-sizing: border-box;
+		font-size: 0.72rem;
+		font-family: 'Inter', sans-serif;
+		font-weight: 500;
+		color: rgba(168, 178, 199, 0.75);
+		letter-spacing: 0.03em;
+		z-index: 999;
+		pointer-events: none;
+	}
+
   </style>
 
   <script>
@@ -2567,6 +2594,57 @@
 	  Reveal.on('slidechanged', toggleVF);
 	})();
 	</script>
+
+  <script>
+  /* === Slide footer: hide on title slide === */
+  (function(){
+    function toggleSlideFooter(){
+      const footer = document.getElementById('slide-footer');
+      if (!footer) return;
+      const i = Reveal.getIndices().h || 0;
+      footer.style.display = (i > 0) ? 'flex' : 'none';
+    }
+    Reveal.on('ready', toggleSlideFooter);
+    Reveal.on('slidechanged', toggleSlideFooter);
+  })();
+  </script>
+
+  <script>
+  /* === Progress bar: cap at "Thank You" slide, ignore backup slides === */
+  (function(){
+    function setupProgressOverride(){
+      const thankYouSlide = document.getElementById('thankyou');
+      if (!thankYouSlide) return;
+      const progressSpan = document.querySelector('.reveal .progress span');
+      if (!progressSpan) return;
+
+      function calcWidth(){
+        const slides = Array.from(document.querySelectorAll('.slides > section'));
+        const endIdx = slides.indexOf(thankYouSlide);
+        if (endIdx <= 0) return '100%';
+        const currentIdx = Reveal.getIndices().h || 0;
+        const ratio = Math.min(currentIdx / endIdx, 1.0);
+        return (ratio * 100).toFixed(3) + '%';
+      }
+
+      /* Override every time Reveal.js touches the progress bar width */
+      const observer = new MutationObserver(function(){
+        const target = calcWidth();
+        if (progressSpan.style.width !== target){
+          progressSpan.style.width = target;
+        }
+      });
+      observer.observe(progressSpan, { attributes: true, attributeFilter: ['style'] });
+
+      /* Also force-update on slide change so the bar is always correct */
+      Reveal.on('slidechanged', function(){
+        progressSpan.style.width = calcWidth();
+      });
+      progressSpan.style.width = calcWidth();
+    }
+    Reveal.on('ready', setupProgressOverride);
+  })();
+  </script>
 	
   
   
