@@ -86,7 +86,7 @@
 <!--########################## AIM ############################-->
 
 		<section data-auto-animate>
-			<h3 class="slide-title">Aim of this thesis</h3>
+			<h3 class="slide-title">Phd recap</h3>
 			<div style="
 			max-width:1100px; margin:10px auto 0;
 			background:rgba(255,255,255,.045);
@@ -141,13 +141,13 @@
   
 
 <!--########################## MOTIVATION ############################-->
-				<section 
+				<!-- <section 
 				data-background-video="assets/wl_animation.mp4"
 				data-background-video-loop
 				data-background-video-muted
 				data-background-video-size="cover"
 				data-background-color="#000">
-				</section>
+				</section> -->
 							
 				<!-- <section data-background-image="assets/Euclid_sees_spiral_galaxy_NGC_2188_and_galaxy_cluster_Abell_3381.jpg">
 				<div style="
@@ -237,15 +237,13 @@
 				  </section>
 
 				  
-				  <section>		
+				  <!-- <section>		
 					<h3 class="slide-title">Traditional Approach: The 2-Point Route</h3>
 					<div style=" display:grid; grid-template-columns:50% 50%; align-items:center; gap:10px; margin-top:20px; ">
-					  <!-- <div> -->
 						<video src="assets/shear_correlation_animation.mp4"
 							   autoplay loop muted playsinline
 							   style="width:90%; border:1px solid rgba(196,157,255,0.18); border-radius:12px; box-shadow:0 0 24px rgba(0,0,0,0.5); background:#000;">
 						</video>
-					  <!-- </div>				   -->
 					  <div
 						style="
 						  background:rgba(20,20,20,0.85);
@@ -280,8 +278,8 @@
 					<br>
 					<br>
 					<br>
-				  </section>
-				  <section>	
+				  </section> -->
+				  <!-- <section>	
 					<h3 class="slide-title">Traditional Approach: The 2-Point Route</h3>			  
 					<div style=" display:grid; grid-template-columns:50% 50%; align-items:center; gap:15px; margin-top:20px; ">
 					  <div>
@@ -337,8 +335,7 @@
 						">
 						<strong style="font-size:1.2em;">…but is this sufficient?</strong>
 					</div>
-
-				  </section>
+				  </section> -->
 
 				  <section>
 					<h3 class="slide-title">Traditional Approach: The 2-Point Route</h3>
@@ -362,7 +359,7 @@
 				  
 				
 				
-				  <section>
+				  <!-- <section>
 					<h3 class="slide-title">Probing the Universe with Higher-Order Statistics</h3>
 					<br>
 					<section>					  
@@ -389,7 +386,7 @@
 						  </div>
 						</div>
 					  </section>
-				  </section>		
+				  </section>		 -->
 
 				  
 				  
@@ -908,209 +905,7 @@
 
 			<!-- ########################################### RECAP Project 2 ################################################################################## -->
 			  
-<!-- ######################################################################################################################################################################### -->
-<!-- ######################################################################################################################################################################### -->
-<!-- ################################################################### PROJECT 3 ########################################################################################### -->
 			
-			<section data-background-color="#ffffff" class="white-center" data-transition="none">
-				<div class="centerbox">
-				<h2>Part 3</h2>
-				<h4 class="slide-title" style="margin-top:0;">Are we there yet- can we now directly start using theory?</h4>
-				</div>
-			</section>
-
-			<section data-auto-animate>
-				<h3 class="slide-title">Theory validation pipeline for wavelet \( \ell_1 \)-norm</h3>
-			  
-				<div style="width:80%;max-width:1200px;margin:8px auto 0;">
-				  <svg viewBox="0 0 1200 520" style="width:100%;height:auto;display:block;font-family:Inter,system-ui,-apple-system,sans-serif">
-					<!-- ========= defs ========= -->
-					<defs>
-					  <filter id="soft2"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity=".45"/></filter>
-					  <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-						<polygon points="0,0 10,5 0,10" fill="#dcdcdc"/>
-					  </marker>
-					  <style><![CDATA[
-						.pane    { rx:12; filter:url(#soft2) }
-						.theoryB { fill:#14283a; stroke:#284b6b }
-						.simsB   { fill:#2b1d10; stroke:#5b3b1f }
-						.gprB    { fill:#26213a; stroke:#4a3f65 }
-						.likeB   { fill:#0f2f26; stroke:#2e6a56 }
-						.ovalB   { fill:#f5f5f5 }
-						.tLt     { fill:#d9ecff } .tSi{ fill:#ffdcb8 } .tEm{ fill:#e9ddff } .tLi{ fill:#c9f7e6 }
-						.cap     { fill:#9aa4b2 } .muted{ fill:#9aa4b2 }
-					  ]]></style>
-					</defs>
-			  
-					<!-- lane titles -->
-					<text x="120" y="48" fill="#8fcaff" font-size="22" font-weight="700">Theory lane</text>
-					<text x="120" y="268" fill="#ffc184" font-size="22" font-weight="700">Simulation lane</text>
-			  
-					<!-- x positions (kept consistent for clean spacing) -->
-					<!--  x0=70  x1=330  x2=610  x3=860  posterior center at (1000, 200) -->
-			  
-					<!-- ======= THEORY LANE ======= -->
-					<rect x="70" y="70" width="220" height="82" class="pane theoryB"/>
-					<text x="180" y="100" text-anchor="middle" class="tLt" font-size="18" font-weight="700">LDT (theory)</text>
-					<text x="180" y="122" text-anchor="middle" fill="#9ecbff" font-size="13">predictions</text>
-			  
-					<!-- theory DV (flat tails) -->
-					<g transform="translate(330,70)">
-					  <path id="MflatTop"
-							d="M -75 62 C -60 62 -48 50 -30 34 S   5  -4,  20  10
-									   S  38  54,  55  62 S  85  20, 100  10
-									   S 130  42, 145  62 C 160 62 170 62 180 62"
-							fill="none" stroke="#6fb7ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-					  <use href="#MflatTop" stroke="#3da7ff" stroke-width="5" opacity=".8"/>
-					  <use href="#MflatTop" stroke="#3da7ff" stroke-width="3" opacity=".55" transform="translate(0,3) scale(1,0.93)"/>
-					  <text x="52" y="80" font-size="12" fill="#9ecbff" text-anchor="middle">DV</text>
-					</g>
-			  
-					<!-- → GPR (theory) -->
-					<line x1="510" y1="111" x2="610" y2="111" stroke="#dcdcdc" stroke-width="2.2" marker-end="url(#arr)"/>
-					<rect x="610" y="70" width="220" height="82" class="pane gprB"/>
-					<text x="720" y="100" text-anchor="middle" class="tEm" font-size="18" font-weight="700">GPR emulator</text>
-					<!-- <text x="720" y="122" text-anchor="middle" fill="#d7ccff" font-size="13">one per DV \(d_i(\theta)\)</text> -->
-			  
-					<!-- Likelihood (theory) box -->
-					<rect x="860" y="70" width="230" height="82" class="pane likeB"/>
-					<text x="975" y="98" text-anchor="middle" class="tLi" font-size="18" font-weight="700">Likelihood</text>
-
-					<!-- REPLACE the SVG <text> math with this foreignObject -->
-					<foreignObject x="865" y="112" width="220" height="36">
-					<div xmlns="http://www.w3.org/1999/xhtml"
-						style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-								font-size:13px;color:#c9f7e6;">
-						\( \ln \mathcal{L}=-\tfrac12(\mathbf d-\mu_\theta)^{\!\top}\,\mathbf C^{-1}\,(\mathbf d-\mu_\theta) \)
-					</div>
-					</foreignObject>
-			  
-					<!-- downward link to posterior -->
-					<path d="M 975 152 L 975 188" stroke="#9adcc1" stroke-width="2.6" marker-end="url(#arr)"/>
-			  
-					<!-- ======= SIMULATION LANE ======= -->
-					<rect x="70" y="290" width="220" height="82" class="pane simsB"/>
-					<text x="180" y="320" text-anchor="middle" class="tSi" font-size="18" font-weight="700">Cosmo-SLICS</text>
-					<text x="180" y="342" text-anchor="middle" fill="#ffcfa7" font-size="13">measurements</text>
-			  
-					<!-- sims DV (flat tails) -->
-					<g transform="translate(330,290)">
-					  <path id="MflatBot"
-							d="M -75 62 C -60 62 -48 50 -30 34 S   5  -4,  20  10
-									   S  38  54,  55  62 S  85  20, 100  10
-									   S 130  42, 145  62 C 160 62 170 62 180 62"
-							fill="none" stroke="#ffb47a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-					  <use href="#MflatBot" stroke="#ff9d57" stroke-width="5" opacity=".8"/>
-					  <use href="#MflatBot" stroke="#ff9d57" stroke-width="3" opacity=".55" transform="translate(0,3) scale(1,0.93)"/>
-					  <text x="52" y="80" font-size="12" fill="#ffc184" text-anchor="middle">DV</text>
-					</g>
-			  
-					<!-- → GPR (sims) -->
-					<line x1="510" y1="331" x2="610" y2="331" stroke="#dcdcdc" stroke-width="2.2" marker-end="url(#arr)"/>
-					<rect x="610" y="290" width="220" height="82" class="pane gprB"/>
-					<text x="720" y="320" text-anchor="middle" class="tEm" font-size="18" font-weight="700">GPR emulator</text>
-					<!-- <text x="720" y="342" text-anchor="middle" fill="#d7ccff" font-size="13">one per DV \(d_i(\theta)\)</text> -->
-			  
-					<rect x="860" y="290" width="230" height="82" class="pane likeB"/>
-					<text x="975" y="318" text-anchor="middle" class="tLi" font-size="18" font-weight="700">Likelihood</text>
-
-					<!-- REPLACE the SVG <text> math with this foreignObject -->
-					<foreignObject x="865" y="332" width="220" height="36">
-					<div xmlns="http://www.w3.org/1999/xhtml"
-						style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-								font-size:13px;color:#c9f7e6; text-align:center;">
-						\( \ln \mathcal{L}=-\tfrac12(\mathbf d-\mu_\theta)^{\!\top}\,
-						(\mathbf C+\Sigma_{\rm emu})^{-1}\,(\mathbf d-\mu_\theta) \)
-					</div>
-					</foreignObject>
-
-			  
-					<!-- upward link to posterior -->
-					<path d="M 975 290 L 975 254" stroke="#9adcc1" stroke-width="2.6" marker-end="url(#arr)"/>
-			  
-					<!-- ======= COMMON POSTERIOR ======= -->
-					<ellipse cx="1000" cy="220" rx="180" ry="46" class="ovalB" filter="url(#soft2)"/>
-
-					<!-- Title + math rendered via HTML so MathJax can process it -->
-					<foreignObject x="835" y="198" width="330" height="44">
-					<div xmlns="http://www.w3.org/1999/xhtml"
-						style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-						<div style="font-weight:800; font-size:20px; color:#223399; line-height:1.1;">
-						MCMC → posterior \( p(\theta \mid \mathbf{d}) \)
-						</div>
-						<div class="muted" style="font-size:13px; color:#8aa; line-height:1.1;">
-						compare theory-driven vs sims-driven pipelines
-						</div>
-					</div>
-					</foreignObject>
-
-			  
-					<!-- gentle curved joiners into posterior (cosmetic) -->
-					<path d="M 1090 111 Q 1125 165 1090 200" stroke="#cfd3d8" stroke-width="2" fill="none" marker-end="url(#arr)"/>
-					<path d="M 1090 331 Q 1125 275 1090 240" stroke="#cfd3d8" stroke-width="2" fill="none" marker-end="url(#arr)"/>
-			  
-					<!-- legend -->
-					<!-- <g transform="translate(70,458)">
-					  <rect x="0" y="-12" width="14" height="14" class="theoryB pane" style="rx:3;filter:none;"/>
-					  <text x="22" y="-1" fill="#9ecbff" font-size="12">theory</text>
-					  <rect x="90" y="-12" width="14" height="14" class="simsB pane" style="rx:3;filter:none;"/>
-					  <text x="112" y="-1" fill="#ffc184" font-size="12">sims</text>
-					  <rect x="160" y="-12" width="14" height="14" class="gprB pane" style="rx:3;filter:none;"/>
-					  <text x="182" y="-1" class="tEm" font-size="12">GPR</text>
-					  <rect x="220" y="-12" width="14" height="14" class="likeB pane" style="rx:3;filter:none;"/>
-					  <text x="242" y="-1" class="tLi" font-size="12">likelihood</text>
-					</g> -->
-				  </svg>
-				</div>
-				<div class="block" style="margin-top: -90px; padding: 10px;">
-					<div class="block-title">Likelihood used</div>
-					<div class="block-content" style="font-size:1.2em;">
-					  <p style="margin:0;">
-						We keep the covariance fixed at the fiducial cosmology and evaluate the mean with a GPR at each sampled \( \theta \).
-					  </p>
-					  
-					  <div style="background:rgba(20,28,40,.55); border:1px solid #355; border-radius:10px; padding:12px 14px; margin-bottom:0.2em;"> 
-						\[
-						  \ln \mathcal{L}(\theta)
-						  \;=\;
-						  -\tfrac12\Big[
-							(\mathbf d_{\rm obs}-\mu_\theta)^{\!\top}\,
-							\mathbf C_{\rm fid}^{-1}\,
-							(\mathbf d_{\rm obs}-\mu_\theta)
-							\;+\; \ln\!\det \mathbf C_{\rm fid}
-							\;+\; n\ln(2\pi)
-						  \Big] .
-						\]
-					  </div>
-					  
-					  <ul style="margin-top:0.2em; color:#9aa4b2;">
-						<li>\(\mathbf d_{\rm obs}\): measured wavelet \(\ell_1\) DV, \(\;\mu_\theta\): GPR prediction at sampled \(\theta\).</li>
-						<li>\(\mathbf C_{\rm fid}\): covariance estimated at fiducial cosmology (kept fixed for inference).</li>
-					  </ul>
-					</div>
-				</div>
-			  </section>
-
-			<section>
-				<h3 class="slide-title">Results</h3>
-			  
-				<!-- Watermark -->
-				<div class="watermark">PRELIMINARY</div>
-			  
-				<div style="display:flex; justify-content:center; align-items:center; gap:40px; margin-top:10px;">
-				  <!-- Left: Theory contours -->
-				  <figure style="text-align:center;">
-					<img src="assets/newposterior.jpg" class="plain" style="height:520px; border-radius:10px; box-shadow:0 0 25px rgba(68,204,255,0.25);" />
-					<figcaption style="color:#ccc; font-size:1.1em; margin-top:6px;">Contours from <b>theory</b></figcaption>
-				  </figure>
-			  
-				  <!-- Right: Simulation contours -->
-				  <figure style="text-align:center;">
-					<img src="assets/cosmoslics_contours_gpr_fiducial.png" class="plain" style="height:520px; border-radius:10px; box-shadow:0 0 25px rgba(255,170,127,0.25);" />
-					<figcaption style="color:#ccc; font-size:1.1em; margin-top:6px;">Contours from <b>simulations</b></figcaption>
-				  </figure>
-				</div>
-			  </section>		  
 			  
 <!-- ######################################################################################################################################################################### -->		
 	
