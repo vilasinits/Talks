@@ -340,11 +340,33 @@
 		.ticks li, .todo li { list-style: none; position: relative; margin: 2px 0 2px 1.2em; }
 		.ticks li::before { content: "✓"; position: absolute; left: -1.2em; font-weight: 700; color: var(--ink); }
 		.todo li::before { content: "○"; position: absolute; left: -1.2em; color: var(--s-tx); }
+		/* test-status table */
+		table.tst { border-collapse: collapse; width: 100%; font-size: 13.5px; line-height: 1.2; }
+		table.tst th { text-align: left; font-weight: 600; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 0 6px 3px; border-bottom: 1px solid var(--ink); }
+		table.tst td { padding: 2.5px 6px; border-bottom: 1px solid #ececef; vertical-align: top; }
+		table.tst td.n { font-family: 'JetBrains Mono', monospace; color: var(--muted); width: 1.6em; }
+		table.tst td.r { white-space: nowrap; }
+		table.tst tr.grp td { font-weight: 700; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding-top: 6px; border-bottom: 1px solid var(--rule); }
+		table.tst tr.grp.m td { color: var(--m-tx); } table.tst tr.grp.k td { color: var(--k-tx); } table.tst tr.grp.g td { color: var(--g-tx); }
+		table.tst tr.pend td:not(.r) { color: var(--muted); }
+		.ok, .no, .pd { font-weight: 700; }
+		.ok { color: var(--g-tx); } .no { color: var(--r-tx); } .pd { color: var(--muted); font-weight: 400; }
+		table.tst sup, table.tst sub { line-height: 0; }
 		.qlist.compact { gap: 6px; }
 		.qlist.compact .q { padding: 6px 14px; gap: 14px; }
 		.qlist.compact .q .n { font-size: 22px; width: 22px; }
 		.qlist.compact .q .t { font-size: 15px; line-height: 1.28; }
 		.qlist.compact .q .topic { font-size: 11.5px; }
+		/* open questions, sorted by probe */
+		.qcols { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; align-items: start; }
+		.qbox { border: 1px solid var(--rule); border-top: 4px solid var(--ink); border-radius: 10px; background: var(--panel); padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+		.qbox .qh { font-size: 14px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+		.qbox .qh .sub { font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--muted); font-size: 12.5px; display: block; margin-top: 1px; }
+		.qbox .q { background: #fff; }
+		.qbox .qlist.compact .q .n { width: 28px; flex: none; }
+		.qbox.y { border-top-color: var(--y-bd); } .qbox.y .qh { color: var(--y-tx); }
+		.qbox.r { border-top-color: var(--r-bd); } .qbox.r .qh { color: var(--r-tx); }
+		.qbox .q.tbd { background: transparent; border-style: dashed; color: var(--muted); }
 		.fv .card { padding: 11px 16px; }
 		.fv .card h4 { margin-bottom: 4px; }
 		.fv ol { margin: 0 0 0 1.5em !important; font-size: 16.5px; line-height: 1.32; }
@@ -1515,47 +1537,40 @@
 <section>
 	<div class="head tight">
 		<span class="kicker">Discussion</span>
-		<h2>Recap and open questions</h2>
+		<h2>Recap, status and open questions</h2>
 	</div>
-	<div class="grid2 grow" style="grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap:26px; align-content:start;">
-		<div class="col" style="gap:10px;">
-			<div class="recap-h">Recap: tests done</div>
-			<div class="card plain recap">
-				<h4>Theory (GODMAX)</h4>
-				<ul class="ticks two">
-					<li>Baseline (CCL) comparison, \(C_\ell^{ab}\)</li>
-					<li>Covariance non-PSD: no bias</li>
-					<li>Parameter sensitivity</li>
-					<li>Baryonification toggle</li>
-					<li>Convergence test</li>
-				</ul>
-			</div>
-			<div class="card plain recap">
-				<h4>cloelib + GODMAX</h4>
-				<ul class="ticks">
-					<li><code>"godmax"</code> reproduces GODMAX \(C_\ell\)</li>
-					<li>\(P_{mm}\), \(C_\ell\): identical to native</li>
-					<li>Eisenstein–Hu: no bias</li>
-				</ul>
-			</div>
-			<div class="card plain recap">
-				<h4>cloelike + GODMAX</h4>
-				<ul class="ticks">
-					<li>\(gg\): \(\Delta\chi^2=0\)</li>
-					<li>tSZ blocks run end to end</li>
-				</ul>
-			</div>
-			<div class="card attn recap">
-				<h4>Proposed next tests</h4>
-				<ul class="todo">
-					<li>\(\chi^2\) scans for tSZ blocks</li>
-					<li>Mock closure test</li>
-					<li><code>jax.grad</code> through cloelib</li>
-					<li>Fisher: <code>"godmax"</code> vs <code>"baseline"</code></li>
-				</ul>
-			</div>
+	<div class="grid2 grow" style="grid-template-columns: minmax(0,1.45fr) minmax(0,1fr); gap:26px; align-content:start;">
+		<div class="col" style="gap:4px;">
+			<div class="recap-h">Validation tests: status</div>
+			<table class="tst">
+				<thead><tr><th>#</th><th>Test</th><th>Expected</th><th>Result</th></tr></thead>
+				<tbody>
+					<tr class="grp m"><td colspan="4">GODMAX</td></tr>
+					<tr><td class="n">01</td><td>Profiles, mass conservation</td><td>finite, ≥ 0; mass within 0.5–2%</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr><td class="n">02</td><td>Baryonification, large scales</td><td>ON/OFF &lt; 1% at k ≤ 0.01, low ℓ</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr><td class="n">03</td><td>Halo mass limits</td><td>&lt; 0.5% per extra 0.5 dex</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr><td class="n">04</td><td>Grid convergence</td><td>&lt; 0.5% (yy &lt; 1%)</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr><td class="n">05</td><td>EH vs symbolic emulators</td><td>C<sub>ℓ</sub> &lt; 2%; Fisher shift &lt; 0.3σ</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr><td class="n">06</td><td>Toggles</td><td>only the target spectra change</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr><td class="n">07</td><td>Numerical stability</td><td>finite; grad = FD to 10<sup>−3</sup></td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr><td class="n">08</td><td>Spectra overview</td><td>smooth; 1h/2h as expected</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr class="grp k"><td colspan="4">cloelib</td></tr>
+					<tr><td class="n">09</td><td>Smoke test</td><td>runs; correct shapes</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr><td class="n">10</td><td>cloelib vs GODMAX C<sub>ℓ</sub></td><td>&lt; 0.5% (yy &lt; 2.5%)</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr><td class="n">11</td><td>vs cloelib default</td><td>ℓ &lt; 200: 1% (γ, κ), 2% (g)</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr><td class="n">12</td><td>Kernel toggles</td><td>only own tracer pairs</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr><td class="n">13</td><td>GODMAX defaults</td><td>differences documented</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr><td class="n">14</td><td>Stability, convergence</td><td>&lt; 0.5%; grad = FD</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr class="grp g"><td colspan="4">cloelike</td></tr>
+					<tr class="pend"><td class="n">15</td><td>Construction, fiducial</td><td>log L = 0 at fiducial</td><td class="r"><span class="pd">pending</span></td></tr>
+					<tr class="pend"><td class="n">16</td><td>Data vector, theory</td><td>= hand-built C<sub>ℓ</sub> (10<sup>−10</sup>)</td><td class="r"><span class="pd">pending</span></td></tr>
+					<tr class="pend"><td class="n">17</td><td>Gradients</td><td>grad = FD to 10<sup>−3</sup></td><td class="r"><span class="pd">pending</span></td></tr>
+					<tr class="pend"><td class="n">18</td><td>Parameter recovery</td><td>means within 0.3σ</td><td class="r"><span class="pd">pending</span></td></tr>
+					<tr class="pend"><td class="n">19</td><td>Timing</td><td>recorded per class</td><td class="r"><span class="pd">pending</span></td></tr>
+				</tbody>
+			</table>
 		</div>
-		<div class="col" style="gap:10px;">
+		<!-- <div class="col" style="gap:10px;">
 			<div class="recap-h">Open questions</div>
 			<div class="qlist compact">
 				<div class="q"><div class="n">1</div><div><div class="topic muted">Kernel convention</div><div class="t"><code>godmax</code> or <code>baseline</code>?</div></div></div>
@@ -1566,12 +1581,52 @@
 				<div class="q"><div class="n">6</div><div><div class="topic muted">Parameter space</div><div class="t">Which to fix? Prior for <code>nu_theta_ej_M</code>?</div></div></div>
 				<div class="q"><div class="n">7</div><div><div class="topic muted">Coordination</div><div class="t">What is needed from us?</div></div></div>
 			</div>
+		</div> -->
+	</div>
+	<aside class="notes">01: 17/19 checks pass; CLM 3.7% and DMB 2.9% off only for haloes at the radial-grid edge (known, rmax/rmin). 02: all pass, max 0.3% at low ℓ, P_DMB/P_NFW within 0.07% at k=1e-3. 03: galaxy spectra not converged at Mmin = 10^11.5 (C_gg changes by >100% going to 10.5), y needs Mmax = 10^16.</aside>
+</section>
+
+<section>
+	<div class="head tight">
+		<span class="kicker">Discussion</span>
+		<h2>Open questions</h2>
+	</div>
+	<div class="qcols grow">
+		<!-- CMB lensing -->
+		<div class="qbox r">
+			<div class="qh">CMB lensing<span class="sub">separate pipeline, no HOD</span></div>
+			<div class="qlist compact">
+				<div class="q tbd"><div><div class="t">To be added</div></div></div>
+			</div>
+		</div>
+		<!-- Common -->
+		<div class="qbox">
+			<div class="qh">Common<span class="sub">needed to combine the probes</span></div>
+			<div class="qlist compact">
+				<div class="q"><div><div class="topic muted">External likelihood</div><div class="t">Sum of independent log \(L\), or one joint data vector? How do we progress?</div></div></div>
+				<div class="q"><div><div class="topic muted">Interface</div><div class="t">Shared cosmology parameters and names? JAX / differentiable?</div></div></div>
+				<div class="q"><div><div class="topic muted">Linear power spectrum</div><div class="t">Same \(P_{\rm lin}\) for all? Eisenstein–Hu enough? Massive ν?</div></div></div>
+				<div class="q"><div><div class="topic muted">Joint covariance</div><div class="t">Who builds it? Cross terms? Gaussian or + SSC for tSZ? PSD check?</div></div></div>
+				<div class="q"><div><div class="topic muted">Mixing matrices</div><div class="t">Who provides them?</div></div></div>
+				<div class="q"><div><div class="topic muted">Sampler</div><div class="t">Which sampler? NUTS needed?</div></div></div>
+				<div class="q"><div><div class="topic muted">Coordination</div><div class="t">What is needed from us?</div></div></div>
+			</div>
+		</div>
+		<!-- tSZ / GODMAX -->
+		<div class="qbox y">
+			<div class="qh">tSZ · GODMAX<span class="sub">halo model + baryonification</span></div>
+			<div class="qlist compact">
+				<div class="q"><div><div class="topic muted">Kernel convention</div><div class="t"><code>godmax</code> or <code>baseline</code>?</div></div></div>
+				<div class="q"><div><div class="topic muted">Parameter space</div><div class="t">What to fix?</div></div></div>
+				<div class="q"><div><div class="topic muted">Pseudo-Cℓ for y</div><div class="t">Decoupled or pseudo-\(C_\ell\)?</div></div></div>
+			</div>
 		</div>
 	</div>
 </section>
 
+
 <!-- Further validation (proposed) -->
-<section>
+<!-- <section>
 	<div class="head tight">
 		<span class="kicker">Discussion · backup</span>
 		<h2>Further validation (proposed)</h2>
@@ -1604,7 +1659,7 @@
 			</ol>
 		</div>
 	</div>
-</section>
+</section> -->
 
 		</div>
 	</div>
