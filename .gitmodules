@@ -46,3 +46,6 @@
 [submodule "IAS-Cosmo-Seminar-update/reveal.js"]
 	path = IAS-Cosmo-Seminar-update/reveal.js
 	url = https://github.com/EiffL/reveal.js.git
+[submodule "CMBx-handson-nov/reveal.js"]
+	path = CMBx-handson-nov/reveal.js
+	url = https://github.com/EiffL/reveal.js.git
