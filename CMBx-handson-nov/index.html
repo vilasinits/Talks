@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<title>CMBx Likelihood &amp; Theory</title>
-	<meta name="description" content="CMBx hands-on meeting, IAP, 17–18 Nov 2026 — Likelihood & Theory: GODMAX halo model, validation, cloelib/cloelike integration.">
+	<meta name="description" content="CMBx hands-on meeting, IAP, 17-18 Nov 2026 — Likelihood & Theory: GODMAX halo model, validation, cloelib/cloelike integration.">
 
 	<link rel="stylesheet" href="reveal.js/dist/reset.css">
 	<link rel="stylesheet" href="reveal.js/dist/reveal.css">
@@ -401,7 +401,7 @@
 		.stage-col .dot.next { border-style: dashed; color: #4f4f55; }
 		.stage-name { font-size: 14px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: -4px; }
 		.stage-col .card p { font-size: 18px; }
-		.check li::before { content: "–"; position: absolute; left: -1em; color: var(--muted); }
+		.check li::before { content: "-"; position: absolute; left: -1em; color: var(--muted); }
 
 		/* ================================================================
 		   Editorial layer. Purple is the one emphasis colour (the GODMAX
@@ -483,12 +483,18 @@
 <section class="title-slide" data-state="no-chrome">
 	<div class="meeting">Euclid CMBx hands-on meeting</div>
 	<h1>Likelihood &amp; Theory</h1>
+	
+
 	<div class="subtitle">Halo-model predictions with <a class="ext" href="https://github.com/vilasinits/GODMAX/tree/cloe-integration" target="_blank">GODMAX</a> and their integration into <a class="ext" href="https://github.com/cloe-org" target="_blank">CLOE</a></div>
 	<div class="bar">
 		<span style="background:var(--k-bd)"></span><span style="background:var(--g-bd)"></span>
 		<span style="background:var(--y-bd)"></span><span style="background:var(--r-bd)"></span>
 	</div>
-	<div class="meta">Institut d'Astrophysique de Paris · 17–18 November 2026</div>
+	<br>
+	<br>
+	<h3>Raphaël, Vilasini</h3>
+	
+	<div class="meta">Institut d'Astrophysique de Paris · 17-18 November 2026</div>
 	<img class="logo-big" src="figures/euclid_consortium_logo.png" alt="Euclid Consortium">
 </section>
 
@@ -578,7 +584,7 @@
 				<text x="356" y="159" font-weight="700" fill="#1c1c1e">Background</text><text x="618" y="159" text-anchor="end" fill="#1c1c1e">χ(z), H(z), D(z)</text>
 				<line x1="487" y1="176" x2="487" y2="190" stroke="#6b6b70" stroke-width="1.5" marker-end="url(#bp-a)"/>
 				<rect x="342" y="192" width="290" height="44" rx="8" fill="#f1f1f4" stroke="#bcbcc3"/>
-				<text x="356" y="219" font-weight="700" fill="#1c1c1e">Linear P(k)</text><text x="618" y="219" text-anchor="end" fill="#1c1c1e">Eisenstein–Hu</text>
+				<text x="356" y="219" font-weight="700" fill="#1c1c1e">Linear P(k)</text><text x="618" y="219" text-anchor="end" fill="#1c1c1e">Eisenstein-Hu</text>
 				<line x1="487" y1="236" x2="487" y2="250" stroke="#6b6b70" stroke-width="1.5" marker-end="url(#bp-a)"/>
 				<!-- the GODMAX slot -->
 				<rect x="342" y="252" width="290" height="74" rx="8" fill="#ece7f6" stroke="#8f80c6" stroke-width="2.2"/>
@@ -1159,8 +1165,8 @@
 		<div class="colhead"><a class="ext" href="https://github.com/vilasinits/GODMAX/tree/cloe-integration" target="_blank">GODMAX</a></div>
 
 		<div class="stage">\(P_{\rm lin}(k,z)\)</div>
-		<div class="box"><span class="t-k">Eisenstein–Hu (JAX)</span> · <span class="t-y">CAMB, CLASS family, emulators</span></div>
-		<div class="box"><span class="t-k">Eisenstein–Hu</span> · <span class="t-g">symbolic fit</span></div>
+		<div class="box"><span class="t-k">Eisenstein-Hu (JAX)</span> · <span class="t-y">CAMB, CLASS family, emulators</span></div>
+		<div class="box"><span class="t-k">Eisenstein-Hu</span> · <span class="t-g">symbolic fit</span></div>
 
 		<div class="stage"><span>\(P_{\rm NL}\) + baryons</span></div>
 		<div class="box">
@@ -1178,7 +1184,7 @@
 			<div class="b t-g">Halo model</div><div class="t-k">halofit × \(P_{\rm DMB}/P_{\rm NFW}\)</div>
 			<div class="b t-g" style="margin-top:5px;">Baryons from gas profiles</div><div class="t-g">\(\theta_{\rm ej},\ \theta_{\rm co},\ \beta(M,z,c),\dots\)</div>
 			<div class="b t-g" style="margin-top:5px;">Same halos → all tracers</div><div class="t-g">consistent feedback in WL, GC, tSZ</div>
-			<div class="b t-g" style="margin-top:5px;">JAX, differentiable</div><div class="t-n">~5–25 s per evaluation</div>
+			<div class="b t-g" style="margin-top:5px;">JAX, differentiable</div><div class="t-n">~5-25 s per evaluation</div>
 		</div>
 
 		<div class="stage"><span>Kernels \(W(z)\)</span></div>
@@ -1227,7 +1233,7 @@
 		<div class="box"><div class="b t-g">CloelibCosmology adapter</div><div class="t-g">uses cloelib distances, growth, σ<sub>8</sub></div></div>
 
 		<div class="stage">\(P_{\rm lin}(k,z)\)</div>
-		<div class="box t-k"><code>JAXLinearPerturbations</code>: Eisenstein–Hu (JAX)</div>
+		<div class="box t-k"><code>JAXLinearPerturbations</code>: Eisenstein-Hu (JAX)</div>
 		<div class="link"><span>\(P_{\rm lin}\)</span><span class="arr">⟶</span></div>
 		<div class="box t-g">same linear \(P(k)\) as cloelib</div>
 
@@ -1413,14 +1419,14 @@
 <section>
 	<div class="head">
 		<span class="kicker">Integration · tests</span>
-		<h2>Linear \(P(k)\): Eisenstein–Hu vs symbolic fit (1/2)</h2>
+		<h2>Linear \(P(k)\): Eisenstein-Hu vs symbolic fit (1/2)</h2>
 	</div>
 	<div class="row grow" style="gap:30px;">
 		<div class="fig" style="flex: 0 0 560px;">
 			<img src="figures/fisher_eh_vs_symbolic.png" style="height:560px;" alt="Fisher forecast, gg+gκ+gy, 8 parameters: symbolic vs EH">
 		</div>
 		<div class="qrc">
-			<div class="card qq"><h4>Question</h4><p>Does Eisenstein–Hu \(P_{\rm lin}\) bias the parameters?</p><div class="how">Fisher, \(gg+g\kappa+gy\), 8 params · truth: symbolic fit</div></div>
+			<div class="card qq"><h4>Question</h4><p>Does Eisenstein-Hu \(P_{\rm lin}\) bias the parameters?</p><div class="how">Fisher, \(gg+g\kappa+gy\), 8 params · truth: symbolic fit</div></div>
 			<div class="card res"><h4>Result</h4><ul><li>Contours and centres match the truth</li></ul></div>
 			<div class="card concl"><h4>Conclusion</h4><ul><li><strong>No bias</strong> at this precision</li></ul><div class="open">Open: enough for the baseline?</div></div>
 		</div>
@@ -1431,14 +1437,14 @@
 <section>
 	<div class="head">
 		<span class="kicker">Integration · tests</span>
-		<h2>Linear \(P(k)\): Eisenstein–Hu vs symbolic fit (2/2)</h2>
+		<h2>Linear \(P(k)\): Eisenstein-Hu vs symbolic fit (2/2)</h2>
 	</div>
 	<div class="row grow" style="gap:30px;">
 		<div class="fig" style="flex: 0 0 420px;">
-			<img src="figures/fisher_eh_vs_symbolic_probes.png" style="height:552px;" alt="Fisher ellipses per probe (gg, gκ, gy, gg+gy) in Ωm, σ8, ns: symbolic fit (truth) vs Eisenstein–Hu">
+			<img src="figures/fisher_eh_vs_symbolic_probes.png" style="height:552px;" alt="Fisher ellipses per probe (gg, gκ, gy, gg+gy) in Ωm, σ8, ns: symbolic fit (truth) vs Eisenstein-Hu">
 		</div>
 		<div class="qrc">
-			<div class="card qq"><h4>Question</h4><p>Does Eisenstein–Hu \(P_{\rm lin}\) bias the parameters, probe by probe?</p><div class="how">Fisher per probe: \(gg\), \(g\kappa\), \(gy\), \(gg+gy\) · \(\Omega_m,\ \sigma_8,\ n_s\) · truth: symbolic fit</div></div>
+			<div class="card qq"><h4>Question</h4><p>Does Eisenstein-Hu \(P_{\rm lin}\) bias the parameters, probe by probe?</p><div class="how">Fisher per probe: \(gg\), \(g\kappa\), \(gy\), \(gg+gy\) · \(\Omega_m,\ \sigma_8,\ n_s\) · truth: symbolic fit</div></div>
 		</div>
 	</div>
 </section>
@@ -1452,7 +1458,7 @@
 	<div class="grid2 grow" style="gap:30px 48px; align-content:start; margin-top:36px;">
 		<div class="card edge-n">
 			<h4>Linear power spectrum</h4>
-			<ul class="bl small"><li>Eisenstein–Hu only</li><li>Option: cosmopower-jax backend</li></ul>
+			<ul class="bl small"><li>Eisenstein-Hu only</li><li>Option: cosmopower-jax backend</li></ul>
 		</div>
 		<div class="card edge-n">
 			<h4>Model scope</h4>
@@ -1471,7 +1477,7 @@
 			<ul class="bl small"><li>48 k points, interpolation over z nodes</li><li>Convergence test vs \(n_k\), \(n_M\), z nodes</li></ul>
 		</div>
 	</div>
-	<aside class="notes">Tests that could be shown: Eisenstein–Hu vs pyCCL (Fisher); with and without magnification and RSD (Fisher); differences in Cl with different toggles (backup, many plots).</aside>
+	<aside class="notes">Tests that could be shown: Eisenstein-Hu vs pyCCL (Fisher); with and without magnification and RSD (Fisher); differences in Cl with different toggles (backup, many plots).</aside>
 </section>
 
 <!-- ================================================================ -->
@@ -1567,7 +1573,7 @@
 	</div>
 	<div class="row grow" style="gap:32px; align-items:center;">
 		<div class="fig" style="flex: 0 0 440px;">
-			<img src="assets/corner_samplers_with_prior.png" style="height:440px; width:440px; object-fit:contain;" alt="Corner plot of HOD parameters: cloelike + Cobaya vs GODMAX + NUTS, with flat priors">
+			<img src="figures/corner_samplers_with_prior.png" style="height:440px; width:440px; object-fit:contain;" alt="Corner plot of HOD parameters: cloelike + Cobaya vs GODMAX + NUTS, with flat priors">
 		</div>
 		<div class="qrc">
 			<div class="card qq"><h4>Question</h4><p>Does the likelihood run end to end inside a sampler?</p><div class="how">3 HOD params, flat priors · cloelike + Cobaya (jit) vs GODMAX + NUTS</div></div>
@@ -1692,13 +1698,13 @@
 				<thead><tr><th>Ingredient</th><th class="hm">GODMAX</th><th class="hk">CLOE (cloelib)</th></tr></thead>
 				<tbody>
 					<tr class="grp"><td colspan="3">Matter power spectrum</td></tr>
-					<tr><td>\(P_{\rm lin}\)</td><td>Eisenstein–Hu, symbolic fit</td><td>EH (JAX), CAMB, CLASS, emulators</td></tr>
+					<tr><td>\(P_{\rm lin}\)</td><td>Eisenstein-Hu, symbolic fit</td><td>EH (JAX), CAMB, CLASS, emulators</td></tr>
 					<tr><td>\(P_{\rm NL}\)</td><td>halofit × \(P_{\rm DMB}/P_{\rm NFW}\)</td><td>halofit, HMcode, BACCO, EE2, e-MANTIS</td></tr>
 					<tr><td>Baryons</td><td>gas profiles: \(\theta_{\rm ej},\theta_{\rm co},\mu_\beta,\log M_c\)</td><td>none, \(\log T_{\rm AGN}\), BCM (6), tabulated \(B(k,z)\)</td></tr>
 					<tr class="grp"><td colspan="3">Halo model</td></tr>
 					<tr><td>Profiles</td><td>NFW, DMB (gas+stars), \(P_e\)</td><td><span class="na">via GODMAX backend</span></td></tr>
 					<tr><td>tSZ</td><td>HSE + non-thermal \(\alpha_{\rm nt}\)</td><td><span class="na">via GODMAX backend</span></td></tr>
-					<tr><td>1h–2h</td><td>power-add \(\alpha_{ky},\alpha_{gy},\alpha_{gg},\alpha_{gm}\)</td><td><span class="na">—</span></td></tr>
+					<tr><td>1h-2h</td><td>power-add \(\alpha_{ky},\alpha_{gy},\alpha_{gg},\alpha_{gm}\)</td><td><span class="na">—</span></td></tr>
 					<tr class="grp"><td colspan="3">Tracers / kernels</td></tr>
 					<tr><td>Galaxy bias</td><td>HOD (Leauthaud+11), b(z)</td><td>linear b(z): per_bin, poly; PT; 'hod'</td></tr>
 					<tr><td>IA</td><td>NLA, pivot \(z_0=0.62\)</td><td>NLA, TATT</td></tr>
@@ -1719,7 +1725,7 @@
 			<div class="recap-h">Open questions</div>
 			<div class="qlist compact">
 				<div class="q"><div class="n">1</div><div><div class="topic muted">Kernel convention</div><div class="t"><code>godmax</code> or <code>baseline</code>?</div></div></div>
-				<div class="q"><div class="n">2</div><div><div class="topic muted">Linear power spectrum</div><div class="t">Eisenstein–Hu enough? Massive ν?</div></div></div>
+				<div class="q"><div class="n">2</div><div><div class="topic muted">Linear power spectrum</div><div class="t">Eisenstein-Hu enough? Massive ν?</div></div></div>
 				<div class="q"><div class="n">3</div><div><div class="topic muted">Pseudo-Cℓ</div><div class="t">Decoupled or pseudo-\(C_\ell\) for y? Who provides mixing matrices?</div></div></div>
 				<div class="q"><div class="n">4</div><div><div class="topic muted">Sampler</div><div class="t">Which sampler? NUTS needed?</div></div></div>
 				<div class="q"><div class="n">5</div><div><div class="topic muted">Joint covariance</div><div class="t">Who builds it? Gaussian or + SSC for tSZ? PSD check?</div></div></div>
@@ -1761,7 +1767,7 @@
 			<div class="qlist compact">
 				<div class="q"><div><div class="topic muted">External likelihood</div><div class="t">Sum of independent log \(L\), or one joint data vector? How do we progress?</div></div></div>
 				<!-- <div class="q"><div><div class="topic muted">Interface</div><div class="t">Shared cosmology parameters and names? JAX / differentiable?</div></div></div> -->
-				<div class="q"><div><div class="topic muted">Linear power spectrum</div><div class="t">Same \(P_{\rm lin}\) for all? Eisenstein–Hu enough? Massive ν?</div></div></div>
+				<div class="q"><div><div class="topic muted">Linear power spectrum</div><div class="t">Same \(P_{\rm lin}\) for all? Eisenstein-Hu enough? Massive ν?</div></div></div>
 				<div class="q"><div><div class="topic muted">Joint covariance</div><div class="t">Who builds it? Cross terms? Gaussian or + SSC for tSZ? PSD check?</div></div></div>
 				<div class="q"><div><div class="topic muted">Emulators</div><div class="t">CosmoPower-JAX?</div></div></div>
 				<div class="q"><div><div class="topic muted">Mixing matrices</div><div class="t">Who provides them?</div></div></div>
@@ -1820,12 +1826,12 @@
 				["A_IA", "k", "WL / IA", "κκ, gκ, κy", "all ℓ", "Very high", "Vary", 1],
 				["eta_IA", "k", "WL / IA", "κκ, gκ, κy", "all ℓ", "Medium", "Vary if IA modelled"],
 				["z0_IA", "k", "WL / IA", "κκ, gκ, κy", "all ℓ (tiny amp.)", "Low", "Fixable"],
-				["alpha_ky", "k", "WL / IA (κy-specific)", "κy", "low–mid ℓ", "High (κy)", "Vary for κy"],
+				["alpha_ky", "k", "WL / IA (κy-specific)", "κy", "low-mid ℓ", "High (κy)", "Vary for κy"],
 				["Delta_z_bias", "r", "Systematics / photo-z", "κκ, gκ, κy", "all ℓ", "Very high", "Vary", 1],
 				["mult_shear_bias", "r", "Systematics / shear cal.", "κκ, gκ, κy", "all ℓ, ~scale-indep.", "High", "Vary", 1],
-				["alpha_nt", "y", "Gas / tSZ profile", "κy", "mid–high ℓ", "Medium-high", "Vary for κy"],
-				["beta_nt", "y", "Gas / tSZ profile", "κy", "mid–high ℓ", "Medium", "Vary for precision κy"],
-				["n_nt", "y", "Gas / tSZ profile", "κy", "mid–high ℓ", "Medium", "Vary for κy"],
+				["alpha_nt", "y", "Gas / tSZ profile", "κy", "mid-high ℓ", "Medium-high", "Vary for κy"],
+				["beta_nt", "y", "Gas / tSZ profile", "κy", "mid-high ℓ", "Medium", "Vary for precision κy"],
+				["n_nt", "y", "Gas / tSZ profile", "κy", "mid-high ℓ", "Medium", "Vary for κy"],
 				["theta_ej_0", "y", "Gas / ejection radius", "κκ, gκ, esp. κy", "high ℓ", "Very high", "Vary"],
 				["theta_co_0", "y", "Gas / core radius", "mainly κy", "high ℓ", "Medium-high", "Vary for high-ℓ κy"]
 			],
@@ -1837,17 +1843,17 @@
 				["a_zeta", "y", "Gas / baryonic back-reaction", "κκ, gκ, κy", "high ℓ", "High", "Vary if high ℓ used"],
 				["n_zeta", "y", "Gas / baryonic back-reaction", "κκ, gκ, κy", "high ℓ", "High", "Vary if high ℓ used"],
 				["alphasat_Nsat", "g", "HOD / satellite occupation", "mainly gκ", "mid ℓ", "Low-medium", "Maybe vary for gκ"],
-				["Bcut_Nsat", "g", "HOD / satellite cut-off", "mainly gκ", "mid–high ℓ", "Low", "Fixable"],
-				["betacut_Nsat", "g", "HOD / cut-off slope", "mainly gκ", "mid–high ℓ", "Low", "Fixable"],
+				["Bcut_Nsat", "g", "HOD / satellite cut-off", "mainly gκ", "mid-high ℓ", "Low", "Fixable"],
+				["betacut_Nsat", "g", "HOD / cut-off slope", "mainly gκ", "mid-high ℓ", "Low", "Fixable"],
 				["Bsat_Nsat", "g", "HOD / satellite norm.", "mainly gκ", "mid ℓ", "Low-medium", "Maybe fix / vary for gκ"],
 				["betasat_Nsat", "g", "HOD / satellite slope", "mainly gκ", "mid ℓ", "Very high (gκ)", "Vary for gκ"]
 			],
 			[
 				["siglogMstar_Ncen", "g", "HOD / central scatter", "mainly gκ", "mid ℓ", "Very high (gκ)", "Vary for gκ"],
-				["beta_fshmr", "m", "SHMR", "mainly gκ", "mid–high ℓ", "Medium", "Vary for gκ"],
+				["beta_fshmr", "m", "SHMR", "mainly gκ", "mid-high ℓ", "Medium", "Vary for gκ"],
 				["delta_fshmr", "m", "SHMR", "all, esp. gκ", "high ℓ", "Very high", "Vary"],
-				["gamma_fshmr", "m", "SHMR", "mainly gκ", "mid–high ℓ", "High", "Vary for gκ"],
-				["log10M1_fshmr", "m", "SHMR / char. halo mass", "mainly gκ", "mid–high ℓ", "High", "Vary for gκ"],
+				["gamma_fshmr", "m", "SHMR", "mainly gκ", "mid-high ℓ", "High", "Vary for gκ"],
+				["log10M1_fshmr", "m", "SHMR / char. halo mass", "mainly gκ", "mid-high ℓ", "High", "Vary for gκ"],
 				["log10Mstar0_fshmr", "m", "SHMR / char. stellar mass", "weakly all", "high ℓ", "Low-medium", "Maybe fix"],
 				["A_starcga", "n", "Stellar / CGA profile", "none visible", "—", "Negligible", "Fix"],
 				["eta_cga", "n", "Stellar / CGA profile", "none visible", "—", "Negligible", "Fix"],
