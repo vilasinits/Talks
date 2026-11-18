@@ -190,9 +190,9 @@
 		.tag.i1 { background: #d6d6dc; color: #1c1c1e; }
 		.tag.i2 { background: #e5e5ea; color: #2d2d30; }
 		.tag.i3 { background: #f1f1f4; color: #4f4f55; }
-		.tag.i4 { background: #fff; border-color: #d9d9de; color: #6b6b70; font-weight: 500; }
+		.tag.i4 { background: #fff; border-color: #d9d9de; color: #1c1c1e; font-weight: 500; }
 		.tag.fv { background: #fff; border-color: #6b6b70; color: #1c1c1e; }
-		.tag.fx { background: #fff; border-color: #d9d9de; color: #86868c; font-weight: 500; }
+		.tag.fx { background: #fff; border-color: #d9d9de; color: #1c1c1e; font-weight: 500; }
 		/* probe colours (fixed, never remapped): shear, galaxies, tSZ, CMB lensing */
 		.p-sh { color: #34557e; } .p-gc { color: #356a3e; } .p-y { color: #8c5124; } .p-cmb { color: #8a3a4a; }
 		/* code-comparison slides: blue/peach/green become grey / butter / lavender */
@@ -285,7 +285,7 @@
 			display: flex; flex-direction: column; align-items: center; justify-content: center;
 			font-size: 11.5px; color: var(--muted); padding: 0 4px; margin-left: 14px;
 		}
-		.pipe .link .arr { font-size: 20px; line-height: .8; color: #77777d; }
+		.pipe .link .arr { font-size: 20px; line-height: .8; color: #1c1c1e; }
 		.pipe .colhead { font-weight: 700; font-size: 16px; text-align: center; padding-bottom: 2px; margin-left: 14px; }
 		.pipe .colhead.first { margin-left: 0; }
 		.t-k { color: var(--k-tx); } .t-y { color: var(--y-tx); } .t-g { color: var(--g-tx); } .t-n { color: var(--muted); }
@@ -352,6 +352,24 @@
 		.ok, .no, .pd { font-weight: 700; }
 		.ok { color: var(--g-tx); } .no { color: var(--r-tx); } .pd { color: var(--muted); font-weight: 400; }
 		table.tst sup, table.tst sub { line-height: 0; }
+		table.tst.mc { font-size: 12.5px; }
+		table.tst.mc td:first-child { font-weight: 600; white-space: nowrap; }
+		table.tst.mc td .na, table.tst.mc td.na { color: var(--muted); }
+		table.tst.mc th.hm { color: var(--m-tx); } table.tst.mc th.hk { color: var(--k-tx); }
+		table.tst.mc tr.grp td { color: var(--muted); }
+		table.tst .x { color: var(--muted); font-weight: 700; }
+		table.tst td.r { text-align: center; }
+		table.tst .pill { font-size: 10.5px; letter-spacing: .04em; color: var(--muted); border: 1px solid var(--rule); border-radius: 9px; padding: 0 6px; }
+		.rh { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1.5px solid var(--ink); padding-bottom: 4px; }
+		.rh > span:first-child { font-size: 15px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+		.rh .cnt { font-size: 12.5px; color: var(--muted); } .rh .cnt b { color: var(--ink); font-size: 15px; } .rh .cnt code { font-size: 11px; }
+		.prog { display: grid; grid-template-columns: 8fr 6fr 3fr; gap: 10px; margin: 2px 0 2px; }
+		.prog .lab { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; margin-bottom: 3px; white-space: nowrap; }
+		.prog .bar { height: 6px; background: #ececef; border-radius: 3px; overflow: hidden; } .prog .bar i { display: block; height: 100%; border-radius: 3px; }
+		.prog .m .lab { color: var(--m-tx); } .prog .m i { background: var(--m-tx); }
+		.prog .k .lab { color: var(--k-tx); } .prog .k i { background: var(--k-tx); }
+		.prog .g .lab { color: var(--g-tx); } .prog .g i { background: var(--g-tx); }
+		.hodnote { margin-top: 6px; font-size: 12px; padding: 5px 10px; border-left: 3px solid var(--r-tx, #b04a5a); background: #faf6f6; }
 		.qlist.compact { gap: 6px; }
 		.qlist.compact .q { padding: 6px 14px; gap: 14px; }
 		.qlist.compact .q .n { font-size: 22px; width: 22px; }
@@ -366,6 +384,7 @@
 		.qbox .qlist.compact .q .n { width: 28px; flex: none; }
 		.qbox.y { border-top-color: var(--y-bd); } .qbox.y .qh { color: var(--y-tx); }
 		.qbox.r { border-top-color: var(--r-bd); } .qbox.r .qh { color: var(--r-tx); }
+		.qbox.g { border-top-color: var(--g-bd); } .qbox.g .qh { color: var(--g-tx); }
 		.qbox .q.tbd { background: transparent; border-style: dashed; color: var(--muted); }
 		.fv .card { padding: 11px 16px; }
 		.fv .card h4 { margin-bottom: 4px; }
@@ -383,13 +402,76 @@
 		.stage-name { font-size: 14px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: -4px; }
 		.stage-col .card p { font-size: 18px; }
 		.check li::before { content: "–"; position: absolute; left: -1em; color: var(--muted); }
+
+		/* ================================================================
+		   Editorial layer. Purple is the one emphasis colour (the GODMAX
+		   lavender family, deepened for text). Boxes are kept only where a
+		   fill encodes something (probe colour, caution); elsewhere, rules
+		   and type do the separating.
+		   ================================================================ */
+		:root { --accent: #5a3e9e; }
+		/* No greyed-out text on slides: secondary text is black too */
+		.reveal .slides { --muted: var(--ink); --grey: var(--ink); }
+		.reveal strong, .hl { color: var(--accent); font-weight: 600; }
+		.hl { font-weight: inherit; }
+
+		/* Question / Result / Conclusion: boxed; the conclusion carries the accent */
+		.qrc .card.concl { border-left-color: var(--accent); }
+		.qrc .card.concl h4 { color: var(--accent); }
+
+		/* Outline: numbers in the accent */
+		.outline .n { color: var(--accent); font-weight: 400; }
+
+		/* Statements beside a diagram */
+		.reveal ul.stmt { list-style: none; margin: 0 !important; font-size: 23px; line-height: 1.3; }
+		.stmt li { margin: 0 0 18px; }
+		.stmt .why { display: block; font-size: 16px; color: var(--grey); margin-top: 2px; }
+
+		/* Equations sit on the page, not in boxes */
+		.eqbox { border: 0; background: none; padding: 0; border-radius: 0; }
+		.eqlabel.grey { color: var(--muted); font-size: 12.5px; letter-spacing: .14em; font-weight: 600; margin: 14px 0 0; }
+		.gloss { border-left: 1px solid var(--rule); padding-left: 24px; font-size: 16.5px; align-self: center; }
+		.gloss .gh { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px; }
+		.gloss dl { display: grid; grid-template-columns: auto 1fr; gap: 9px 16px; margin: 0; align-items: baseline; }
+		.gloss dt { text-align: right; font-weight: 400; }
+		.gloss dd { margin: 0; color: var(--grey); }
+
+		/* Consistency checks: a list of boxes */
+		.checks { display: flex; flex-direction: column; justify-content: center; gap: 10px; max-width: 920px; }
+		.checks .ck { display: grid; grid-template-columns: 50px 1fr auto; align-items: center; border: 1px solid var(--rule); border-left: 5px solid #b4b4ba; border-radius: 8px; background: #fff; padding: 11px 20px 11px 16px; }
+		.checks .n { font-size: 26px; color: var(--accent); font-weight: 400; line-height: 1; }
+		.checks .h { font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; }
+		.checks .t { font-size: 24px; margin-top: 1px; }
+		.checks .st { font-size: 15px; }
+		.checks .st b { color: var(--g-tx); }
+
+		/* Sensitivity tables: importance as type weight, not pills */
+		.sens-table .tag { background: none; border: 0; padding: 0; border-radius: 0; font-size: inherit; font-weight: 400; }
+		.sens-table .tag.i1 { color: var(--accent); font-weight: 600; }
+		.sens-table .tag.i2 { color: var(--ink); font-weight: 600; }
+		.sens-table .tag.i3 { color: var(--ink); font-weight: 500; }
+		.sens-table .tag.i4, .sens-table .tag.fx { color: var(--muted); }
+		.sens-table .tag.fv { color: var(--ink); }
+
+		/* Callouts reduced to a line of text */
+		.hodnote { background: none; border: 0; padding: 0; margin-top: 8px; font-size: 13px; color: var(--grey); }
+		table.tst .pill { border: 0; padding: 0; font-style: italic; font-size: 12px; }
+
+		/* Meeting bar: left edge of every slide except the title */
+		.reveal .slides > section:not(.title-slide)::before {
+			content: "EUCLID CMBx SWG, IAP, Paris 17-18 Nov 2026";
+			position: absolute; top: 0; bottom: 0; left: 0; width: 34px;
+			background: #4a5899; color: #fff;
+			font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0;
+			writing-mode: vertical-rl; transform: rotate(180deg);
+			display: flex; align-items: center; justify-content: center; white-space: nowrap;
+		}
 	</style>
 </head>
 
 <body>
 	<div class="deck-chrome">
 		<img class="logo" src="figures/euclid_consortium_logo.png" alt="Euclid Consortium">
-		<div class="foot">CMBx hands-on meeting · IAP · 17–18 November 2026 · Likelihood &amp; Theory</div>
 	</div>
 
 	<div class="reveal">
@@ -433,7 +515,7 @@
 			</defs>
 
 			<!-- ===== GODMAX: theory tool ===== -->
-			<text x="125" y="44" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.5" fill="#86868c">THEORY TOOL</text>
+			<text x="125" y="44" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.5" fill="#1c1c1e">THEORY TOOL</text>
 			<rect x="0" y="58" width="250" height="462" rx="16" fill="#ece7f6" stroke="#b7aad9" stroke-width="1.5"/>
 			<a class="svglink" href="https://github.com/vilasinits/GODMAX/tree/cloe-integration" target="_blank">
 				<text x="125" y="94" text-anchor="middle" font-size="26" font-weight="700" fill="#3d3170">GODMAX<tspan font-size="14" fill="#8f80c6" dx="4" dy="-8">↗</tspan></text>
@@ -460,10 +542,10 @@
 			<path d="M48,300 C85,290 120,296 205,334" fill="none" stroke="#8c5124" stroke-width="2" stroke-dasharray="5 3"/>
 			<path d="M48,312 C90,304 130,310 205,337" fill="none" stroke="#356a3e" stroke-width="2" stroke-dasharray="2 3"/>
 			<path d="M48,324 C95,318 140,322 205,338" fill="none" stroke="#8a3a4a" stroke-width="2" stroke-dasharray="8 3 2 3"/>
-			<text x="200" y="282" text-anchor="end" font-size="13" font-style="italic" fill="#86868c">Cℓ</text>
+			<text x="200" y="282" text-anchor="end" font-size="13" font-style="italic" fill="#1c1c1e">Cℓ</text>
 			</g>
 			<text x="125" y="340" text-anchor="middle" font-size="16" font-weight="700" fill="#1c1c1e">auto &amp; cross spectra</text>
-			<text x="125" y="359" text-anchor="middle" font-size="14.5" fill="#4f4f55">of γ, g, y, κ (10 spectra)</text>
+			<text x="125" y="359" text-anchor="middle" font-size="14.5" fill="#1c1c1e">of γ, g, y, κ (10 spectra)</text>
 			<!-- validated -->
 			<line x1="24" y1="374" x2="226" y2="374" stroke="#cbc2e6"/>
 			<text x="24" y="395" font-size="13" font-weight="700" letter-spacing="1.2" fill="#1c1c1e">TESTED &amp; VALIDATED</text>
@@ -478,38 +560,38 @@
 			<!-- ===== CLOE ecosystem ===== -->
 			<rect x="296" y="20" width="704" height="500" rx="18" fill="#fafafb" stroke="#a5a5ab" stroke-width="1.5" stroke-dasharray="7 5"/>
 			<a class="svglink" href="https://github.com/cloe-org" target="_blank">
-				<text x="318" y="48" font-size="20" font-weight="700" fill="#1c1c1e">CLOE ecosystem<tspan font-size="12" fill="#86868c" dx="3" dy="-6">↗</tspan></text>
+				<text x="318" y="48" font-size="20" font-weight="700" fill="#1c1c1e">CLOE ecosystem<tspan font-size="12" fill="#1c1c1e" dx="3" dy="-6">↗</tspan></text>
 			</a>
-			<text x="510" y="48" font-size="13" fill="#86868c">Cosmology Likelihood for Observables in Euclid</text>
+			<text x="510" y="48" font-size="13" fill="#1c1c1e">Cosmology Likelihood for Observables in Euclid</text>
 
 			<!-- cloelib -->
 			<rect x="322" y="66" width="330" height="436" rx="14" fill="#fff" stroke="#6b6b70" stroke-width="1.6"/>
 			<a class="svglink" href="https://github.com/cloe-org/cloelib/pull/664" target="_blank">
-				<text x="342" y="96" font-size="22" font-weight="700" fill="#1c1c1e">cloelib<tspan font-size="12" fill="#86868c" dx="3" dy="-8">↗</tspan></text>
+				<text x="342" y="96" font-size="22" font-weight="700" fill="#1c1c1e">cloelib<tspan font-size="12" fill="#1c1c1e" dx="3" dy="-8">↗</tspan></text>
 				<rect x="500" y="80" width="138" height="24" rx="12" fill="#ece7f6" stroke="#b7aad9"/>
 				<text x="569" y="97" text-anchor="middle" font-size="12.5" font-weight="700" fill="#52448a">+ GODMAX · PR #664</text>
 			</a>
-			<text x="342" y="116" font-size="14" fill="#4f4f55">computes the theory</text>
+			<text x="342" y="116" font-size="14" fill="#1c1c1e">computes the theory</text>
 
 			<g font-size="15">
 				<rect x="342" y="132" width="290" height="44" rx="8" fill="#f1f1f4" stroke="#bcbcc3"/>
-				<text x="356" y="159" font-weight="700" fill="#1c1c1e">Background</text><text x="618" y="159" text-anchor="end" fill="#4f4f55">χ(z), H(z), D(z)</text>
+				<text x="356" y="159" font-weight="700" fill="#1c1c1e">Background</text><text x="618" y="159" text-anchor="end" fill="#1c1c1e">χ(z), H(z), D(z)</text>
 				<line x1="487" y1="176" x2="487" y2="190" stroke="#6b6b70" stroke-width="1.5" marker-end="url(#bp-a)"/>
 				<rect x="342" y="192" width="290" height="44" rx="8" fill="#f1f1f4" stroke="#bcbcc3"/>
-				<text x="356" y="219" font-weight="700" fill="#1c1c1e">Linear P(k)</text><text x="618" y="219" text-anchor="end" fill="#4f4f55">Eisenstein–Hu</text>
+				<text x="356" y="219" font-weight="700" fill="#1c1c1e">Linear P(k)</text><text x="618" y="219" text-anchor="end" fill="#1c1c1e">Eisenstein–Hu</text>
 				<line x1="487" y1="236" x2="487" y2="250" stroke="#6b6b70" stroke-width="1.5" marker-end="url(#bp-a)"/>
 				<!-- the GODMAX slot -->
 				<rect x="342" y="252" width="290" height="74" rx="8" fill="#ece7f6" stroke="#8f80c6" stroke-width="2.2"/>
 				<text x="356" y="278" font-weight="700" fill="#3d3170">Non-linear P(k, z)</text><a class="svglink" href="https://github.com/vilasinits/GODMAX/tree/cloe-integration" target="_blank"><text x="618" y="278" text-anchor="end" font-weight="700" fill="#3d3170">GODMAX ↗</text></a>
 				<text x="356" y="298" font-size="14" fill="#52448a">P for m, g, y + baryonic response</text>
-				<text x="356" y="317" font-size="12.5" fill="#86868c">alternatives: halofit · HMcode · BACCO · …</text>
+				<text x="356" y="317" font-size="12.5" fill="#1c1c1e">alternatives: halofit · HMcode · BACCO · …</text>
 				<line x1="487" y1="326" x2="487" y2="340" stroke="#6b6b70" stroke-width="1.5" marker-end="url(#bp-a)"/>
 				<rect x="342" y="342" width="290" height="62" rx="8" fill="#f1f1f4" stroke="#bcbcc3"/>
 				<text x="356" y="366" font-weight="700" fill="#1c1c1e">Kernels W(z)</text>
-				<text x="356" y="389" font-size="14" font-weight="600"><tspan fill="#34557e">shear</tspan><tspan fill="#86868c"> · </tspan><tspan fill="#356a3e">galaxies</tspan><tspan fill="#86868c"> · </tspan><tspan fill="#8a3a4a">CMB κ</tspan><tspan fill="#86868c"> · </tspan><tspan fill="#8c5124">tSZ y (new)</tspan></text>
+				<text x="356" y="389" font-size="14" font-weight="600"><tspan fill="#34557e">shear</tspan><tspan fill="#1c1c1e"> · </tspan><tspan fill="#356a3e">galaxies</tspan><tspan fill="#1c1c1e"> · </tspan><tspan fill="#8a3a4a">CMB κ</tspan><tspan fill="#1c1c1e"> · </tspan><tspan fill="#8c5124">tSZ y (new)</tspan></text>
 				<line x1="487" y1="404" x2="487" y2="418" stroke="#6b6b70" stroke-width="1.5" marker-end="url(#bp-a)"/>
 				<rect x="342" y="420" width="290" height="44" rx="8" fill="#f1f1f4" stroke="#bcbcc3"/>
-				<text x="356" y="447" font-weight="700" fill="#1c1c1e">Angular spectra</text><text x="618" y="447" text-anchor="end" fill="#4f4f55">Limber → Cℓ</text>
+				<text x="356" y="447" font-weight="700" fill="#1c1c1e">Angular spectra</text><text x="618" y="447" text-anchor="end" fill="#1c1c1e">Limber → Cℓ</text>
 			</g>
 
 			<!-- GODMAX plugs into cloelib -->
@@ -518,30 +600,30 @@
 
 			<!-- cloelib <-> cloelike -->
 			<path d="M720,200 L656,200" stroke="#6b6b70" stroke-width="2" fill="none" marker-end="url(#bp-a)"/>
-			<text x="687" y="190" text-anchor="middle" font-size="11.5" fill="#86868c">calls</text>
-			<text x="687" y="230" text-anchor="middle" font-size="14" font-style="italic" fill="#4f4f55">θ</text>
+			<text x="687" y="190" text-anchor="middle" font-size="11.5" fill="#1c1c1e">calls</text>
+			<text x="687" y="230" text-anchor="middle" font-size="14" font-style="italic" fill="#1c1c1e">θ</text>
 			<path d="M652,442 L712,442 L712,402 L734,402" stroke="#6b6b70" stroke-width="2" fill="none" marker-end="url(#bp-a)"/>
-			<text x="676" y="434" text-anchor="middle" font-size="14" font-style="italic" fill="#4f4f55">Cℓ</text>
+			<text x="676" y="434" text-anchor="middle" font-size="14" font-style="italic" fill="#1c1c1e">Cℓ</text>
 
 			<!-- cloelike -->
 			<rect x="722" y="66" width="264" height="436" rx="14" fill="#fff" stroke="#6b6b70" stroke-width="1.6"/>
 			<a class="svglink" href="https://github.com/cloe-org/cloelike/issues/187" target="_blank">
-				<text x="740" y="96" font-size="22" font-weight="700" fill="#1c1c1e">cloelike<tspan font-size="12" fill="#86868c" dx="3" dy="-8">↗</tspan></text>
+				<text x="740" y="96" font-size="22" font-weight="700" fill="#1c1c1e">cloelike<tspan font-size="12" fill="#1c1c1e" dx="3" dy="-8">↗</tspan></text>
 				<rect x="856" y="80" width="116" height="24" rx="12" fill="#ece7f6" stroke="#b7aad9"/>
 				<text x="914" y="97" text-anchor="middle" font-size="12.5" font-weight="700" fill="#52448a">modified · #187</text>
 			</a>
-			<text x="740" y="118" font-size="14" fill="#4f4f55">evaluates the likelihood (χ²)</text>
+			<text x="740" y="118" font-size="14" fill="#1c1c1e">evaluates the likelihood (χ²)</text>
 
 			<g font-size="15">
 				<rect x="738" y="134" width="232" height="50" rx="8" fill="#f1f1f4" stroke="#bcbcc3"/>
-				<text x="752" y="154" font-weight="700" fill="#1c1c1e">Data vector <tspan font-weight="400" font-size="12.5" fill="#86868c">(euclidlib)</tspan></text>
-				<text x="752" y="174" font-size="12.5" font-weight="600"><tspan fill="#34557e">WL</tspan><tspan fill="#86868c"> · GGL · </tspan><tspan fill="#356a3e">GC</tspan><tspan fill="#86868c"> + </tspan><tspan fill="#8c5124">tSZ blocks (new)</tspan></text>
+				<text x="752" y="154" font-weight="700" fill="#1c1c1e">Data vector <tspan font-weight="400" font-size="12.5" fill="#1c1c1e">(euclidlib)</tspan></text>
+				<text x="752" y="174" font-size="12.5" font-weight="600"><tspan fill="#34557e">WL</tspan><tspan fill="#1c1c1e"> · GGL · </tspan><tspan fill="#356a3e">GC</tspan><tspan fill="#1c1c1e"> + </tspan><tspan fill="#8c5124">tSZ blocks (new)</tspan></text>
 				<line x1="854" y1="184" x2="854" y2="196" stroke="#6b6b70" stroke-width="1.5" marker-end="url(#bp-a)"/>
 				<rect x="738" y="198" width="232" height="40" rx="8" fill="#f1f1f4" stroke="#bcbcc3"/>
 				<text x="752" y="223" font-weight="700" fill="#1c1c1e">Scale cuts · masking</text>
 				<line x1="854" y1="238" x2="854" y2="250" stroke="#6b6b70" stroke-width="1.5" marker-end="url(#bp-a)"/>
 				<rect x="738" y="252" width="232" height="40" rx="8" fill="#f1f1f4" stroke="#bcbcc3"/>
-				<text x="752" y="277" font-weight="700" fill="#1c1c1e">Mixing matrices <tspan font-weight="400" font-size="12.5" fill="#86868c">(pseudo-Cℓ)</tspan></text>
+				<text x="752" y="277" font-weight="700" fill="#1c1c1e">Mixing matrices <tspan font-weight="400" font-size="12.5" fill="#1c1c1e">(pseudo-Cℓ)</tspan></text>
 				<line x1="854" y1="292" x2="854" y2="304" stroke="#6b6b70" stroke-width="1.5" marker-end="url(#bp-a)"/>
 				<rect x="738" y="306" width="232" height="58" rx="8" fill="#fbf3d6" stroke="#e3cf8a" stroke-width="1.4"/>
 				<text x="752" y="326" font-weight="700" fill="#1c1c1e">Joint covariance <tspan font-weight="400" font-size="12.5" fill="#7a6213">(external)</tspan></text>
@@ -550,24 +632,24 @@
 				<line x1="854" y1="364" x2="854" y2="374" stroke="#6b6b70" stroke-width="1.5" marker-end="url(#bp-a)"/>
 				<rect x="738" y="376" width="232" height="52" rx="8" fill="#fff" stroke="#3a3a3e" stroke-width="1.6"/>
 				<text x="854" y="397" text-anchor="middle" font-weight="700" fill="#1c1c1e">Gaussian likelihood</text>
-				<text x="854" y="417" text-anchor="middle" font-size="13" fill="#4f4f55">−2 ln L = (d − t)ᵀ C⁻¹ (d − t)</text>
+				<text x="854" y="417" text-anchor="middle" font-size="13" fill="#1c1c1e">−2 ln L = (d − t)ᵀ C⁻¹ (d − t)</text>
 			</g>
 
 			<!-- ===== external sampler (outside CLOE) ===== -->
-			<text x="1084" y="44" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.5" fill="#86868c">EXTERNAL</text>
+			<text x="1084" y="44" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.5" fill="#1c1c1e">EXTERNAL</text>
 			<rect x="1014" y="58" width="142" height="462" rx="16" fill="#fff" stroke="#a5a5ab" stroke-width="1.5"/>
 			<g font-size="15">
 				<!-- chi2 out, next theta back in -->
 				<line x1="970" y1="390" x2="1024" y2="390" stroke="#6b6b70" stroke-width="2" marker-end="url(#bp-a)"/>
-				<text x="997" y="382" text-anchor="middle" font-size="13" font-style="italic" fill="#4f4f55">χ²</text>
+				<text x="997" y="382" text-anchor="middle" font-size="13" font-style="italic" fill="#1c1c1e">χ²</text>
 				<line x1="1026" y1="418" x2="990" y2="418" stroke="#6b6b70" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#bp-a)"/>
-				<text x="1003" y="436" text-anchor="middle" font-size="13" font-style="italic" fill="#4f4f55">θ</text>
+				<text x="1003" y="436" text-anchor="middle" font-size="13" font-style="italic" fill="#1c1c1e">θ</text>
 				<a class="svglink" href="https://cobaya.readthedocs.io" target="_blank">
 					<rect x="1026" y="371" width="118" height="62" rx="10" fill="#f1f1f4" stroke="#6b6b70" stroke-width="1.5"/>
 					<text x="1085" y="393" text-anchor="middle" font-weight="700" fill="#1c1c1e">Cobaya ↗</text>
 				</a>
-				<text x="1085" y="410" text-anchor="middle" font-size="12" fill="#4f4f55">sampler</text>
-				<text x="1085" y="425" text-anchor="middle" font-size="11" fill="#86868c">or CosmoSIS, …</text>
+				<text x="1085" y="410" text-anchor="middle" font-size="12" fill="#1c1c1e">sampler</text>
+				<text x="1085" y="425" text-anchor="middle" font-size="11" fill="#1c1c1e">or CosmoSIS, …</text>
 				<!-- posterior -->
 				<line x1="1085" y1="371" x2="1085" y2="318" stroke="#6b6b70" stroke-width="2" marker-end="url(#bp-a)"/>
 				<rect x="1026" y="134" width="118" height="180" rx="10" fill="#fff" stroke="#cfcfd5"/>
@@ -575,7 +657,7 @@
 				<line x1="1038" y1="172" x2="1038" y2="290" stroke="#9a9aa0"/><line x1="1038" y1="290" x2="1134" y2="290" stroke="#9a9aa0"/>
 				<ellipse cx="1086" cy="232" rx="38" ry="19" transform="rotate(-35 1086 232)" fill="#ece7f6" stroke="#b7aad9"/>
 				<ellipse cx="1086" cy="232" rx="20" ry="9.5" transform="rotate(-35 1086 232)" fill="#cfc4ea" stroke="#8f80c6"/>
-				<text x="1086" y="306" text-anchor="middle" font-size="11.5" font-style="italic" fill="#86868c">Ωm, σ8, HOD, gas</text>
+				<text x="1086" y="306" text-anchor="middle" font-size="11.5" font-style="italic" fill="#1c1c1e">Ωm, σ8, HOD, gas</text>
 			</g>
 		</svg>
 	</div>
@@ -597,7 +679,7 @@
 		<h2>Modelling, theory, likelihood and inference</h2>
 		<div class="sub">Tests done so far · modelling choices for a baseline</div>
 	</div>
-	<div class="outline grow" style="align-content:center;">
+	<div class="outline grow" style="align-content:start; margin-top:40px; gap:0 40px;">
 		<div class="item"><div class="n">1</div><div><div class="t">GODMAX halo model</div><div class="d">One halo model for g, y, κ</div></div></div>
 		<div class="item"><div class="n">2</div><div><div class="t">Validation of GODMAX</div><div class="d">CCL, covariance, sensitivity</div></div></div>
 		<div class="item"><div class="n">3</div><div><div class="t">Integration into cloelib</div><div class="d">Conventions, \(P(k)\) and \(C_\ell\) tests</div></div></div>
@@ -644,19 +726,19 @@
 					<rect x="2" y="8" width="230" height="100" rx="12" fill="#e6eef8" stroke="#a9c1e0" stroke-width="1.5"/>
 					<text x="18" y="42" font-size="20" font-weight="700" fill="#34557e">Shear  (γ)</text>
 					<text x="18" y="68" font-size="16" fill="#3a3a3e">Weak lensing of galaxies</text>
-					<text x="18" y="90" font-size="16" fill="#4f4f55">+ intrinsic alignments</text>
+					<text x="18" y="90" font-size="16" fill="#1c1c1e">+ intrinsic alignments</text>
 					<rect x="2" y="124" width="230" height="100" rx="12" fill="#e4f2e6" stroke="#a5cfac" stroke-width="1.5"/>
 					<text x="18" y="158" font-size="20" font-weight="700" fill="#356a3e">Galaxies  (g)</text>
 					<text x="18" y="184" font-size="16" fill="#3a3a3e">Light tracers</text>
-					<text x="18" y="206" font-size="16" fill="#4f4f55">HOD occupation model</text>
+					<text x="18" y="206" font-size="16" fill="#1c1c1e">HOD occupation model</text>
 					<rect x="2" y="240" width="230" height="100" rx="12" fill="#fcebdc" stroke="#e8bb95" stroke-width="1.5"/>
 					<text x="18" y="274" font-size="20" font-weight="700" fill="#8c5124">tSZ  (y)</text>
 					<text x="18" y="300" font-size="16" fill="#3a3a3e">Hot gas</text>
-					<text x="18" y="322" font-size="16" fill="#4f4f55">Thermal pressure profile</text>
+					<text x="18" y="322" font-size="16" fill="#1c1c1e">Thermal pressure profile</text>
 					<rect x="2" y="356" width="230" height="100" rx="12" fill="#f8e3e7" stroke="#dfaab4" stroke-width="1.5"/>
 					<text x="18" y="390" font-size="20" font-weight="700" fill="#8a3a4a">CMB lensing  (κ)</text>
 					<text x="18" y="416" font-size="16" fill="#3a3a3e">Deflection of CMB photons</text>
-					<text x="18" y="438" font-size="16" fill="#4f4f55">Projected mass to z ≈ 1100</text>
+					<text x="18" y="438" font-size="16" fill="#1c1c1e">Projected mass to z ≈ 1100</text>
 				</g>
 
 				<!-- arrows into halo -->
@@ -667,7 +749,7 @@
 
 				<!-- halo -->
 				<circle cx="445" cy="234" r="112" fill="#fafafb" stroke="#cfcfd5" stroke-width="1.5"/>
-				<text x="445" y="104" text-anchor="middle" font-size="16" font-weight="600" fill="#4f4f55">Matter distributed in halos</text>
+				<text x="445" y="104" text-anchor="middle" font-size="16" font-weight="600" fill="#1c1c1e">Matter distributed in halos</text>
 				<circle cx="445" cy="234" r="82" fill="none" stroke="#a49ac4" stroke-width="1.2" stroke-dasharray="4 4"/>
 				<text x="508" y="310" font-size="15" fill="#7a6fa6" font-style="italic">r<tspan font-size="11" dy="4">200c</tspan></text>
 				<circle cx="445" cy="234" r="66" fill="url(#halo)"/>
@@ -725,16 +807,16 @@
 				<rect x="743" y="421" width="28" height="28" rx="4" fill="#cfc4ea" stroke="#b7aad9"/>
 				<text x="757.0" y="440.0" text-anchor="middle" font-size="12" font-style="italic" fill="#3d3170">κκ</text>
 				<rect x="784" y="352" width="14" height="14" rx="3" fill="#cfc4ea" stroke="#b7aad9"/>
-				<text x="804" y="364" font-size="14" fill="#4f4f55">4 auto</text>
+				<text x="804" y="364" font-size="14" fill="#1c1c1e">4 auto</text>
 				<rect x="784" y="378" width="14" height="14" rx="3" fill="#ece7f6" stroke="#b7aad9"/>
-				<text x="804" y="390" font-size="14" fill="#4f4f55">6 cross</text>
+				<text x="804" y="390" font-size="14" fill="#1c1c1e">6 cross</text>
 			</svg>
 		</div>
 		<div class="col" style="flex:1; gap:18px; border-left:1px solid var(--rule); padding-left:24px; justify-content:center;">
-			<ul class="bl">
-				<li><b>Same halos</b> for all tracers</li>
-				<li><b>Own profile</b> per tracer</li>
-				<li><b>Differentiable</b> (JAX → NUTS)</li>
+			<ul class="stmt">
+				<li><strong>Same halos</strong> for all tracers</li>
+				<li><strong>Own profile</strong> per tracer</li>
+				<li><strong>Differentiable</strong><span class="why">JAX → NUTS</span></li>
 			</ul>
 		</div>
 	</div>
@@ -746,24 +828,34 @@
 		<span class="kicker">GODMAX · formalism</span>
 		<h2>Halo-model angular power spectra</h2>
 	</div>
-	<div class="grid2 grow" style="grid-template-columns: minmax(0,1.45fr) minmax(0,1fr); gap:24px; font-size:20px; align-content:center;">
-		<div class="col" style="gap:10px;">
+	<div class="grid2 grow" style="grid-template-columns: minmax(0,1.75fr) minmax(0,.75fr); gap:36px; font-size:20px; align-content:center;">
+		<div class="col" style="gap:4px;">
 			<div class="eqlabel grey">One-halo term</div>
-			<div class="eqbox" style="font-size:17.5px;">\[
+			<div class="eqbox" style="font-size:19.5px;">\[
 				C^{ij}_{AB;\,1h}(\ell)=\int_{z_{\min}}^{z_{\max}}\!dz\,\frac{dV}{dz\,d\Omega}\int_{M_{\min}}^{M_{\max}}\!dM\,\frac{dn}{dM}\int_{c_{\min}}^{c_{\max}}\!dc\;p(c|M)\;\bar u^{i}_{A}(\ell,M,z)\,\bar u^{j}_{B}(\ell,M,z)
 			\]</div>
 			<div class="eqlabel grey">Two-halo term</div>
-			<div class="eqbox" style="font-size:17.5px;">\[
+			<div class="eqbox" style="font-size:19.5px;">\[
 				C^{ij}_{AB;\,2h}(\ell)=\int_{z_{\min}}^{z_{\max}}\!dz\,\frac{dV}{dz\,d\Omega}\;b^{i}_{A}(\ell,z)\,b^{j}_{B}(\ell,z)\,P_{\rm lin}(k,z)
 			\]</div>
-			<div class="card plain small" style="margin-top:8px;">
-				<ul class="bl">
-					<li>\(A,B\in\{\kappa,y,g\}\); \(i,j\): tomographic bins</li>
-					<li>\(\bar u\): tracer profile · \(dn/dM\): mass function · \(p(c|M)\): concentration</li>
-				</ul>
-			</div>
+			<div class="eqlabel grey">Effective (two-halo) bias</div>
+			<div class="eqbox" style="font-size:19.5px;">\[
+				b^{i}_{A}(\ell,z)=\int_{M_{\min}}^{M_{\max}}\!dM\,\frac{dn}{dM}\,b_h(M,z)\;\bar u^{i}_{A}(\ell,M,z),\qquad k=\frac{\ell+1/2}{\chi(z)}
+			\]</div>
+			<!-- <li>Matter: \(b_m\) adds the mass below \(M_{\min}\), so \(b_m\to1\) on large scales</li> -->
 		</div>
-		<div class="col" style="gap:10px;">
+		<div class="gloss">
+			<div class="gh">where</div>
+			<dl>
+				<dt>\(A,B\)</dt><dd>\(\in\{\kappa,y,g\}\)</dd>
+				<dt>\(i,j\)</dt><dd>tomographic bins</dd>
+				<dt>\(\bar u\)</dt><dd>tracer profile</dd>
+				<dt>\(dn/dM\)</dt><dd>mass function</dd>
+				<dt>\(p(c|M)\)</dt><dd>concentration</dd>
+				<dt>\(b_h\)</dt><dd>halo bias (Tinker+10)</dd>
+			</dl>
+		</div>
+		<!-- <div class="col" style="gap:10px;">
 			<div class="card plain" style="font-size:17px;">
 				<h4>Matter profile (DMB)</h4>
 				<p class="small grey" style="margin-bottom:4px;">Central stars + gas + collisionless matter</p>
@@ -773,7 +865,7 @@
 			<div class="card plain small grey">
 				<ul class="bl"><li>Feedback via the gas profile</li><li>Same halos and feedback for all probes</li></ul>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </section>
 
@@ -830,37 +922,12 @@
 		<span class="kicker">Validation · overview</span>
 		<h2>Consistency checks</h2>
 	</div>
-	<div class="grid3 grow" style="gap:20px; align-content:center;">
-		<div class="card edge-n">
-			<h4>1 · Baseline (CCL) comparison</h4>
-			<p style="font-size:23px; margin:4px 0 8px;">GODMAX vs CCL \(C_\ell^{ab}\)</p>
-			
-			<span class="tag ok">✓ done</span>
-		</div>
-		<div class="card edge-n">
-			<h4>2 · Covariance tests</h4>
-			<p style="font-size:23px; margin:4px 0 8px;">Non-PSD covariance: no bias</p>
-			
-			<span class="tag ok">✓ done</span>
-		</div>
-		<div class="card edge-n">
-			<h4>3 · Sensitivity test</h4>
-			<p style="font-size:23px; margin:4px 0 8px;">\(C_\ell\) response per parameter</p>
-			
-			<span class="tag ok">✓ done</span>
-		</div>
-		<div class="card edge-n" style="grid-column: 1 / span 1; margin-left: 50%; margin-right:-50%;">
-			<h4>4 · Baryonification toggle</h4>
-			<p style="font-size:23px; margin:4px 0 8px;">Baryonic response on / off</p>
-			
-			<span class="tag ok">✓ done</span>
-		</div>
-		<div class="card edge-n" style="grid-column: 2 / span 1; margin-left: 50%; margin-right:-50%;">
-			<h4>5 · Convergence test</h4>
-			<p style="font-size:23px; margin:4px 0 8px;">\(C_\ell\) vs numerical settings</p>
-			
-			<span class="tag ok">✓ done</span>
-		</div>
+	<div class="checks grow">
+		<div class="ck"><span class="n">1</span><div><div class="h">Baseline (CCL) comparison</div><div class="t">GODMAX vs CCL \(C_\ell^{ab}\)</div></div><span class="st"><b>✓</b> done</span></div>
+		<div class="ck"><span class="n">2</span><div><div class="h">Covariance tests</div><div class="t">Non-PSD covariance: <strong>no bias</strong></div></div><span class="st"><b>✓</b> done</span></div>
+		<div class="ck"><span class="n">3</span><div><div class="h">Sensitivity test</div><div class="t">\(C_\ell\) response per parameter</div></div><span class="st"><b>✓</b> done</span></div>
+		<div class="ck"><span class="n">4</span><div><div class="h">Baryonification toggle</div><div class="t">Baryonic response on / off</div></div><span class="st"><b>✓</b> done</span></div>
+		<div class="ck"><span class="n">5</span><div><div class="h">Convergence test</div><div class="t">\(C_\ell\) vs numerical settings</div></div><span class="st"><b>✓</b> done</span></div>
 	</div>
 	<aside class="notes">And many more tests behind these.</aside>
 </section>
@@ -879,7 +946,7 @@
 		<div class="qrc">
 			<div class="card qq"><h4>Question</h4><p>Same \(C_\ell^{gg}\) as the CCL pipeline?</p><div class="how">CCL: linear + 1-loop PT bias · GODMAX: HOD</div></div>
 			<div class="card res"><h4>Result</h4><ul><li>Same shape</li><li>Amplitude differs per bin</li><li>Gap grows at high \(\ell\)</li></ul></div>
-			<div class="card concl"><h4>Conclusion</h4><ul><li>Not consistent as-is</li><li>Different bias models → isolate the bias next</li></ul></div>
+			<div class="card concl"><h4>Conclusion</h4><ul><li><strong>Not consistent</strong> as-is</li><li>Different bias models → isolate the bias next</li></ul></div>
 		</div>
 	</div>
 </section>
@@ -1003,7 +1070,7 @@
 					<defs><marker id="st-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#4f4f55"/></marker></defs>
 					<rect x="2" y="20" width="120" height="56" rx="8" fill="#f1f1f4" stroke="#bcbcc3"/>
 					<a class="svglink" href="https://github.com/vilasinits/GODMAX/tree/cloe-integration" target="_blank"><text x="62" y="44" text-anchor="middle" font-size="14" font-weight="700" fill="#1c1c1e">my fork ↗</text></a>
-					<text x="62" y="63" text-anchor="middle" font-size="12" fill="#4f4f55" font-family="JetBrains Mono, monospace">cloe-integration</text>
+					<text x="62" y="63" text-anchor="middle" font-size="12" fill="#1c1c1e" font-family="JetBrains Mono, monospace">cloe-integration</text>
 					<line x1="126" y1="48" x2="190" y2="48" stroke="#4f4f55" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#st-a)"/>
 					<rect x="196" y="20" width="120" height="56" rx="8" fill="#ece7f6" stroke="#b7aad9"/>
 					<a class="svglink" href="https://github.com/shivampcosmo/GODMAX" target="_blank"><text x="256" y="44" text-anchor="middle" font-size="14" font-weight="700" fill="#3d3170">GODMAX ↗</text></a>
@@ -1042,7 +1109,7 @@
 			<text x="160" y="50" text-anchor="middle" font-size="19" font-weight="600" fill="#1c1c1e">HOD, galaxy bias,</text>
 			<text x="160" y="74" text-anchor="middle" font-size="19" font-weight="600" fill="#1c1c1e">baryonification</text>
 			<line x1="140" y1="92" x2="140" y2="178" stroke="#9a9aa0" stroke-width="1.5" stroke-dasharray="5 5"/>
-			<text x="152" y="140" font-size="15" fill="#86868c" font-style="italic">Euclid interface</text>
+			<text x="152" y="140" font-size="15" fill="#1c1c1e" font-style="italic">Euclid interface</text>
 
 			<!-- main chain -->
 			<rect x="10" y="180" width="250" height="110" rx="14" fill="#f1f1f4" stroke="#bcbcc3" stroke-width="1.5"/>
@@ -1057,12 +1124,12 @@
 
 			<rect x="590" y="180" width="230" height="110" rx="14" fill="#f1f1f4" stroke="#bcbcc3" stroke-width="1.5"/>
 			<text x="705" y="232" text-anchor="middle" font-size="24" font-weight="700" fill="#1c1c1e">Likelihood</text>
-			<text x="705" y="258" text-anchor="middle" font-size="15" fill="#4f4f55">cloelib + cloelike</text>
+			<text x="705" y="258" text-anchor="middle" font-size="15" fill="#1c1c1e">cloelib + cloelike</text>
 			<line x1="824" y1="235" x2="866" y2="235" stroke="#4f4f55" stroke-width="2.5" marker-end="url(#ah2)"/>
 
 			<!-- bottom input -->
 			<line x1="705" y1="290" x2="705" y2="372" stroke="#9a9aa0" stroke-width="1.5" stroke-dasharray="5 5"/>
-			<text x="717" y="336" font-size="15" fill="#86868c" font-style="italic">Euclid interface</text>
+			<text x="717" y="336" font-size="15" fill="#1c1c1e" font-style="italic">Euclid interface</text>
 			<rect x="555" y="374" width="300" height="74" rx="10" fill="#fff" stroke="#bcbcc3" stroke-width="1.5"/>
 			<text x="705" y="406" text-anchor="middle" font-size="19" font-weight="600" fill="#1c1c1e">CLOE, simulation</text>
 			<text x="705" y="430" text-anchor="middle" font-size="19" font-weight="600" fill="#1c1c1e">covariance checks</text>
@@ -1155,7 +1222,7 @@
 		<div class="colhead first">Pipeline</div><div class="colhead"><a class="ext" href="https://github.com/cloe-org/cloelib/pull/664" target="_blank">cloelib</a></div><div></div><div class="colhead"><a class="ext" href="https://github.com/vilasinits/GODMAX/tree/cloe-integration" target="_blank">GODMAX (cloe-integration)</a></div>
 
 		<div class="stage">Cosmology</div>
-		<div class="box"><div class="t-k"><code>JAXBackground</code> · \(\chi(z), H(z), D(z), A_s\to\sigma_8\)</div><div class="t-y">checks: flat, \(w_a=0\), \(m_\nu=0\)</div></div>
+		<div class="box"><div class="t-k"><code>JAXBackground</code> · \(\chi(z), H(z), D(z), A_s\to\sigma_8\)</div><div class="t-y">checks: flat, \(w_a=0\)</div></div>
 		<div class="link"><span>background</span><span class="arr">⟶</span></div>
 		<div class="box"><div class="b t-g">CloelibCosmology adapter</div><div class="t-g">uses cloelib distances, growth, σ<sub>8</sub></div></div>
 
@@ -1258,9 +1325,7 @@
 				<tr class="d"><td>P(k) gg / gκ</td><td>\(b_ib_jP_{mm}\) / \(b_iP_{mm}\)</td><td>\(P_{gg}\) / \(P_{gm}\)</td></tr>
 			</table>
 			<div class="muted" style="font-size:12px; margin-top:4px;">† non-linear PT bias is not available with GODMAX</div>
-			<div class="card attn" style="margin-top:8px; padding:7px 10px; font-size:12.5px; line-height:1.3;">
-				<b>Not with HOD:</b> TATT · PT bias · RSD (all perturbation theory)
-			</div>
+			<div class="hodnote"><strong>Not with HOD:</strong> TATT · PT bias · RSD (all perturbation theory)</div>
 		</div>
 		<div class="card kpanel" style="padding:10px 12px; border-top:5px solid #dfaab4;">
 			<h3 class="p-cmb">CMB lensing \(\kappa_{\rm CMB}\)</h3>
@@ -1303,7 +1368,7 @@
 	<div class="card plain small" style="margin-top:12px;">
 		<ul class="bl">
 			<li>Always on: shear Δz (<code>dz_shear</code> = −<code>Delta_z_bias</code>), m</li>
-			<li><strong>Result:</strong> <code>"godmax"</code> reproduces GODMAX \(C_\ell\) for every pair</li>
+			<li>Result: <code>"godmax"</code> <strong>reproduces GODMAX \(C_\ell\) for every pair</strong></li>
 		</ul>
 	</div>
 </section>
@@ -1321,7 +1386,7 @@
 		<div class="qrc across" style="grid-template-columns:1fr 1fr 1fr; margin-top:0;">
 			<div class="card qq"><h4>Question</h4><p>Does GODMAX in cloelib change \(P_{mm}\)?</p></div>
 			<div class="card res"><h4>Result</h4><ul><li>Halofit: identical, all \(z\)</li><li>Baryons: +10 % at \(k\sim1\), −30 % at \(k\gtrsim10\)</li></ul></div>
-			<div class="card concl"><h4>Conclusion</h4><ul><li>Interface is transparent</li><li>Differences = baryonic physics</li></ul></div>
+			<div class="card concl"><h4>Conclusion</h4><ul><li>Interface is <strong>transparent</strong></li><li>Differences = baryonic physics</li></ul></div>
 		</div>
 	</div>
 </section>
@@ -1339,25 +1404,41 @@
 		<div class="qrc">
 			<div class="card qq"><h4>Question</h4><p>cloelib + GODMAX = native cloelib \(C_\ell\)?</p><div class="how">\(\gamma\gamma,\ \gamma g,\ gg,\ \gamma\kappa,\ g\kappa,\ \kappa\kappa\)</div></div>
 			<div class="card res"><h4>Result</h4><ul><li>Halofit route: identical, all pairs</li><li>Baryons: ≲ 10 % at \(\ell\gtrsim10^3\)</li></ul></div>
-			<div class="card concl"><h4>Conclusion</h4><ul><li>Interface is transparent</li><li>Only baryons change small scales</li></ul></div>
+			<div class="card concl"><h4>Conclusion</h4><ul><li>Interface is <strong>transparent</strong></li><li>Only baryons change small scales</li></ul></div>
 		</div>
 	</div>
 </section>
 
-<!-- EH vs symbolic -->
+<!-- EH vs symbolic (1/2): joint 8-parameter Fisher -->
 <section>
 	<div class="head">
 		<span class="kicker">Integration · tests</span>
-		<h2>Linear \(P(k)\): Eisenstein–Hu vs symbolic fit</h2>
+		<h2>Linear \(P(k)\): Eisenstein–Hu vs symbolic fit (1/2)</h2>
 	</div>
 	<div class="row grow" style="gap:30px;">
 		<div class="fig" style="flex: 0 0 560px;">
-			<img src="figures/fisher_eh_vs_symbolic.png" style="height:560px;" alt="Fisher forecast: symbolic vs EH">
+			<img src="figures/fisher_eh_vs_symbolic.png" style="height:560px;" alt="Fisher forecast, gg+gκ+gy, 8 parameters: symbolic vs EH">
 		</div>
 		<div class="qrc">
 			<div class="card qq"><h4>Question</h4><p>Does Eisenstein–Hu \(P_{\rm lin}\) bias the parameters?</p><div class="how">Fisher, \(gg+g\kappa+gy\), 8 params · truth: symbolic fit</div></div>
 			<div class="card res"><h4>Result</h4><ul><li>Contours and centres match the truth</li></ul></div>
-			<div class="card concl"><h4>Conclusion</h4><ul><li>No bias at this precision</li></ul><div class="open">Open: enough for the baseline?</div></div>
+			<div class="card concl"><h4>Conclusion</h4><ul><li><strong>No bias</strong> at this precision</li></ul><div class="open">Open: enough for the baseline?</div></div>
+		</div>
+	</div>
+</section>
+
+<!-- EH vs symbolic (2/2): per-probe Fisher -->
+<section>
+	<div class="head">
+		<span class="kicker">Integration · tests</span>
+		<h2>Linear \(P(k)\): Eisenstein–Hu vs symbolic fit (2/2)</h2>
+	</div>
+	<div class="row grow" style="gap:30px;">
+		<div class="fig" style="flex: 0 0 420px;">
+			<img src="figures/fisher_eh_vs_symbolic_probes.png" style="height:552px;" alt="Fisher ellipses per probe (gg, gκ, gy, gg+gy) in Ωm, σ8, ns: symbolic fit (truth) vs Eisenstein–Hu">
+		</div>
+		<div class="qrc">
+			<div class="card qq"><h4>Question</h4><p>Does Eisenstein–Hu \(P_{\rm lin}\) bias the parameters, probe by probe?</p><div class="how">Fisher per probe: \(gg\), \(g\kappa\), \(gy\), \(gg+gy\) · \(\Omega_m,\ \sigma_8,\ n_s\) · truth: symbolic fit</div></div>
 		</div>
 	</div>
 </section>
@@ -1368,14 +1449,14 @@
 		<span class="kicker">Integration · status</span>
 		<h2>Current model limits and pending checks</h2>
 	</div>
-	<div class="grid2 grow" style="gap:18px 22px; align-content:center;">
+	<div class="grid2 grow" style="gap:30px 48px; align-content:start; margin-top:36px;">
 		<div class="card edge-n">
 			<h4>Linear power spectrum</h4>
 			<ul class="bl small"><li>Eisenstein–Hu only</li><li>Option: cosmopower-jax backend</li></ul>
 		</div>
 		<div class="card edge-n">
 			<h4>Model scope</h4>
-			<ul class="bl small"><li>Flat \(w_0\)CDM, \(m_\nu=0\)</li><li>No TATT, no PT bias</li><li>Baseline: \(\sum m_\nu=0.06\) eV?</li></ul>
+			<ul class="bl small"><li>Flat \(w_0\)CDM</li><li>No TATT, no PT bias</li></ul>
 		</div>
 		<div class="card edge-n">
 			<h4>Differentiability (NUTS)</h4>
@@ -1490,7 +1571,7 @@
 		</div>
 		<div class="qrc">
 			<div class="card qq"><h4>Question</h4><p>Does the likelihood run end to end inside a sampler?</p><div class="how">3 HOD params, flat priors · cloelike + Cobaya (jit) vs GODMAX + NUTS</div></div>
-			<div class="card res"><h4>Result</h4><ul><li>Both runs complete; \(\hat R &lt; 1.01\) for all parameters</li><li>Posteriors agree between samplers</li><li>\(\alpha_{\rm sat}\) recovered at truth; \(\log_{10}M_1\), \(\log_{10}M_{c,0}\) prior-dominated</li></ul></div>
+			<div class="card res"><h4>Result</h4><ul><li>Both runs complete; \(\hat R &lt; 1.01\) for all parameters</li><li><strong>Posteriors agree</strong> between samplers</li><li>\(\alpha_{\rm sat}\) recovered at truth; \(\log_{10}M_1\), \(\log_{10}M_{c,0}\) prior-dominated</li></ul></div>
 		</div>
 	</div>
 	<style>
@@ -1523,13 +1604,13 @@
 		<div class="qrc">
 			<div class="card qq"><h4>Question</h4><p>Same \(gg\) \(\chi^2\) with GODMAX as with the default backend?</p><div class="how">Default (JAX halofit) vs GODMAX · \(\Omega_m\) scan</div></div>
 			<div class="card res"><h4>Result</h4><ul><li>\(\Delta\chi^2=0\) at every \(\Omega_m\)</li></ul></div>
-			<div class="card concl"><h4>Conclusion</h4><ul><li>Likelihood chain consistent</li><li>GODMAX usable as backend</li></ul></div>
+			<div class="card concl"><h4>Conclusion</h4><ul><li>Likelihood chain consistent</li><li>GODMAX <strong>usable as backend</strong></li></ul></div>
 		</div>
 	</div>
 </section>
 
 <!-- Status / next steps -->
-<section>
+<!-- <section>
 	<div class="head">
 		<span class="kicker">Likelihood · status</span>
 		<h2>Status and next steps</h2>
@@ -1561,7 +1642,7 @@
 		</div>
 	</div>
 	<aside class="notes">Things that are needed from me? Things that I need? What other tests can I show?</aside>
-</section>
+</section> -->
 
 <!-- ================================================================ -->
 <!-- RECAP & OPEN QUESTIONS                                           -->
@@ -1569,38 +1650,70 @@
 <section>
 	<div class="head tight">
 		<span class="kicker">Discussion</span>
-		<h2>Recap, status and open questions</h2>
+		<h2>Recap: what is tested, what can be modelled</h2>
 	</div>
-	<div class="grid2 grow" style="grid-template-columns: minmax(0,1.45fr) minmax(0,1fr); gap:26px; align-content:start;">
-		<div class="col" style="gap:4px;">
-			<div class="recap-h">Validation tests: status</div>
+	<div class="grid2 grow" style="grid-template-columns: minmax(0,1fr) minmax(0,1.08fr); gap:30px; align-content:start;">
+		<div class="col" style="gap:6px;">
+			<div class="rh"><span>Validation tests</span><span class="cnt"><b>15</b> / 17 done</span></div>
+			<div class="prog">
+				<div class="seg m"><div class="lab">GODMAX <b>8/8</b></div><div class="bar"><i style="width:100%"></i></div></div>
+				<div class="seg k"><div class="lab">cloelib <b>6/6</b></div><div class="bar"><i style="width:100%"></i></div></div>
+				<div class="seg g"><div class="lab">cloelike <b>1/3</b></div><div class="bar"><i style="width:33.3%"></i></div></div>
+			</div>
 			<table class="tst">
-				<thead><tr><th>#</th><th>Test</th><th>Expected</th><th>Result</th></tr></thead>
+				<thead><tr><th>#</th><th>Test</th><th>Observed</th><th></th></tr></thead>
 				<tbody>
 					<tr class="grp m"><td colspan="4">GODMAX</td></tr>
-					<tr><td class="n">01</td><td>Profiles, mass conservation</td><td>finite, ≥ 0; mass within 0.5–2%</td><td class="r"><span class="ok">✓</span> done</td></tr>
-					<tr><td class="n">02</td><td>Baryonification, large scales</td><td>ON/OFF &lt; 1% at k ≤ 0.01, low ℓ</td><td class="r"><span class="ok">✓</span> done</td></tr>
-					<tr><td class="n">03</td><td>Halo mass limits</td><td>&lt; 0.5% per extra 0.5 dex</td><td class="r"><span class="ok">✓</span> done</td></tr>
-					<tr><td class="n">04</td><td>Grid convergence</td><td>&lt; 0.5% (yy &lt; 1%)</td><td class="r"><span class="ok">✓</span> done</td></tr>
-					<tr><td class="n">05</td><td>EH vs symbolic emulators</td><td>C<sub>ℓ</sub> &lt; 2%; Fisher shift &lt; 0.3σ</td><td class="r"><span class="ok">✓</span> done</td></tr>
-					<tr><td class="n">06</td><td>Toggles</td><td>only the target spectra change</td><td class="r"><span class="ok">✓</span> done</td></tr>
-					<tr><td class="n">07</td><td>Numerical stability</td><td>finite; grad = FD to 10<sup>−3</sup></td><td class="r"><span class="ok">✓</span> done</td></tr>
-					<tr><td class="n">08</td><td>Spectra overview</td><td>smooth; 1h/2h as expected</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr><td class="n">01</td><td>Profiles, mass</td><td>mass conserved (not at grid edge)</td><td class="r"><span class="ok">✓</span></td></tr>
+					<tr><td class="n">02</td><td>Baryons, large scales</td><td>no effect on large scales</td><td class="r"><span class="ok">✓</span></td></tr>
+					<tr><td class="n">03</td><td>Halo mass limits</td><td>converged; g needs lower M<sub>min</sub></td><td class="r"><span class="ok">✓</span></td></tr>
+					<tr><td class="n">04</td><td>Grid convergence</td><td>converged</td><td class="r"><span class="ok">✓</span></td></tr>
+					<tr><td class="n">05</td><td>EH vs symbolic emulators</td><td>no parameter bias</td><td class="r"><span class="ok">✓</span></td></tr>
+					<tr><td class="n">06</td><td>Toggles</td><td>only target spectra change</td><td class="r"><span class="ok">✓</span></td></tr>
+					<tr><td class="n">07</td><td>Numerical stability</td><td>stable; gradients match FD</td><td class="r"><span class="ok">✓</span></td></tr>
+					<tr><td class="n">08</td><td>Spectra overview</td><td>behaves as expected</td><td class="r"><span class="ok">✓</span></td></tr>
 					<tr class="grp k"><td colspan="4">cloelib</td></tr>
-					<tr><td class="n">09</td><td>Smoke test</td><td>runs; correct shapes</td><td class="r"><span class="ok">✓</span> done</td></tr>
-					<tr><td class="n">10</td><td>cloelib vs GODMAX C<sub>ℓ</sub></td><td>&lt; 0.5% (yy &lt; 2.5%)</td><td class="r"><span class="ok">✓</span> done</td></tr>
-					<tr><td class="n">11</td><td>vs cloelib default</td><td>ℓ &lt; 200: 1% (γ, κ), 2% (g)</td><td class="r"><span class="ok">✓</span> done</td></tr>
-					<tr><td class="n">12</td><td>Kernel toggles</td><td>only own tracer pairs</td><td class="r"><span class="ok">✓</span> done</td></tr>
-					<tr><td class="n">13</td><td>GODMAX defaults</td><td>differences documented</td><td class="r"><span class="ok">✓</span> done</td></tr>
-					<tr><td class="n">14</td><td>Stability, convergence</td><td>&lt; 0.5%; grad = FD</td><td class="r"><span class="ok">✓</span> done</td></tr>
+					<tr><td class="n">09</td><td>Smoke test</td><td>runs, correct shapes</td><td class="r"><span class="ok">✓</span></td></tr>
+					<tr><td class="n">10</td><td>cloelib vs GODMAX C<sub>ℓ</sub></td><td>matches, every pair</td><td class="r"><span class="ok">✓</span></td></tr>
+					<tr><td class="n">11</td><td>vs cloelib default</td><td>agrees at large scales</td><td class="r"><span class="ok">✓</span></td></tr>
+					<tr><td class="n">12</td><td>Kernel toggles</td><td>only own tracer pairs change</td><td class="r"><span class="ok">✓</span></td></tr>
+					<tr><td class="n">13</td><td>GODMAX defaults</td><td>differences documented</td><td class="r"><span class="ok">✓</span></td></tr>
+					<tr><td class="n">14</td><td>Stability, convergence</td><td>stable; gradients match FD</td><td class="r"><span class="ok">✓</span></td></tr>
 					<tr class="grp g"><td colspan="4">cloelike</td></tr>
-					<tr class="pend"><td class="n">15</td><td>Construction, fiducial</td><td>log L = 0 at fiducial</td><td class="r"><span class="pd">pending</span></td></tr>
-					<tr class="pend"><td class="n">16</td><td>Data vector, theory</td><td>= hand-built C<sub>ℓ</sub> (10<sup>−10</sup>)</td><td class="r"><span class="pd">pending</span></td></tr>
-					<tr class="pend"><td class="n">17</td><td>Gradients</td><td>grad = FD to 10<sup>−3</sup></td><td class="r"><span class="pd">pending</span></td></tr>
-					<tr class="pend"><td class="n">18</td><td>Parameter recovery</td><td>means within 0.3σ</td><td class="r"><span class="pd">pending</span></td></tr>
-					<tr class="pend"><td class="n">19</td><td>Timing</td><td>recorded per class</td><td class="r"><span class="pd">pending</span></td></tr>
+					<tr><td class="n">15</td><td>χ² test</td><td>χ² = 0 at fiducial</td><td class="r"><span class="ok">✓</span></td></tr>
+					<tr class="pend"><td class="n">16</td><td>Parameter recovery</td><td>—</td><td class="r"><span class="pill">pending</span></td></tr>
+					<tr class="pend"><td class="n">17</td><td>Timing</td><td>—</td><td class="r"><span class="pill">pending</span></td></tr>
 				</tbody>
 			</table>
+		</div>
+		<div class="col" style="gap:6px;">
+			<div class="rh"><span>Modelling choices</span><span class="cnt"><code>kernel_convention("godmax" | "baseline")</code></span></div>
+			<table class="tst mc">
+				<thead><tr><th>Ingredient</th><th class="hm">GODMAX</th><th class="hk">CLOE (cloelib)</th></tr></thead>
+				<tbody>
+					<tr class="grp"><td colspan="3">Matter power spectrum</td></tr>
+					<tr><td>\(P_{\rm lin}\)</td><td>Eisenstein–Hu, symbolic fit</td><td>EH (JAX), CAMB, CLASS, emulators</td></tr>
+					<tr><td>\(P_{\rm NL}\)</td><td>halofit × \(P_{\rm DMB}/P_{\rm NFW}\)</td><td>halofit, HMcode, BACCO, EE2, e-MANTIS</td></tr>
+					<tr><td>Baryons</td><td>gas profiles: \(\theta_{\rm ej},\theta_{\rm co},\mu_\beta,\log M_c\)</td><td>none, \(\log T_{\rm AGN}\), BCM (6), tabulated \(B(k,z)\)</td></tr>
+					<tr class="grp"><td colspan="3">Halo model</td></tr>
+					<tr><td>Profiles</td><td>NFW, DMB (gas+stars), \(P_e\)</td><td><span class="na">via GODMAX backend</span></td></tr>
+					<tr><td>tSZ</td><td>HSE + non-thermal \(\alpha_{\rm nt}\)</td><td><span class="na">via GODMAX backend</span></td></tr>
+					<tr><td>1h–2h</td><td>power-add \(\alpha_{ky},\alpha_{gy},\alpha_{gg},\alpha_{gm}\)</td><td><span class="na">—</span></td></tr>
+					<tr class="grp"><td colspan="3">Tracers / kernels</td></tr>
+					<tr><td>Galaxy bias</td><td>HOD (Leauthaud+11), b(z)</td><td>linear b(z): per_bin, poly; PT; 'hod'</td></tr>
+					<tr><td>IA</td><td>NLA, pivot \(z_0=0.62\)</td><td>NLA, TATT</td></tr>
+					<tr><td>Magnif. (galaxies)</td><td><span class="x">✗</span> <span class="na">cloelib override</span></td><td><span class="ok">✓</span> \(b_{{\rm mag},i}\,W^L_i\), per bin</td></tr>
+					<tr><td>Shear mult. bias</td><td><span class="ok">✓</span> \((1+m_i)\), per bin</td><td><span class="ok">✓</span> \((1+m_i)\), per bin</td></tr>
+					<tr><td>RSD</td><td><span class="x">✗</span> <span class="na">not with HOD</span></td><td><span class="ok">✓</span> linear (Kaiser)</td></tr>
+					<tr><td>Photo-z</td><td>shear Δz</td><td>Δz, n(z) width</td></tr>
+					<tr><td>CMB κ source</td><td>\(z_s=1100\)</td><td>\(z_*\) of background (≈ 1090)</td></tr>
+					<tr><td>Shear spin-2</td><td><span class="x">✗</span> <span class="na">convergence</span></td><td><span class="ok">✓</span> optional \(F(\ell)\)</td></tr>
+					<tr><td>y beam</td><td>1.4′</td><td><span class="na">none</span></td></tr>
+					<tr class="grp"><td colspan="3">Likelihood</td></tr>
+					<tr><td>\(C_\ell\)</td><td>Limber, log-ℓ grid + spline</td><td>Limber, mixing, scale cuts, BNT</td></tr>
+				</tbody>
+			</table>
+			<div class="hodnote"><strong>Not with HOD:</strong> TATT · PT bias · RSD (all perturbation theory)</div>
 		</div>
 		<!-- <div class="col" style="gap:10px;">
 			<div class="recap-h">Open questions</div>
@@ -1623,12 +1736,23 @@
 		<span class="kicker">Discussion</span>
 		<h2>Open questions</h2>
 	</div>
-	<div class="qcols grow">
-		<!-- CMB lensing -->
-		<div class="qbox r">
-			<div class="qh">CMB lensing<span class="sub">separate pipeline, no HOD</span></div>
-			<div class="qlist compact">
-				<div class="q tbd"><div><div class="t">To be added</div></div></div>
+	<div class="qcols grow" style="grid-template-columns: minmax(0,1fr) minmax(0,1.4fr);">
+		<div style="display:flex; flex-direction:column; gap:16px; min-width:0;">
+			<!-- tSZ / GODMAX -->
+			<div class="qbox y">
+				<div class="qh">tSZ · GODMAX<span class="sub">halo model + baryonification</span></div>
+				<div class="qlist compact">
+					<div class="q"><div><div class="topic muted">Kernel convention</div><div class="t"><code>godmax</code> or <code>baseline</code>?</div></div></div>
+					<div class="q"><div><div class="topic muted">Parameter space</div><div class="t">What to fix?</div></div></div>
+					<div class="q"><div><div class="topic muted">Pseudo-Cℓ for y</div><div class="t">Decoupled or pseudo-\(C_\ell\)?</div></div></div>
+				</div>
+			</div>
+			<!-- Tests and validation -->
+			<div class="qbox g">
+				<div class="qh">Tests and validation<span class="sub">beyond the checks in the recap</span></div>
+				<div class="qlist compact">
+					<div class="q"><div><div class="topic muted">Coverage</div><div class="t">Are we missing other tests that have to be done?</div></div></div>
+				</div>
 			</div>
 		</div>
 		<!-- Common -->
@@ -1636,21 +1760,14 @@
 			<div class="qh">Common<span class="sub">needed to combine the probes</span></div>
 			<div class="qlist compact">
 				<div class="q"><div><div class="topic muted">External likelihood</div><div class="t">Sum of independent log \(L\), or one joint data vector? How do we progress?</div></div></div>
-				<div class="q"><div><div class="topic muted">Interface</div><div class="t">Shared cosmology parameters and names? JAX / differentiable?</div></div></div>
+				<!-- <div class="q"><div><div class="topic muted">Interface</div><div class="t">Shared cosmology parameters and names? JAX / differentiable?</div></div></div> -->
 				<div class="q"><div><div class="topic muted">Linear power spectrum</div><div class="t">Same \(P_{\rm lin}\) for all? Eisenstein–Hu enough? Massive ν?</div></div></div>
 				<div class="q"><div><div class="topic muted">Joint covariance</div><div class="t">Who builds it? Cross terms? Gaussian or + SSC for tSZ? PSD check?</div></div></div>
+				<div class="q"><div><div class="topic muted">Emulators</div><div class="t">CosmoPower-JAX?</div></div></div>
 				<div class="q"><div><div class="topic muted">Mixing matrices</div><div class="t">Who provides them?</div></div></div>
 				<div class="q"><div><div class="topic muted">Sampler</div><div class="t">Which sampler? NUTS needed?</div></div></div>
 				<div class="q"><div><div class="topic muted">Coordination</div><div class="t">What is needed from us?</div></div></div>
-			</div>
-		</div>
-		<!-- tSZ / GODMAX -->
-		<div class="qbox y">
-			<div class="qh">tSZ · GODMAX<span class="sub">halo model + baryonification</span></div>
-			<div class="qlist compact">
-				<div class="q"><div><div class="topic muted">Kernel convention</div><div class="t"><code>godmax</code> or <code>baseline</code>?</div></div></div>
-				<div class="q"><div><div class="topic muted">Parameter space</div><div class="t">What to fix?</div></div></div>
-				<div class="q"><div><div class="topic muted">Pseudo-Cℓ for y</div><div class="t">Decoupled or pseudo-\(C_\ell\)?</div></div></div>
+				<div class="q"><div><div class="topic muted">Coordination</div><div class="t">What are we missing?</div></div></div>
 			</div>
 		</div>
 	</div>
